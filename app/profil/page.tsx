@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { readSession } from "@/lib/auth/session";
+import LibraryView from "@/components/LibraryView";
 
 export const metadata = { title: "Profil" };
 
@@ -20,7 +21,7 @@ export default async function Profil() {
         </form>
       </div>
       <h2 className="mt-6 font-extrabold">Riwayat & Bookmark</h2>
-      <p className="mt-1 text-sm text-ink-900/60">Riwayat pencarian, percakapan AI, dan bookmark regulasi/pasal tersimpan di sini (production: PostgreSQL; demo: sesi browser).</p>
+      <LibraryView />
     </div>
   );
 }

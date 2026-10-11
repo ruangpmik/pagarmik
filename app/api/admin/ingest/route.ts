@@ -52,15 +52,45 @@ export async function POST(req: NextRequest) {
   mkdirSync(dir, { recursive: true });
   const path = join(dir, "custom.json");
   const cur = existsSync(path) ? JSON.parse(readFileSync(path, "utf-8")) : { regulations: [], pasals: [] };
-  cur.regulations.push(regulation);
+  // MERGE: slug yang sudah ada (seed/ingest sebelumnya) tidak diduplikasi —
+  // hanya pasal baru yang ditambahkan ke regulasi tersebut.
+  const { getStore } = await import("@/lib/data/store");
+  const exists = getStore().regulation(regulation.slug);
+  const merged = !!exists;
+  if (!merged) {
+    cur.regulations.push(regulation);
+  } else {
+    // Hindari pasal ganda bila ingest yang sama dijalankan ulang.
+    const haveNomor = new Set(
+      getStore().pasalsOf(regulation.slug).map((p) => p.nomor)
+    );
+    pasals.splice(0, pasals.length, ...pasals.filter((p) => !haveNomor.has(p.nomor)));
+  }
   cur.pasals.push(...pasals);
   writeFileSync(path, JSON.stringify(cur, null, 2));
+
+  // Lansung live: paksa store baca ulang agar hasil ingest tampil tanpa restart.
+  const { resetStore } = await import("@/lib/data/store");
+  resetStore();
+
+  const wantsHtml = req.headers.get("accept")?.includes("text/html");
+  if (wantsHtml) {
+    // Submit form browser → kembali ke /admin dengan banner hasil.
+    const url = new URL("/admin", req.url);
+    url.searchParams.set("ok", regulation.slug);
+    url.searchParams.set("pasal", String(pasals.length));
+    if (merged) url.searchParams.set("merged", "1");
+    return NextResponse.redirect(url, { status: 303 });
+  }
 
   return NextResponse.json({
     ok: true,
     slug: regulation.slug,
     pasalCount: pasals.length,
-    status: regulation.status,
-    note: "Tersimpan dan terindeks. Status BELUM_DIVERIFIKASI hingga verifikator meninjau.",
+    merged,
+    status: merged ? getStore().regulation(regulation.slug)?.status : regulation.status,
+    note: merged
+      ? "Slug sudah ada: pasal baru digabungkan ke regulasi tersebut (tanpa duplikasi)."
+      : "Tersimpan dan terindeks. Status BELUM_DIVERIFIKASI hingga verifikator meninjau.",
   });
 }

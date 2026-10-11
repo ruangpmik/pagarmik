@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getStore } from "@/lib/data/store";
 import { StatusBadge, ConfidenceBadge, Disclaimer } from "@/components/ui";
+import BookmarkButton from "@/components/BookmarkButton";
+import RememberVisit from "@/components/RememberVisit";
 import { answerQuestion } from "@/lib/rag/pipeline";
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
@@ -21,6 +23,10 @@ export default async function RegulationDetail({ params, searchParams }: { param
   const pasals = store.pasalsOf(reg.slug);
   const rels = store.relationsOf(reg.slug);
   const tab = searchParams.tab ?? "ringkasan";
+  const pengganti = rels
+    .filter((r) => r.to === reg.slug && (r.type === "MENCABUT" || r.type === "MENGUBAH"))
+    .map((r) => store.regulation(r.from))
+    .filter((r): r is NonNullable<typeof r> => !!r);
 
   const jsonLd = {
     "@context": "https://schema.org", "@type": "Legislation",
@@ -42,11 +48,29 @@ export default async function RegulationDetail({ params, searchParams }: { param
     <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <a href="/regulasi" className="text-sm font-bold text-pagar-700">← Semua regulasi</a>
-      <h1 className="mt-2 text-2xl font-extrabold leading-tight">{reg.judul}</h1>
+      <RememberVisit kind="regulation" label={reg.judul} href={`/regulasi/${reg.slug}`} />
+      <div className="mt-2 flex flex-wrap items-start justify-between gap-2">
+        <h1 className="max-w-[75%] text-2xl font-extrabold leading-tight">{reg.judul}</h1>
+        <BookmarkButton type="regulasi" slug={reg.slug} title={reg.judul} />
+      </div>
       <div className="mt-2 flex flex-wrap items-center gap-2">
         <StatusBadge status={reg.status} />
         <span className="text-xs text-ink-900/60">{reg.jenis} · {reg.instansi} · {reg.tahun}</span>
       </div>
+      {(reg.status === "DICABUT" || reg.status === "PERUBAHAN") && (
+        <div className="mt-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm" role="alert">
+          <p className="font-extrabold text-red-800">
+            ⚠️ {reg.status === "DICABUT" ? "Aturan ini sudah dicabut — jangan jadikan dasar tindakan." : "Aturan ini telah berubah — gunakan versi berlaku."}
+          </p>
+          {pengganti.length > 0 && (
+            <p className="mt-1 text-red-900/80">
+              Digantikan oleh: {pengganti.map((g, i) => (
+                <span key={g.slug}>{i > 0 ? "; " : ""}<a className="font-bold underline" href={`/regulasi/${g.slug}`}>{g.judul}</a></span>
+              ))}
+            </p>
+          )}
+        </div>
+      )}
 
       <dl className="mt-4 grid grid-cols-2 gap-2 rounded-2xl border border-ink-100 bg-ink-50/50 p-4 text-sm md:grid-cols-4">
         {[["Nomor", reg.nomor], ["Tahun", String(reg.tahun)], ["Jenis", reg.jenis], ["Instansi", reg.instansi],
@@ -77,7 +101,10 @@ export default async function RegulationDetail({ params, searchParams }: { param
           <div className="grid gap-3">
             {pasals.map((p) => (
               <article key={p.nomor} className="rounded-2xl border border-ink-100 bg-white p-4">
-                <h2 className="font-extrabold text-pagar-800">Pasal {p.nomor} {!p.isVerbatim && <span className="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-[11px] font-bold text-amber-800">ringkasan terverifikasi</span>}</h2>
+                <div className="flex items-start justify-between gap-2">
+                  <h2 className="font-extrabold text-pagar-800">Pasal {p.nomor} {!p.isVerbatim && <span className="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-[11px] font-bold text-amber-800">ringkasan terverifikasi</span>}</h2>
+                  <BookmarkButton type="pasal" slug={reg.slug} pasal={p.nomor} title={`${reg.judul}`} />
+                </div>
                 <p className="mt-2 font-serif text-[15px] leading-relaxed">{p.teksAsli}</p>
                 <h3 className="mt-3 text-sm font-bold">Apa artinya?</h3>
                 <p className="text-sm text-ink-900/80">{p.artiSederhana}</p>

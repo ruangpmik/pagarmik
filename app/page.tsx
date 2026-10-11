@@ -21,6 +21,7 @@ const EXPLORE = [
 export default function Home() {
   const store = getStore();
   const regs = store.regulations().slice(0, 4);
+  const totalPasal = regs.length ? store.regulations().reduce((a, r) => a + store.pasalsOf(r.slug).length, 0) : 0;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -48,6 +49,11 @@ export default function Home() {
           <p className="mt-3 text-xs text-white/60">
             Setiap jawaban AI disertai sitasi ke sumber hukum terverifikasi — tanpa sumber, AI akan berkata jujur.
           </p>
+          <dl className="mt-5 flex gap-5 text-sm" aria-label="Statistik korpus">
+            {[[String(store.regulations().length), "regulasi"], [String(totalPasal), "pasal"], [String(store.topics().length), "topik"]].map(([v, k]) => (
+              <div key={k}><dt className="sr-only">{k}</dt><dd><span className="text-xl font-extrabold">{v}</span> <span className="text-white/70">{k}</span></dd></div>
+            ))}
+          </dl>
         </div>
       </section>
 

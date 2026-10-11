@@ -1,5 +1,6 @@
 import { answerQuestion } from "@/lib/rag/pipeline";
 import { ConfidenceBadge, Disclaimer } from "@/components/ui";
+import RememberVisit from "@/components/RememberVisit";
 
 export const metadata = { title: "PAGARMIK AI" };
 
@@ -35,6 +36,7 @@ export default async function AiPage({ searchParams }: { searchParams: Record<st
   return (
     <div className="mx-auto max-w-3xl">
       <h1 className="text-2xl font-extrabold">🤖 PAGARMIK AI</h1>
+      {q ? <RememberVisit kind="chat" label={q.slice(0, 80)} href={`/ai?q=${encodeURIComponent(q)}`} /> : null}
       <p className="mt-1 text-sm text-ink-900/60">AI Legal Research Assistant for MIK — menjawab dengan sitasi terverifikasi, bukan karangan.</p>
 
       <form method="get" className="mt-4" role="search">

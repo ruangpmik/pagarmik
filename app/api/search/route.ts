@@ -12,9 +12,11 @@ export async function GET(req: NextRequest) {
   if (q.trim().length < 2) return NextResponse.json({ error: "Query minimal 2 karakter." }, { status: 400 });
 
   const store = getStore();
+  const rawTahun = req.nextUrl.searchParams.get("tahun");
+  const tahunNum = rawTahun ? Number(rawTahun) : undefined;
   const filters = {
     jenis: req.nextUrl.searchParams.get("jenis") ?? undefined,
-    tahun: req.nextUrl.searchParams.get("tahun") ? Number(req.nextUrl.searchParams.get("tahun")) : undefined,
+    tahun: tahunNum !== undefined && !Number.isNaN(tahunNum) ? tahunNum : undefined,
     status: req.nextUrl.searchParams.get("status") ?? undefined,
     topik: req.nextUrl.searchParams.get("topik") ?? undefined,
   };

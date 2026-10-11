@@ -1,5 +1,6 @@
 import { analyzeCase } from "@/lib/rag/pipeline";
 import { ConfidenceBadge, Disclaimer } from "@/components/ui";
+import RememberVisit from "@/components/RememberVisit";
 
 export const metadata = { title: "Analisis Kasus" };
 
@@ -10,6 +11,7 @@ export default async function CasePage({ searchParams }: { searchParams: Record<
   return (
     <div className="mx-auto max-w-3xl">
       <h1 className="text-2xl font-extrabold">📑 Analisis Kasus</h1>
+      {kasus ? <RememberVisit kind="case" label={kasus.slice(0, 80)} href={`/analisis-kasus?kasus=${encodeURIComponent(kasus)}`} /> : null}
       <p className="mt-1 text-sm text-ink-900/60">Tempel skenario → AI mengurai masalah, dasar hukum, risiko, dan rekomendasi. Norma hukum selalu dibedakan dari interpretasi.</p>
       <form method="get" className="mt-4">
         <textarea name="kasus" required minLength={10} rows={4} defaultValue={kasus}

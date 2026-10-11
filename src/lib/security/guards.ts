@@ -6,6 +6,8 @@ import { z } from "zod";
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 export function rateLimit(key: string, perMinute = 60): { ok: boolean; retryAfterSec: number } {
+  // Eviksi sederhana agar map tak tumbuh tanpa batas pada proses lama.
+  if (buckets.size > 5000) buckets.clear();
   const now = Date.now();
   const b = buckets.get(key);
   if (!b || now > b.resetAt) {

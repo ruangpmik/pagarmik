@@ -1,6 +1,7 @@
 import { hybridSearch } from "@/lib/search/hybrid";
 import { getStore } from "@/lib/data/store";
 import { Disclaimer } from "@/components/ui";
+import RememberVisit from "@/components/RememberVisit";
 
 export const metadata = { title: "Pasal Explorer" };
 
@@ -12,6 +13,7 @@ export default function PasalPage({ searchParams }: { searchParams: Record<strin
   return (
     <div>
       <h1 className="text-2xl font-extrabold">⚖️ Pasal Explorer</h1>
+      {q ? <RememberVisit kind="pasal" label={`Pasal: ${q}`} href={`/pasal?q=${encodeURIComponent(q)}`} /> : null}
       <p className="mt-1 text-sm text-ink-900/60">Cari sampai tingkat pasal. Contoh: “Pasal kerahasiaan Permenkes 24 2022”.</p>
       <form method="get" className="mt-4 flex gap-2" role="search">
         <input name="q" defaultValue={q} required minLength={2} placeholder="Pasal 5 Permenkes 24/2022…" className="w-full rounded-2xl border border-ink-100 px-4 py-3 text-sm shadow-sm outline-none focus:border-pagar-500" />

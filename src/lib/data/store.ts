@@ -19,13 +19,18 @@ const AUTH_W: Record<string, number> = { UU: 1, PP: 0.9, Perpres: 0.85, Permenke
 function loadSeed(): SeedFile {
   const path = join(process.cwd(), "prisma", "seed.json");
   const raw = JSON.parse(readFileSync(path, "utf-8"));
-  // Merge hasil ingest admin (opsional)
+  // Merge hasil ingest admin (opsional) — dengan deduplikasi slug agar regulasi
+  // yang sama (mis. ingest PDF untuk slug yang sudah ada di seed) tidak kembar.
   const customPath = join(process.cwd(), "data", "custom.json");
   if (existsSync(customPath)) {
     try {
       const c = JSON.parse(readFileSync(customPath, "utf-8"));
-      raw.regulations.push(...(c.regulations ?? []));
-      raw.pasals.push(...(c.pasals ?? []));
+      const knownSlugs = new Set(raw.regulations.map((r: Regulation) => r.slug));
+      const knownPasal = new Set(raw.pasals.map((p: Pasal) => `${p.regulationSlug}::${p.nomor}`));
+      raw.regulations.push(...(c.regulations ?? []).filter((r: Regulation) => !knownSlugs.has(r.slug)));
+      raw.pasals.push(
+        ...(c.pasals ?? []).filter((p: Pasal) => !knownPasal.has(`${p.regulationSlug}::${p.nomor}`))
+      );
     } catch { /* abaikan file korup */ }
   }
   return raw;
@@ -44,7 +49,7 @@ export class JsonStore {
     this.seed = loadSeed();
     this.chunks = [];
     const regBySlug = new Map(this.seed.regulations.map((r) => [r.slug, r]));
-    this.seed.pasals.forEach((p, i) => {
+    this.seed.pasals.forEach((p) => {
       const reg = regBySlug.get(p.regulationSlug);
       if (!reg) return;
       const trust = reg.trustLevel ?? ("L1_PRIMER" as TrustLevel);
@@ -60,7 +65,6 @@ export class JsonStore {
         authority: AUTH_W[reg.jenis] ?? 0.6,
         tahun: reg.tahun,
       });
-      void i;
     });
     // Chunk ringkasan tiap regulasi (untuk pertanyaan umum "apa itu ...")
     for (const r of this.seed.regulations) {
@@ -113,4 +117,8 @@ let instance: JsonStore | null = null;
 export function getStore(): JsonStore {
   if (!instance) instance = new JsonStore();
   return instance;
+}
+/** Paksa baca ulang dari disk (dipanggil setelah ingest admin agar langsung live). */
+export function resetStore(): void {
+  instance = null;
 }

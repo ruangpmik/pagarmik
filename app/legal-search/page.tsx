@@ -2,6 +2,7 @@ import { hybridSearch } from "@/lib/search/hybrid";
 import { getStore } from "@/lib/data/store";
 import type { Regulation } from "@/lib/data/types";
 import { SearchBar, StatusBadge, Disclaimer, ScoreBar, StatusSwitcher } from "@/components/ui";
+import RememberVisit from "@/components/RememberVisit";
 
 export const metadata = { title: "Legal Search" };
 
@@ -33,6 +34,7 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
   return (
     <div>
       <h1 className="text-2xl font-extrabold">Legal Search</h1>
+      {q ? <RememberVisit kind="search" label={q.slice(0, 80)} href={`/legal-search?q=${encodeURIComponent(q)}`} /> : null}
       <p className="mt-1 text-sm text-ink-900/60">Hybrid search: keyword + semantik + filter metadata, dengan reranking otoritas dan trust level.</p>
       <div className="mt-4"><SearchBar /></div>
 

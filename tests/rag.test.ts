@@ -82,6 +82,23 @@ describe("prompt injection protection", () => {
   });
 });
 
+describe("store integrity (regression: regulasi kembar)", () => {
+  it("tidak ada slug regulasi ganda setelah merge ingest", async () => {
+    const { getStore } = await import("@/lib/data/store");
+    const slugs = getStore().regulations().map((r) => r.slug);
+    expect(new Set(slugs).size).toBe(slugs.length);
+  });
+
+  it("tidak ada pasal ganda (regulasi+nomor) dalam satu regulasi", async () => {
+    const { getStore } = await import("@/lib/data/store");
+    const store = getStore();
+    for (const r of store.regulations()) {
+      const keys = store.pasalsOf(r.slug).map((p) => p.nomor);
+      expect(new Set(keys).size).toBe(keys.length);
+    }
+  });
+});
+
 describe("ingest pipeline", () => {
   it("splitPasal memecah teks berpenanda Pasal N", () => {
     const parts = splitPasal("Pasal 1\nDefinisi rekam medis adalah arsip.\n\nPasal 2\nFaskes wajib menyelenggarakan RME.", "x");
