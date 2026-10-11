@@ -24,12 +24,15 @@ async function main() {
     console.log("Production: penulisan akun demo DILEWATI. Buat admin via Prisma langsung dengan password kuat.");
     return;
   }
+  const adminPass = randomBytes(12).toString("base64url");
+  const demoPass = randomBytes(12).toString("base64url");
   const users = [
-    { id: "u-admin", email: "admin@pagarmik.id", name: "Admin PAGARMIK", role: "ADMIN", passwordHash: await hash("pagarmik123") },
-    { id: "u-demo", email: "pmik@contoh.id", name: "Demo PMIK", role: "USER", profesi: "PMIK", passwordHash: await hash("pagarmik123") },
+    { id: "u-admin", email: "admin@pagarmik.id", name: "Admin PAGARMIK", role: "ADMIN", passwordHash: await hash(adminPass) },
+    { id: "u-demo", email: "pmik@contoh.id", name: "Demo PMIK", role: "USER", profesi: "PMIK", passwordHash: await hash(demoPass) },
   ];
   writeFileSync(join(process.cwd(), "data", "users.json"), JSON.stringify(users, null, 2));
-  console.log("Demo users written: admin@pagarmik.id / pagarmik123 (ADMIN), pmik@contoh.id / pagarmik123 (USER)");
+  console.log(`DEMO LOGIN — admin@pagarmik.id / ${adminPass} (ADMIN)`);
+  console.log(`DEMO LOGIN — pmik@contoh.id / ${demoPass} (USER)`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

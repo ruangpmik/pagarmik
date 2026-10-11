@@ -9,7 +9,7 @@ npm run db:seed   # validasi seed + akun demo (data/users.json)
 npm run dev       # http://localhost:3000
 ```
 
-Akun demo: `admin@pagarmik.id / pagarmik123` (ADMIN), `pmik@contoh.id / pagarmik123` (USER).
+Akun demo dibuat acak setiap seed (kredensial dicetak di log terminal, tidak di-hardcode). Production: seed tidak menanam akun apa pun.
 Mode AI default `extractive`: RAG asli (retrieval → context → generate → cite) tanpa API key.
 
 ## 2. Docker (full stack: app + PostgreSQL pgvector)

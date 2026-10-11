@@ -21,7 +21,7 @@ export interface ScoredChunk {
 
 const AUTHORITY: Record<string, number> = {
   "UU": 1.0, "PP": 0.9, "Perpres": 0.85, "Permenkes": 0.8, "Permenkominfo": 0.8,
-  "Perka ANRI": 0.7, "PeranRI": 0.7, "Putusan MK": 0.75, "Putusan MA": 0.75,
+  "Perka ANRI": 0.7, "PeranRI": 0.7, "Peraturan BSSN": 0.7, "Putusan MK": 0.75, "Putusan MA": 0.75,
   "Kepmenkes": 0.7, "SE": 0.5, "Pedoman": 0.55, "Standar": 0.55,
 };
 const TRUST_W: Record<string, number> = {

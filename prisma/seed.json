@@ -349,10 +349,10 @@
       "tahun": 2014,
       "jenis": "UU",
       "instansi": "DPR RI / Presiden RI",
-      "status": "BELUM_DIVERIFIKASI",
-      "ringkasan": "Mengatur pengelompokan, kualifikasi, registrasi, dan pembinaan tenaga kesehatan (termasuk rumpun keteknisian medis tempat PMIK berada). Kedudukan pasca-UU 17/2023 perlu verifikasi silang — jangan jadikan satu-satunya dasar kewenangan.",
+      "status": "DICABUT",
+      "ringkasan": "Mengatur pengelompokan, kualifikasi, registrasi, dan pembinaan tenaga kesehatan (termasuk rumpun keteknisian medis tempat PMIK berada). DICABUT oleh UU 17/2023 (terverifikasi Database Peraturan) — baca rezim terbaru.",
       "topik": ["kewenangan-profesi", "pmik", "hukum-kesehatan"],
-      "verifiedAt": "2026-10-11"
+      "verifiedAt": "2026-10-12"
     },
     {
       "slug": "uu-8-1999",
@@ -407,6 +407,72 @@
       "topik": ["kearsipan", "sistem-elektronik", "rme", "keamanan-informasi"],
       "trustLevel": "L2_REPOSITORI_RESMI",
       "verifiedAt": "2026-10-11"
+    },
+    {
+      "slug": "uu-29-2004",
+      "judul": "Undang-Undang Nomor 29 Tahun 2004 tentang Praktik Kedokteran",
+      "nomor": "29",
+      "tahun": 2004,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "UU pertama yang mewajibkan dokter/dokter gigi membuat rekam medis dan menjaga rahasia kedokteran. Dicabut UU 17/2023 — dirujuk untuk konteks historis dan pemahaman evolusi kewajiban dokumentasi klinis.",
+      "topik": ["rekam-medis", "privasi", "hukum-kesehatan", "kewenangan-profesi"],
+      "verifiedAt": "2026-10-12"
+    },
+    {
+      "slug": "uu-36-2009",
+      "judul": "Undang-Undang Nomor 36 Tahun 2009 tentang Kesehatan",
+      "nomor": "36",
+      "tahun": 2009,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "UU Kesehatan sebelum omnibus: mengatur hak atas informasi kesehatan, kerahasiaan, dan penyelenggaraan rekam medis. Dicabut UU 17/2023.",
+      "topik": ["hukum-kesehatan", "hak-pasien", "privasi", "rekam-medis"],
+      "verifiedAt": "2026-10-12"
+    },
+    {
+      "slug": "uu-44-2009",
+      "judul": "Undang-Undang Nomor 44 Tahun 2009 tentang Rumah Sakit",
+      "nomor": "44",
+      "tahun": 2009,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mewajibkan RS menyelenggarakan rekam medis dan sistem informasi RS. Dicabut UU 17/2023; rezim RS kini di bawah UU 17/2023 jo. Permenkes 6/2026.",
+      "topik": ["rumah-sakit", "rekam-medis", "simrs"],
+      "verifiedAt": "2026-10-12"
+    },
+    {
+      "slug": "perbssn-1-2026",
+      "judul": "Peraturan BSSN Nomor 1 Tahun 2026 tentang Perubahan atas PerBSSN 5/2021 tentang Pelatihan Keamanan Siber dan Persandian",
+      "nomor": "1",
+      "tahun": 2026,
+      "jenis": "Peraturan BSSN",
+      "instansi": "Badan Siber dan Sandi Negara",
+      "status": "BERLAKU",
+      "tglPenetapan": "2026-03-17",
+      "tglBerlaku": "2026-05-25",
+      "sumberResmi": "https://peraturan.go.id/id/peraturan-bssn-no-1-tahun-2026",
+      "ringkasan": "Pembaruan rezim pelatihan keamanan siber dan persandian nasional. Relevan bagi faskes/korporat kesehatan dalam menyiapkan SDM keamanan informasi (security awareness, penanganan insiden) untuk SIMRS/RME.",
+      "topik": ["keamanan-informasi", "simrs", "sistem-elektronik"],
+      "verifiedAt": "2026-10-12"
+    },
+    {
+      "slug": "perbssn-5-2021",
+      "judul": "Peraturan BSSN Nomor 5 Tahun 2021 tentang Pelatihan Keamanan Siber dan Persandian",
+      "nomor": "5",
+      "tahun": 2021,
+      "jenis": "Peraturan BSSN",
+      "instansi": "Badan Siber dan Sandi Negara",
+      "status": "PERUBAHAN",
+      "ringkasan": "Rezim awal pelatihan keamanan siber nasional. Diubah PerBSSN 1/2026 — baca versi berlaku.",
+      "topik": ["keamanan-informasi"],
+      "verifiedAt": "2026-10-12"
     }
   ],
   "pasals": [
@@ -661,6 +727,42 @@
       "artiSederhana": "RME wajib mencatat siapa membuat/mengubah/membuka data — pengeditan diam-diam tidak diperbolehkan.",
       "relevansiPmIK": "PMIK menguji fungsi audit trail RME (uji edit, uji akses) dan menjadikannya bukti kepatuhan saat akreditasi.",
       "risikoKepatuhan": "RME tanpa audit trail melanggar kewajiban penyelenggaraan sekaligus melemahkan posisi hukum faskes."
+    },
+    {
+      "regulationSlug": "uu-29-2004",
+      "nomor": "rekam-medis",
+      "teksAsli": "RINGKASAN TERVERIFIKASI (bukan kutipan harfiah): Mewajibkan dokter/dokter gigi membuat rekam medis setiap tindakan dan menjaga rahasia kedokteran; menjadi dasar historis kewajiban dokumentasi klinis di Indonesia. Dicabut UU 17/2023. Lihat dokumen resmi untuk teks harfiah.",
+      "isVerbatim": false,
+      "artiSederhana": "Sejak 2004 dokter wajib menulis rekam medis dan merahasiakannya — aturan ini cikal bakalnya.",
+      "relevansiPmIK": "Dipakai untuk edukasi historis dan menjawab 'dasar awal kewajiban dokumentasi' dalam telaah.",
+      "risikoKepatuhan": "Mengutip UU yang dicabut sebagai dasar tindakan aktif adalah kesalahan kepatuhan."
+    },
+    {
+      "regulationSlug": "uu-36-2009",
+      "nomor": "hak-informasi-kesehatan",
+      "teksAsli": "RINGKASAN TERVERIFIKASI (bukan kutipan harfiah): Menegaskan hak setiap orang atas informasi kesehatan serta kewajiban menjaga kerahasiaan kondisi kesehatan pasien. Dicabut UU 17/2023. Lihat dokumen resmi untuk teks harfiah.",
+      "isVerbatim": false,
+      "artiSederhana": "Hak atas informasi dan kerahasiaan kesehatan sudah dijamin sejak UU 2009, lalu diteruskan UU 17/2023.",
+      "relevansiPmIK": "Rujukan historis saat menyusun kebijakan hak akses informasi pasien.",
+      "risikoKepatuhan": "Jangan jadikan dasar SOP aktif; gunakan UU 17/2023 dan aturan pelaksananya."
+    },
+    {
+      "regulationSlug": "uu-44-2009",
+      "nomor": "kewajiban-sistem-informasi",
+      "teksAsli": "RINGKASAN TERVERIFIKASI (bukan kutipan harfiah): Mewajibkan rumah sakit menyelenggarakan rekam medis dan sistem informasi rumah sakit sebagai bagian mutu pelayanan. Dicabut UU 17/2023; dilanjutkan Permenkes 6/2026. Lihat dokumen resmi untuk teks harfiah.",
+      "isVerbatim": false,
+      "artiSederhana": "Kewajiban RMIK/SIMRS di RS lahir dari UU ini, kini diteruskan aturan baru.",
+      "relevansiPmIK": "Menjelaskan kesinambungan kewajiban RMIK saat audit menanyakan dasar historis.",
+      "risikoKepatuhan": "Acuan aktif wajib memakai UU 17/2023 jo. Permenkes 6/2026."
+    },
+    {
+      "regulationSlug": "perbssn-1-2026",
+      "nomor": "pelatihan-keamanan-siber",
+      "teksAsli": "RINGKASAN TERVERIFIKASI (bukan kutipan harfiah): Memperbarui ketentuan pelatihan keamanan siber dan persandian — mencakup pembinaan SDM, kurikulum, dan sertifikasi — sebagai fondasi kesiapan organisasi menghadapi insiden siber. Relevan bagi tim TI/SIMRS faskes. Lihat dokumen resmi untuk teks harfiah.",
+      "isVerbatim": false,
+      "artiSederhana": "Negara mengatur standar pelatihan keamanan siber; organisasi — termasuk RS — perlu SDM terlatih.",
+      "relevansiPmIK": "PMIK/TI mendorong program security awareness dan pelatihan penanganan insiden bagi pengelola RME/SIMRS.",
+      "risikoKepatuhan": "Insiden yang ditangani SDM tak kompeten memperberat akuntabilitas dan sanksi."
     }
   ],
   "topics": [
@@ -717,7 +819,14 @@
     { "from": "peranri-2-2021", "to": "uu-43-2009", "type": "TURUNAN" },
     { "from": "peranri-1-2023", "to": "uu-43-2009", "type": "TURUNAN" },
     { "from": "peranri-1-2023", "to": "uu-19-2016", "type": "BERIRISAN" },
-    { "from": "pp-71-2019", "to": "permenkes-24-2022", "type": "BERIRISAN" }
+    { "from": "pp-71-2019", "to": "permenkes-24-2022", "type": "BERIRISAN" },
+    { "from": "uu-17-2023", "to": "uu-29-2004", "type": "MENCABUT" },
+    { "from": "uu-17-2023", "to": "uu-36-2009", "type": "MENCABUT" },
+    { "from": "uu-17-2023", "to": "uu-44-2009", "type": "MENCABUT" },
+    { "from": "uu-17-2023", "to": "uu-36-2014", "type": "MENCABUT" },
+    { "from": "perbssn-1-2026", "to": "perbssn-5-2021", "type": "MENGUBAH" },
+    { "from": "perbssn-1-2026", "to": "pp-71-2019", "type": "BERIRISAN" },
+    { "from": "perbssn-1-2026", "to": "perpres-95-2018", "type": "BERIRISAN" }
   ],
   "articles": [
     {

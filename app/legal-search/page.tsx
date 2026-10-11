@@ -5,7 +5,7 @@ import { SearchBar, StatusBadge, Disclaimer, ScoreBar } from "@/components/ui";
 
 export const metadata = { title: "Legal Search" };
 
-const JENIS = ["UU", "PP", "Perpres", "Permenkes", "Permenkominfo", "Perka ANRI", "PeranRI", "Putusan MK", "Putusan MA", "Kepmenkes", "SE", "Pedoman", "Standar"];
+const JENIS = ["UU", "PP", "Perpres", "Permenkes", "Permenkominfo", "Perka ANRI", "PeranRI", "Peraturan BSSN", "Putusan MK", "Putusan MA", "Kepmenkes", "SE", "Pedoman", "Standar"];
 
 export default function LegalSearch({ searchParams }: { searchParams: Record<string, string | undefined> }) {
   const q = (searchParams.q ?? "").trim();

@@ -11,7 +11,7 @@ export default function Masuk({ searchParams }: { searchParams: Record<string, s
         <label className="text-sm font-bold">Kata sandi<input name="password" type="password" required className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
         <button className="rounded-xl bg-pagar-700 px-4 py-2.5 font-bold text-white">Masuk</button>
       </form>
-      <p className="mt-3 text-xs text-ink-900/60">Akun demo (dibuat saat seed): <code>admin@pagarmik.id / pagarmik123</code> · Google OAuth dihubungkan via Auth.js di production (lihat docs).</p>
+      <p className="mt-3 text-xs text-ink-900/60">Akun demo dibuat saat seed — lihat kredensial di log terminal server. Google OAuth dihubungkan via Auth.js di production (lihat docs).</p>
       <p className="mt-1 text-xs"><a className="font-bold text-pagar-700 underline" href="/daftar">Belum punya akun? Daftar</a></p>
     </div>
   );
