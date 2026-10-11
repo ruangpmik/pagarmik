@@ -1,7 +1,7 @@
 import { hybridSearch } from "@/lib/search/hybrid";
 import { getStore } from "@/lib/data/store";
 import type { Regulation } from "@/lib/data/types";
-import { SearchBar, StatusBadge, Disclaimer, ScoreBar } from "@/components/ui";
+import { SearchBar, StatusBadge, Disclaimer, ScoreBar, StatusSwitcher } from "@/components/ui";
 
 export const metadata = { title: "Legal Search" };
 
@@ -36,21 +36,27 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
       <p className="mt-1 text-sm text-ink-900/60">Hybrid search: keyword + semantik + filter metadata, dengan reranking otoritas dan trust level.</p>
       <div className="mt-4"><SearchBar /></div>
 
-      <form method="get" className="mt-4 grid grid-cols-2 gap-2 rounded-2xl border border-ink-100 bg-ink-50/50 p-3 md:grid-cols-5" aria-label="Filter">
+      <div className="mt-3">
+        <StatusSwitcher
+          base="/legal-search"
+          current={filters.status}
+          extra={{
+            q,
+            ...(filters.jenis ? { jenis: filters.jenis } : {}),
+            ...(filters.tahun ? { tahun: String(filters.tahun) } : {}),
+            ...(filters.topik ? { topik: filters.topik } : {}),
+          }}
+        />
+      </div>
+
+      <form method="get" className="mt-3 grid grid-cols-2 gap-2 rounded-2xl border border-ink-100 bg-ink-50/50 p-3 md:grid-cols-4" aria-label="Filter">
         <input type="hidden" name="q" value={q} />
+        {filters.status ? <input type="hidden" name="status" value={filters.status} /> : null}
         <select name="jenis" defaultValue={filters.jenis ?? ""} className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900">
           <option value="">Semua jenis</option>
           {JENIS.map((j) => <option key={j} value={j}>{j}</option>)}
         </select>
         <input name="tahun" defaultValue={filters.tahun ?? ""} placeholder="Tahun" inputMode="numeric" className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900" />
-        <select name="status" defaultValue={filters.status ?? ""} className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900">
-          <option value="">Semua status</option>
-          <option value="BERLAKU">🟢 Berlaku</option>
-          <option value="BERLAKU_DENGAN_CATATAN">🟡 Berlaku dgn catatan</option>
-          <option value="PERUBAHAN">🟠 Perubahan</option>
-          <option value="DICABUT">🔴 Dicabut</option>
-          <option value="BELUM_DIVERIFIKASI">⚪ Belum diverifikasi</option>
-        </select>
         <input name="topik" defaultValue={filters.topik ?? ""} placeholder="Topik (mis. privasi)" className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900" />
         <button className="rounded-lg bg-pagar-700 px-3 py-2 text-sm font-bold text-white">Terapkan</button>
       </form>

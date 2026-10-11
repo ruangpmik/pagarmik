@@ -87,3 +87,46 @@ export function ScoreBar({ score }: { score: number }) {
     </span>
   );
 }
+
+const STATUS_OPTS: [string, string][] = [
+  ["", "Semua"],
+  ["BERLAKU", "🟢 Berlaku"],
+  ["BERLAKU_DENGAN_CATATAN", "🟡 Catatan"],
+  ["PERUBAHAN", "🟠 Perubahan"],
+  ["DICABUT", "🔴 Dicabut"],
+  ["BELUM_DIVERIFIKASI", "⚪ Belum verif"],
+];
+
+/** Switcher Berlaku ↔ Tidak Berlaku (+ status lain) dengan hitungan. */
+export function StatusSwitcher({ base, current, extra, counts }: {
+  base: string;
+  current?: string;
+  extra?: Record<string, string>;
+  counts?: Record<string, number>;
+}) {
+  const href = (s: string) => {
+    const p = new URLSearchParams();
+    for (const [k, v] of Object.entries(extra ?? {})) if (v) p.set(k, v);
+    if (s) p.set("status", s);
+    const qs = p.toString();
+    return qs ? `${base}?${qs}` : base;
+  };
+  return (
+    <div className="flex gap-1 overflow-x-auto rounded-2xl border border-ink-100 bg-white p-1.5 shadow-sm" role="group" aria-label="Filter status keberlakuan">
+      {STATUS_OPTS.map(([v, label]) => {
+        const active = (current ?? "") === v;
+        const n = counts?.[v || "ALL"];
+        return (
+          <a
+            key={v || "all"}
+            href={href(v)}
+            aria-pressed={active}
+            className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-bold transition ${active ? "bg-pagar-700 text-white shadow" : "text-ink-900/70 hover:bg-pagar-50 hover:text-pagar-700"}`}
+          >
+            {label}{typeof n === "number" ? ` · ${n}` : ""}
+          </a>
+        );
+      })}
+    </div>
+  );
+}
