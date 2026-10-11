@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pagar: #1f6e58;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-ink-900 antialiased;
+}
+
+/* Kunci keterbacaan kontrol form: teks selalu gelap di atas putih,
+   terlepas dari mode browser/OS pengguna. */
+input, select, textarea {
+  @apply bg-white text-ink-900 border-ink-100;
+  color: #141a20;
+  background-color: #ffffff;
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(20, 26, 32, 0.4);
+  opacity: 1;
+}
+select option {
+  color: #141a20;
+  background-color: #ffffff;
+}
+
+.prose-pagar h2 {
+  @apply text-lg font-bold mt-6 mb-2 text-pagar-800;
+}
+.prose-pagar p {
+  @apply my-2 leading-relaxed text-[15px];
+}
+.prose-pagar ol, .prose-pagar ul {
+  @apply my-2 ml-5 list-decimal space-y-1 text-[15px];
+}
+.prose-pagar ul {
+  @apply list-disc;
+}
+
+/* Pagar motif: garis vertikal khas brand */
+.pagar-stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #1f6e58 0px,
+    #1f6e58 6px,
+    transparent 6px,
+    transparent 14px
+  );
+}

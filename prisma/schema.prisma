@@ -1,0 +1,216 @@
+// PAGARMIK — PostgreSQL + pgvector schema.
+// Vector column (embedding) dikelola via raw SQL migration (lihat docs/database-schema.md)
+// karena Prisma belum mendukung tipe vector secara native.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+  VERIFIER
+  USER
+}
+
+enum RegulationStatus {
+  BERLAKU
+  BERLAKU_DENGAN_CATATAN
+  PERUBAHAN
+  DICABUT
+  BELUM_DIVERIFIKASI
+}
+
+enum TrustLevel {
+  L1_PRIMER
+  L2_REPOSITORI_RESMI
+  L3_PUTUSAN_INSTITUSI
+  L4_AKADEMIK
+  L5_KOMENTAR_SEKUNDER
+}
+
+enum RelationType {
+  MENCABUT
+  MENGUBAH
+  MELAKSANAKAN
+  MERUJUK
+  TURUNAN
+  MEMPERKUAT
+  BERIRISAN
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String?
+  name         String
+  profesi      String?
+  institusi    String?
+  role         Role     @default(USER)
+  createdAt    DateTime @default(now())
+  conversations AiConversation[]
+  bookmarks    Bookmark[]
+  searchQueries SearchQuery[]
+  auditLogs    AuditLog[]
+}
+
+model Regulation {
+  id            String           @id @default(cuid())
+  slug          String           @unique
+  judul         String
+  nomor         String
+  tahun         Int
+  jenis         String           // UU, PP, Perpres, Permenkes, Kepmenkes, SE, Pedoman, Standar
+  instansi      String
+  status        RegulationStatus @default(BELUM_DIVERIFIKASI)
+  tglPenetapan  DateTime?
+  tglBerlaku    DateTime?
+  sumberResmi   String?
+  pdfUrl        String?
+  ringkasan     String           @db.Text
+  topik         String[]         @default([])
+  verifiedAt    DateTime?
+  verifiedById  String?
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  pasals        Pasal[]
+  chunks        LegalChunk[]
+  versions      RegulationVersion[]
+  outgoing      RegulationRelationship[] @relation("RelFrom")
+  incoming      RegulationRelationship[] @relation("RelTo")
+
+  @@index([tahun])
+  @@index([jenis])
+  @@index([status])
+}
+
+model RegulationVersion {
+  id           String     @id @default(cuid())
+  regulationId String
+  regulation   Regulation @relation(fields: [regulationId], references: [id], onDelete: Cascade)
+  versi        String
+  catatan      String     @db.Text
+  createdAt    DateTime   @default(now())
+}
+
+model RegulationRelationship {
+  id     String       @id @default(cuid())
+  fromId String
+  from   Regulation   @relation("RelFrom", fields: [fromId], references: [id], onDelete: Cascade)
+  toId   String
+  to     Regulation   @relation("RelTo", fields: [toId], references: [id], onDelete: Cascade)
+  type   RelationType
+}
+
+model Pasal {
+  id           String     @id @default(cuid())
+  regulationId String
+  regulation   Regulation @relation(fields: [regulationId], references: [id], onDelete: Cascade)
+  nomor        String     // "5", "13", "Pasal 5 ayat (1)"
+  teksAsli     String     @db.Text
+  isVerbatim   Boolean    @default(false) // false = ringkasan/parafrasa terverifikasi, bukan kutipan harfiah
+  artiSederhana String    @db.Text
+  relevansiPmIK String    @db.Text
+  risikoKepatuhan String? @db.Text
+
+  @@index([regulationId])
+}
+
+model LegalChunk {
+  id           String     @id @default(cuid())
+  regulationId String
+  regulation   Regulation @relation(fields: [regulationId], references: [id], onDelete: Cascade)
+  pasalNomor   String?
+  teks         String     @db.Text
+  topik        String[]   @default([])
+  trustLevel   TrustLevel @default(L1_PRIMER)
+  // embedding vector(768): dibuat via migration SQL + diisi pipeline ingest (pgvector)
+  createdAt    DateTime   @default(now())
+
+  @@index([regulationId])
+}
+
+model LegalTopic {
+  id        String @id @default(cuid())
+  slug      String @unique
+  nama      String
+  ikon      String @default("📚")
+  deskripsi String @db.Text
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  judul       String
+  ringkasan   String   @db.Text
+  konten      String   @db.Text
+  dasarHukum  String[] @default([])
+  topik       String[] @default([])
+  verifiedBy  String   @default("PAGARMIK")
+  verifiedAt  DateTime?
+  createdAt   DateTime @default(now())
+}
+
+model AiConversation {
+  id        String      @id @default(cuid())
+  userId    String?
+  user      User?       @relation(fields: [userId], references: [id])
+  judul     String      @default("Percakapan baru")
+  createdAt DateTime    @default(now())
+  messages  AiMessage[]
+}
+
+model AiMessage {
+  id             String         @id @default(cuid())
+  conversationId String
+  conversation   AiConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           String         // user | assistant
+  content        String         @db.Text
+  citations      Json?          // Citation[] tervalidasi
+  confidence     String?        // HIGH | MEDIUM | LOW
+  createdAt      DateTime       @default(now())
+}
+
+model SearchQuery {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  query     String
+  hits      Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([query])
+}
+
+model Bookmark {
+  id           String      @id @default(cuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  regulationId String?
+  pasalId      String?
+  createdAt    DateTime    @default(now())
+}
+
+model VerificationRecord {
+  id           String   @id @default(cuid())
+  regulationId String
+  status       RegulationStatus
+  catatan      String   @db.Text
+  sumberUrl    String?
+  verifiedBy   String
+  createdAt    DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  aksi      String
+  detail    Json?
+  createdAt DateTime @default(now())
+}
