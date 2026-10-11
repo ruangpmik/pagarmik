@@ -7,3 +7,4 @@ out
 coverage
 *.tsbuildinfo
 /data
+*.DS_Store
