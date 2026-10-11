@@ -20,6 +20,10 @@ export async function POST(req: NextRequest) {
     // Ekstraksi teks PDF (server-only). Catatan: hasil mentah → cleaning → pasal split.
     const { default: pdfParse } = await import("pdf-parse");
     const buf = Buffer.from(await pdf.arrayBuffer());
+    // Magic-byte check: PDF asli diawali "%PDF". Tolak file samaran (mis. .exe ganti ekstensi).
+    if (buf.length < 5 || buf.subarray(0, 4).toString("latin1") !== "%PDF") {
+      return NextResponse.json({ error: "Berkas bukan PDF yang valid." }, { status: 400 });
+    }
     try {
       const parsed = await pdfParse(buf);
       fullText = parsed.text || fullText;
