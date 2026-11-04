@@ -58,7 +58,8 @@ export default function Home() {
 
       <section className="grid gap-x-8 gap-y-6 border-b border-ink-100 pb-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,0.9fr)] xl:items-center" aria-labelledby="home-title">
         <div className="min-w-0">
-          <h1 id="home-title" className="max-w-[20ch]">Rujukan hukum RMIK</h1>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pagar-700">Menjaga Batas · Melindungi Profesi</p>
+          <h1 id="home-title" className="mt-3 max-w-[20ch]">Rujukan hukum RMIK</h1>
           <p className="mt-3 max-w-[58ch] text-base leading-relaxed text-ink-900/80">
             Telusuri aturan terkait rekam medis dan informasi kesehatan, lalu periksa status serta sumbernya.
           </p>
