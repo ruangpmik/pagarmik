@@ -1,17 +1,22 @@
 import { STATUS_LABEL, type Regulation } from "@/lib/data/types";
 
+const STATUS_PALETTE: Record<string, { fg: string; bg: string }> = {
+  BERLAKU: { fg: "var(--success)", bg: "#e6f4ec" },
+  BELUM_BERLAKU: { fg: "var(--text-muted)", bg: "#eef1f4" },
+  BERLAKU_DENGAN_CATATAN: { fg: "var(--warning)", bg: "#f6eed9" },
+  PERUBAHAN: { fg: "var(--brand-navy)", bg: "#e8eef3" },
+  DICABUT: { fg: "var(--danger)", bg: "#fbe7e5" },
+  BELUM_DIVERIFIKASI: { fg: "var(--text-muted)", bg: "#eef1f4" },
+};
+
 export function StatusBadge({ status }: { status: Regulation["status"] }) {
-  const colors: Record<string, string> = {
-    BERLAKU: "var(--success)",
-    BELUM_BERLAKU: "var(--text-muted)",
-    BERLAKU_DENGAN_CATATAN: "var(--warning)",
-    PERUBAHAN: "var(--brand-navy)",
-    DICABUT: "var(--danger)",
-    BELUM_DIVERIFIKASI: "var(--text-muted)",
-  };
+  const p = STATUS_PALETTE[status] ?? STATUS_PALETTE.BELUM_DIVERIFIKASI;
   return (
-    <span className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: colors[status] }}>
-      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: colors[status] }} aria-hidden="true" />
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[13px] font-semibold leading-none"
+      style={{ color: p.fg, backgroundColor: p.bg }}
+    >
+      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: p.fg }} aria-hidden="true" />
       <span>{STATUS_LABEL[status]}</span>
     </span>
   );
@@ -41,14 +46,14 @@ export function Disclaimer() {
 
 export function RegulationCard({ r }: { r: Regulation }) {
   return (
-    <a href={`/regulasi/${r.slug}`} className="block rounded-xl border border-ink-100 bg-white p-4 transition-colors hover:border-pagar-300 hover:bg-pagar-50">
+    <a href={`/regulasi/${r.slug}`} className="block rounded-xl border border-ink-100 bg-white p-5 transition-colors hover:border-pagar-300 hover:bg-pagar-50">
       <div className="flex flex-wrap items-center gap-2">
         <StatusBadge status={r.status} />
         <span className="text-xs text-ink-900/60">{r.jenis} · {r.tahun}</span>
       </div>
-      <h3 className="mt-2 font-bold leading-snug text-pagar-800">{r.judul}</h3>
-      <p className="mt-1 line-clamp-2 text-sm text-ink-900/70">{r.ringkasan}</p>
-      <p className="mt-2 text-xs text-ink-900/50">
+      <h3 className="mt-3 font-semibold leading-snug text-pagar-800">{r.judul}</h3>
+      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-ink-900/70">{r.ringkasan}</p>
+      <p className="mt-3 text-xs text-ink-900/50">
         {r.instansi} · Terverifikasi: {r.verifiedAt ?? "—"}
       </p>
     </a>

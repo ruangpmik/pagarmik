@@ -25,7 +25,7 @@ export default function RegulasiList({ searchParams }: { searchParams: Record<st
         <StatusSwitcher base="/regulasi" current={status} counts={counts} />
       </div>
       {regs.length > 0 ? (
-        <div className="mt-4 grid gap-3 md:grid-cols-2">
+        <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {regs.map((r) => <RegulationCard key={r.slug} r={r} />)}
         </div>
       ) : (

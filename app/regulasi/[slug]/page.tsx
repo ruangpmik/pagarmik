@@ -75,7 +75,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
         </div>
       )}
 
-      <dl className="mt-4 grid grid-cols-2 gap-2 rounded-2xl border border-ink-100 bg-ink-50/50 p-4 text-sm md:grid-cols-4">
+      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 rounded-2xl border border-ink-100 bg-ink-50/50 p-5 text-sm md:grid-cols-4">
         {[["Nomor", reg.nomor], ["Tahun", String(reg.tahun)], ["Jenis", reg.jenis], ["Instansi", reg.instansi],
           ["Penetapan", reg.tglPenetapan ?? "—"], ["Berlaku", reg.tglBerlaku ?? "—"],
           ["Sumber resmi", reg.sumberResmi ?? "—"], ["Terverifikasi", reg.verifiedAt ?? "—"]].map(([k, v]) => (
@@ -103,7 +103,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
         {tab === "pasal" && (
           <div className="grid gap-3">
             {pasals.map((p) => (
-              <article key={p.nomor} className="rounded-2xl border border-ink-100 bg-white p-4">
+              <article key={p.nomor} className="rounded-2xl border border-ink-100 bg-white p-5">
                 <div className="flex items-start justify-between gap-2">
                   <h2 className="font-extrabold text-pagar-800">Pasal {p.nomor} {!p.isVerbatim && <span className="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-[11px] font-bold text-amber-800">ringkasan terverifikasi</span>}</h2>
                   <BookmarkButton type="pasal" slug={reg.slug} pasal={p.nomor} title={`${reg.judul}`} />
