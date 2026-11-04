@@ -15,14 +15,16 @@ export default function PasalPage({ searchParams }: { searchParams: Record<strin
       <h1>Penelusuran pasal</h1>
       {q ? <RememberVisit kind="pasal" label={`Pasal: ${q}`} href={`/pasal?q=${encodeURIComponent(q)}`} /> : null}
       <p className="mt-1 text-sm text-ink-900/60">Cari sampai tingkat pasal. Contoh: “Pasal kerahasiaan Permenkes 24 2022”.</p>
-      <form method="get" className="mt-4 flex gap-2" role="search">
-        <label htmlFor="pasal-query" className="mb-1 block text-sm font-semibold text-pagar-800">Cari pasal atau nomor regulasi</label>
-        <input id="pasal-query" name="q" defaultValue={q} required minLength={2} placeholder="Contoh: Pasal 5 Permenkes 24/2022" className="w-full rounded-2xl border border-ink-100 px-4 py-3 text-base outline-none focus:border-pagar-500" />
-        <button className="mt-2 min-h-11 rounded-lg bg-pagar-700 px-5 py-2.5 text-sm font-semibold text-white">Cari</button>
+      <form method="get" className="mt-4 grid gap-2" role="search">
+        <label htmlFor="pasal-query" className="text-sm font-semibold text-pagar-800">Cari pasal atau nomor regulasi</label>
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <input id="pasal-query" name="q" defaultValue={q} required minLength={2} placeholder="Contoh: Pasal 5 Permenkes 24/2022" className="min-h-11 min-w-0 flex-1 rounded-lg border border-ink-100 bg-white px-4 py-2.5 text-base text-ink-900 outline-none placeholder:text-ink-900/60 focus:border-pagar-500" />
+          <button className="min-h-11 whitespace-nowrap rounded-lg bg-pagar-700 px-5 py-2.5 text-sm font-semibold text-white">Cari</button>
+        </div>
       </form>
       <div className="mt-4 grid gap-3">
         {hits.map(({ chunk, score }) => (
-          <article key={chunk.id} className="rounded-2xl border border-ink-100 bg-white p-4">
+          <article key={chunk.id} className="rounded-2xl border border-ink-100 bg-white p-5">
             <div className="flex flex-wrap items-center gap-2 text-xs text-ink-900/60">
               <a href={`/regulasi/${chunk.regulationSlug}`} className="font-bold text-pagar-700 underline">{chunk.regulasiJudul}</a>
               <span>skor {score.toFixed(2)}</span>

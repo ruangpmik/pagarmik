@@ -17,9 +17,9 @@ export default function Timeline() {
           <li key={year} className="relative">
             <span className="absolute -left-[27px] top-1 h-3 w-3 rounded-full bg-pagar-600" aria-hidden />
             <p className="text-xl font-extrabold text-pagar-800">{year}</p>
-            <div className="mt-2 grid gap-2">
+            <div className="mt-2 grid gap-3">
               {list.map((r) => (
-                <a key={r.slug} href={`/regulasi/${r.slug}`} className="rounded-2xl border border-ink-100 bg-white p-3 underline-offset-4 hover:underline">
+                <a key={r.slug} href={`/regulasi/${r.slug}`} className="rounded-2xl border border-ink-100 bg-white p-4 underline-offset-4 hover:border-pagar-300">
                   <StatusBadge status={r.status} />
                   <p className="mt-1 text-sm font-bold">{r.judul}</p>
                 </a>

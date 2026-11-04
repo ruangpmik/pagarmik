@@ -9,16 +9,16 @@
   --accent-teal: #0f7254;
   --accent-teal-hover: #0c5c43;
   --brand-orange: #f2782b;
-  --canvas: #f5f7fa;
-  --frame: #edf2f4;
+  --canvas: #f9fbfc;
+  --frame: #f9fbfc;
   --surface: #ffffff;
-  --surface-raised: #f4f7f8;
-  --nav-active: #e4ecef;
-  --sheet-edge: #e1e8eb;
-  --control-border: #c8d3da;
-  --text-primary: #1a2738;
-  --text-muted: #526173;
-  --border: #d7dee7;
+  --surface-raised: #f4f6f8;
+  --nav-active: #ebedee;
+  --sheet-edge: #e8eaec;
+  --control-border: #cdced1;
+  --text-primary: #131416;
+  --text-muted: #5d5f60;
+  --border: #e8eaec;
   --focus: #145cc7;
   --danger: #b42318;
   --warning: #8a5a00;
@@ -35,10 +35,10 @@
   --color-pagar-800: 11 46 69;
   --color-pagar-900: 7 31 48;
   --color-pagar-950: 4 20 30;
-  --color-ink-50: 245 247 250;
-  --color-ink-100: 215 222 231;
-  --color-ink-900: 26 39 56;
-  --color-ink-950: 13 30 53;
+  --color-ink-50: 244 246 248;
+  --color-ink-100: 232 234 236;
+  --color-ink-900: 19 20 22;
+  --color-ink-950: 12 13 14;
   --color-gold-400: 138 90 0;
   --color-gold-500: 119 72 0;
   color-scheme: light;
@@ -141,11 +141,11 @@ body {
 
 main h1 {
   color: var(--brand-navy);
-  font-family: var(--font-serif), Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1.9rem, 2.6vw, 2.35rem);
   font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.18;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 :focus-visible {
@@ -177,7 +177,7 @@ select option {
 
 .prose-pagar h2 {
   @apply text-lg font-semibold mt-6 mb-2 text-pagar-800;
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-sans), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
 }
 .prose-pagar p {
   @apply my-2 leading-relaxed text-[15px];
@@ -248,5 +248,5 @@ select option {
 
 /* App surfaces use one restrained radius and no resting-card shadow. */
 main .rounded-xl,
-main .rounded-2xl { border-radius: 0.75rem !important; }
+main .rounded-2xl { border-radius: 0.5rem !important; }
 

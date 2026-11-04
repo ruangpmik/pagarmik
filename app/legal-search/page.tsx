@@ -78,15 +78,15 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
         </p>
       )}
 
-      <div className="mt-3 grid gap-3">
+      <div className="mt-4 grid gap-4">
         {grouped.map(({ reg, best, pasals }) => (
-          <a key={reg.slug} href={`/regulasi/${reg.slug}`} className="block rounded-2xl border border-ink-100 bg-white p-4 underline-offset-4 hover:border-pagar-300">
+          <a key={reg.slug} href={`/regulasi/${reg.slug}`} className="block rounded-2xl border border-ink-100 bg-white p-5 underline-offset-4 hover:border-pagar-300">
             <div className="flex flex-wrap items-center gap-2">
               <StatusBadge status={reg.status} />
               <span className="text-xs text-ink-900/60">{reg.jenis} · {reg.nomor}/{reg.tahun}</span>
               <ScoreBar score={best} />
             </div>
-            <h2 className="mt-1 font-bold text-pagar-800">{reg.judul}</h2>
+            <h2 className="mt-2 font-semibold text-pagar-800">{reg.judul}</h2>
             <p className="mt-1 text-sm text-ink-900/70">{reg.ringkasan}</p>
             <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-900/60">
               <span>Instansi: {reg.instansi}</span>

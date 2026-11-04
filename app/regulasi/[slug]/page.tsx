@@ -78,15 +78,18 @@ export default async function RegulationDetail({ params, searchParams }: { param
       <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 rounded-2xl border border-ink-100 bg-ink-50/50 p-5 text-sm md:grid-cols-4">
         {[["Nomor", reg.nomor], ["Tahun", String(reg.tahun)], ["Jenis", reg.jenis], ["Instansi", reg.instansi],
           ["Penetapan", reg.tglPenetapan ?? "—"], ["Berlaku", reg.tglBerlaku ?? "—"],
-          ["Sumber resmi", reg.sumberResmi ?? "—"], ["Terverifikasi", reg.verifiedAt ?? "—"]].map(([k, v]) => (
-          <div key={k} className="min-w-0"><dt className="text-xs text-ink-900/50">{k}</dt><dd className="break-all font-semibold">{v}</dd></div>
-        ))}
+          ["Sumber resmi", reg.sumberResmi ?? "—"], ["Terverifikasi", reg.verifiedAt ?? "—"]].map(([k, v]) => {
+          const fig = k === "Nomor" || k === "Tahun" || k === "Penetapan" || k === "Berlaku" || k === "Terverifikasi";
+          return (
+            <div key={k} className="min-w-0"><dt className="text-xs text-ink-900/50">{k}</dt><dd className={`break-all ${fig ? "font-mono font-medium tracking-tight" : "font-semibold"}`}>{v}</dd></div>
+          );
+        })}
       </dl>
 
       <nav className="mt-4 flex gap-2 overflow-x-auto" aria-label="Tab regulasi">
         {tabs.map(([id, label]) => (
           <a key={id} href={`/regulasi/${reg.slug}?tab=${id}`}
-            className={`whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-bold ${tab === id ? "bg-pagar-700 text-white" : "border border-ink-100 bg-white"}`}>
+            className={`whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-colors ${tab === id ? "bg-pagar-700 text-white" : "border border-ink-100 bg-white text-ink-900/75 hover:bg-pagar-50 hover:text-pagar-700"}`}>
             {label}
           </a>
         ))}

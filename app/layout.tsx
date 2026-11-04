@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import TopNav from "@/components/TopNav";
 
-const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif", display: "swap" });
+const sans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-sans", display: "swap" });
+const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "PAGARMIK by RUANGPMIK — Menjaga Batas. Melindungi Profesi.", template: "%s | PAGARMIK" },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="id" className={`${sans.variable} ${mono.variable}`}>
       <body>
         <a href="#konten" className="skip-link">
           Lewati ke konten
