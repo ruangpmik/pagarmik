@@ -19,13 +19,13 @@ export default async function Profil() {
     <div className="mx-auto max-w-md">
       <h1>Profil</h1>
       <div className="mt-4 rounded-2xl border bg-white p-5 text-sm">
-        <p className="text-lg font-extrabold">{user.name}</p>
+        <p className="text-lg font-semibold">{user.name}</p>
         <p className="text-ink-900/60">{user.email} · {user.role}</p>
         <form action="/api/auth/logout" method="post" className="mt-4">
           <button className="rounded-xl border px-4 py-2 font-bold">Keluar</button>
         </form>
       </div>
-      <h2 className="mt-6 font-extrabold">Riwayat & Bookmark</h2>
+      <h2 className="mt-6 font-semibold">Riwayat & Bookmark</h2>
       <LibraryView />
     </div>
   );

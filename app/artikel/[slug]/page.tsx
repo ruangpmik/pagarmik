@@ -20,7 +20,7 @@ export default function ArticleDetail({ params }: { params: { slug: string } }) 
       <p className="mt-2 rounded-xl bg-pagar-50 p-3 text-sm">Terverifikasi PAGARMIK · {a.verifiedAt ?? "Belum tercatat"}</p>
       <p className="mt-3 border-l-4 border-pagar-500 pl-3 text-[15px] italic">{a.ringkasan}</p>
       <div className="mt-2"><Markdown text={a.konten} /></div>
-      <h2 className="mt-6 font-extrabold">Dasar Hukum</h2>
+      <h2 className="mt-6 font-semibold">Dasar Hukum</h2>
       <ul className="mt-1 space-y-1 text-sm">
         {a.dasarHukum.map((s) => {
           const r = store.regulation(s);

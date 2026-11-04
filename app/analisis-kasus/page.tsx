@@ -26,7 +26,7 @@ export default async function CasePage({ searchParams }: { searchParams: Record<
           <ConfidenceBadge level={res.confidence} />
           {Object.entries(res.sections).map(([k, v]) => (
             <section key={k} className="mt-4">
-              <h2 className="font-extrabold text-pagar-800">{k}</h2>
+              <h2 className="font-semibold text-pagar-800">{k}</h2>
               <p className="mt-1 whitespace-pre-line text-[15px] leading-relaxed"><InlineMarkdown text={v} /></p>
             </section>
           ))}

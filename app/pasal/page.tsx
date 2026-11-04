@@ -29,7 +29,7 @@ export default function PasalPage({ searchParams }: { searchParams: Record<strin
               <a href={`/regulasi/${chunk.regulationSlug}`} className="font-bold text-pagar-700 underline">{chunk.regulasiJudul}</a>
               <span>skor {score.toFixed(2)}</span>
             </div>
-            <h2 className="mt-1 font-extrabold">Pasal {chunk.pasalNomor}</h2>
+            <h2 className="mt-1 font-semibold">Pasal {chunk.pasalNomor}</h2>
             <p className="mt-2 whitespace-pre-line font-serif text-[15px] leading-relaxed">{chunk.teks}</p>
             <div className="mt-2 flex gap-3 text-sm font-bold">
               <a className="text-pagar-700 underline" href={`/regulasi/${chunk.regulationSlug}?tab=pasal`}>Buka di regulasi →</a>

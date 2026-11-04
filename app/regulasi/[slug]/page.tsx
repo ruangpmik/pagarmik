@@ -62,7 +62,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
       </div>
       {(reg.status === "DICABUT" || reg.status === "PERUBAHAN") && (
         <div className="mt-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm" role="alert">
-          <p className="font-extrabold text-red-800">
+          <p className="font-semibold text-red-800">
           <strong>Status peraturan.</strong> {reg.status === "DICABUT" ? "Aturan ini tercatat dicabut; jangan jadikan dasar tindakan tanpa memeriksa ketentuan penggantinya." : "Aturan ini tercatat mengalami perubahan; periksa versi dan ketentuan yang berlaku."}
           </p>
           {pengganti.length > 0 && (
@@ -108,7 +108,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
             {pasals.map((p) => (
               <article key={p.nomor} className="rounded-2xl border border-ink-100 bg-white p-5">
                 <div className="flex items-start justify-between gap-2">
-                  <h2 className="font-extrabold text-pagar-800">Pasal {p.nomor} {!p.isVerbatim && <span className="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-[11px] font-bold text-amber-800">ringkasan terverifikasi</span>}</h2>
+                  <h2 className="font-semibold text-pagar-800">Pasal {p.nomor} {!p.isVerbatim && <span className="ml-1 rounded bg-amber-100 px-1.5 py-0.5 text-[11px] font-bold text-amber-800">ringkasan terverifikasi</span>}</h2>
                   <BookmarkButton type="pasal" slug={reg.slug} pasal={p.nomor} title={`${reg.judul}`} />
                 </div>
                 <p className="mt-2 font-serif text-[15px] leading-relaxed">{p.teksAsli}</p>
@@ -125,7 +125,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
         )}
         {tab === "hubungan" && (
           <div className="rounded-2xl border border-ink-100 bg-white p-5">
-            <h2 className="font-extrabold">Hubungan Regulasi</h2>
+            <h2 className="font-semibold">Hubungan Regulasi</h2>
             {relationGraph.needsReviewCount > 0 && (
               <p className="mt-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm leading-relaxed text-amber-950">
                 {relationGraph.needsReviewCount} usulan hubungan (keluaran AI) butuh telaah hukum sebelum ditampilkan sebagai hubungan hukum, sehingga untuk sementara ditahan.
@@ -162,13 +162,13 @@ export default async function RegulationDetail({ params, searchParams }: { param
         )}
         {tab === "terkait" && (
           <div className="rounded-2xl border border-ink-100 bg-white p-5">
-            <h2 className="font-extrabold">Related Topics</h2>
+            <h2 className="font-semibold">Related Topics</h2>
             <div className="mt-2 flex flex-wrap gap-2">{reg.topik.map((t) => <a key={t} href={`/topik/${t}`} className="rounded-full bg-pagar-50 px-3 py-1 text-xs font-bold text-pagar-700">#{t}</a>)}</div>
           </div>
         )}
         {tab === "ai" && ai && (
           <div className="rounded-2xl border border-ink-100 bg-white p-5">
-            <div className="flex items-center gap-3"><h2 className="font-extrabold">AI Analysis</h2><ConfidenceBadge level={ai.confidence} /></div>
+            <div className="flex items-center gap-3"><h2 className="font-semibold">AI Analysis</h2><ConfidenceBadge level={ai.confidence} /></div>
             <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed"><InlineMarkdown text={ai.answer} /></p>
             <h3 className="mt-4 text-sm font-bold">Sumber</h3>
             <ul className="mt-1 space-y-1 text-sm">

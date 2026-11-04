@@ -17,11 +17,11 @@ export default function TopicHub({ params }: { params: { slug: string } }) {
     <div>
       <h1 className="mt-1">{topic.nama}</h1>
       <p className="mt-1 text-sm text-ink-900/60">{topic.deskripsi}</p>
-      <h2 className="mt-6 font-extrabold">Regulasi terkait ({regs.length})</h2>
+      <h2 className="mt-6 font-semibold">Regulasi terkait ({regs.length})</h2>
       <div className="mt-2 grid gap-3 md:grid-cols-2">{regs.map((r) => <RegulationCard key={r.slug} r={r} />)}</div>
       {arts.length > 0 && (
         <>
-          <h2 className="mt-6 font-extrabold">Artikel terkait</h2>
+          <h2 className="mt-6 font-semibold">Artikel terkait</h2>
           <div className="mt-2 grid gap-2">
             {arts.map((a) => <a key={a.slug} href={`/artikel/${a.slug}`} className="rounded-2xl border border-ink-100 p-3 text-sm font-semibold text-pagar-700 underline-offset-4 hover:underline">{a.judul}</a>)}
           </div>

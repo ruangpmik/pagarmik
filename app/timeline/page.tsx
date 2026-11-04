@@ -16,7 +16,7 @@ export default function Timeline() {
         {[...byYear.entries()].map(([year, list]) => (
           <li key={year} className="relative">
             <span className="absolute -left-[27px] top-1 h-3 w-3 rounded-full bg-pagar-600" aria-hidden />
-            <p className="text-xl font-extrabold text-pagar-800">{year}</p>
+            <p className="text-xl font-semibold text-pagar-800">{year}</p>
             <div className="mt-2 grid gap-3">
               {list.map((r) => (
                 <a key={r.slug} href={`/regulasi/${r.slug}`} className="rounded-2xl border border-ink-100 bg-white p-4 underline-offset-4 hover:border-pagar-300">

@@ -115,7 +115,7 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
           <div className="flex flex-wrap items-end justify-between gap-2">
             <div>
               <p className="text-sm font-semibold text-ink-900/65">Hubungan langsung untuk</p>
-              <h2 id="grafik-terpilih" className="text-xl font-extrabold leading-snug text-pagar-800">{graph.focus.judul}</h2>
+              <h2 id="grafik-terpilih" className="text-xl font-semibold leading-snug text-pagar-800">{graph.focus.judul}</h2>
             </div>
             <p className="text-sm text-ink-900/65">{graph.edges.length} relasi · {graph.related.length} regulasi terkait</p>
           </div>
