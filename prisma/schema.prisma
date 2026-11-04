@@ -20,6 +20,7 @@ enum Role {
 
 enum RegulationStatus {
   BERLAKU
+  BELUM_BERLAKU
   BERLAKU_DENGAN_CATATAN
   PERUBAHAN
   DICABUT

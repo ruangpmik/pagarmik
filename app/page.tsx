@@ -1,27 +1,49 @@
 import type { Metadata } from "next";
-import { SearchBar, RegulationCard } from "@/components/ui";
+import { SearchBar, StatusBadge } from "@/components/ui";
+import { NavIcon } from "@/components/TopNav";
 import { getStore } from "@/lib/data/store";
 
 export const metadata: Metadata = {
-  title: "PAGARMIK — Menjaga Batas. Melindungi Profesi.",
-  description: "Platform hukum dan regulasi untuk Perekam Medis dan Informasi Kesehatan: cari regulasi, telusuri pasal, tanya PAGARMIK AI.",
+  title: "Rujukan hukum untuk informasi kesehatan",
+  description: "Cari regulasi dan pasal terkait rekam medis, periksa status, dan buka sumber hukum yang tercatat.",
 };
 
 const EXPLORE = [
-  { href: "/regulasi", icon: "📚", label: "Regulasi" },
-  { href: "/pasal", icon: "⚖️", label: "Pasal" },
-  { href: "/ai", icon: "🤖", label: "PAGARMIK AI" },
-  { href: "/legal-search", icon: "🔍", label: "Legal Search" },
-  { href: "/topik/privasi", icon: "🛡️", label: "Privasi & Data" },
-  { href: "/analisis-kasus", icon: "📑", label: "Analisis Kasus" },
-  { href: "/timeline", icon: "🧭", label: "Regulatory Timeline" },
-  { href: "/artikel", icon: "📖", label: "Knowledge Base" },
-];
+  {
+    id: "catalog",
+    title: "Jelajahi katalog",
+    links: [
+      { href: "/regulasi", label: "Semua regulasi", icon: "file" },
+      { href: "/pasal", label: "Pasal dan ringkasan", icon: "list" },
+      { href: "/grafik", label: "Peta hubungan regulasi", icon: "network" },
+      { href: "/timeline", label: "Linimasa regulasi", icon: "clock" },
+    ],
+  },
+  {
+    id: "research",
+    title: "Riset dan analisis",
+    links: [
+      { href: "/topik/privasi", label: "Privasi dan data", icon: "tag" },
+      { href: "/artikel", label: "Artikel", icon: "book" },
+      { href: "/analisis-kasus", label: "Analisis kasus", icon: "scale" },
+    ],
+  },
+] as const;
+
+const sampleQuery = "Apa dasar hukum kerahasiaan rekam medis dan siapa yang bertanggung jawab menjaganya?";
 
 export default function Home() {
   const store = getStore();
-  const regs = store.regulations().slice(0, 4);
-  const totalPasal = regs.length ? store.regulations().reduce((a, r) => a + store.pasalsOf(r.slug).length, 0) : 0;
+  const regulations = store.regulations();
+  const featuredRegulations = regulations.slice(0, 4);
+  const totalPasal = regulations.reduce((total, regulation) => total + store.pasalsOf(regulation.slug).length, 0);
+  const counts = [
+    { label: "Regulasi", value: regulations.length },
+    { label: "Pasal tersedia", value: totalPasal },
+    { label: "Topik", value: store.topics().length },
+  ];
+  const aiExample = "/ai?q=" + encodeURIComponent(sampleQuery);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -31,71 +53,129 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="home-page space-y-9">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      {/* HERO */}
-      <section className="relative overflow-hidden rounded-3xl bg-pagar-950 px-6 py-12 text-white md:px-12 md:py-16">
-        <div className="pagar-stripes absolute inset-y-0 left-0 w-2 opacity-60" aria-hidden />
-        <div className="max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-pagar-200">Legal Intelligence · RMIK / MIK</p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight md:text-5xl">PAGARMIK</h1>
-          <p className="mt-1 text-lg font-semibold text-pagar-100">Menjaga Batas. Melindungi Profesi.</p>
-          <p className="mt-3 text-[15px] text-white/80">
-            Platform hukum dan regulasi untuk Perekam Medis dan Informasi Kesehatan.
+
+      <section className="grid gap-x-8 gap-y-6 border-b border-ink-100 pb-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,0.9fr)] xl:items-center" aria-labelledby="home-title">
+        <div className="min-w-0">
+          <h1 id="home-title" className="max-w-[20ch]">Rujukan hukum RMIK</h1>
+          <p className="mt-3 max-w-[58ch] text-base leading-relaxed text-ink-900/80">
+            Telusuri aturan terkait rekam medis dan informasi kesehatan, lalu periksa status serta sumbernya.
           </p>
-          <div className="mt-6 rounded-2xl bg-white p-2">
-            <SearchBar big />
-          </div>
-          <p className="mt-3 text-xs text-white/60">
-            Setiap jawaban AI disertai sitasi ke sumber hukum terverifikasi — tanpa sumber, AI akan berkata jujur.
-          </p>
-          <dl className="mt-5 flex gap-5 text-sm" aria-label="Statistik korpus">
-            {[[String(store.regulations().length), "regulasi"], [String(totalPasal), "pasal"], [String(store.topics().length), "topik"]].map(([v, k]) => (
-              <div key={k}><dt className="sr-only">{k}</dt><dd><span className="text-xl font-extrabold">{v}</span> <span className="text-white/70">{k}</span></dd></div>
-            ))}
-          </dl>
         </div>
+
+        <div className="home-search-panel flex min-w-0 flex-col justify-center">
+          <h2 className="mb-4 text-lg font-semibold text-pagar-800">Cari sumber hukum</h2>
+          <SearchBar
+            big
+            showAiLink={false}
+            label="Kata kunci, judul, nomor regulasi, atau pasal"
+            placeholder="Contoh: Permenkes 24/2022 atau rahasia rekam medis"
+            submitLabel="Cari"
+          />
+          <p className="mt-3 text-sm leading-relaxed text-ink-900/75">
+            Pencarian membuka dokumen katalog; detail regulasi memuat status dan tautan sumber yang tercatat.
+          </p>
+        </div>
+
+        <dl className="grid grid-cols-3 divide-x divide-ink-100 border-y border-ink-100 py-3 xl:col-span-2">
+          {counts.map((item) => (
+            <div key={item.label} className="min-w-0 px-3 first:pl-0 sm:px-5">
+              <dt className="text-sm text-ink-900/75">{item.label}</dt>
+              <dd className="mt-0.5 text-2xl font-semibold tabular-nums text-pagar-800">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
 
-      {/* EXPLORE */}
-      <section className="mt-8" aria-label="Jelajahi PAGARMIK">
-        <h2 className="text-lg font-extrabold">Jelajahi PAGARMIK</h2>
-        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          {EXPLORE.map((e) => (
-            <a key={e.label} href={e.href} className="rounded-2xl border border-ink-100 bg-white p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-              <span className="text-2xl" aria-hidden>{e.icon}</span>
-              <span className="mt-1 block text-sm font-bold text-pagar-800">{e.label}</span>
+      <div className="grid gap-9 xl:grid-cols-[minmax(0,1.6fr)_minmax(260px,0.8fr)]">
+        <section aria-labelledby="catalog-title">
+          <div className="flex flex-wrap items-end justify-between gap-3 border-b border-ink-100 pb-3">
+            <div>
+              <h2 id="catalog-title" className="text-xl font-semibold text-pagar-800">Regulasi dalam katalog</h2>
+              <p className="mt-1 text-sm text-ink-900/75">Lihat ringkasan, status yang tercatat, dan sumber dokumen.</p>
+            </div>
+            <a href="/regulasi" className="inline-flex min-h-10 items-center font-semibold text-pagar-700 underline underline-offset-2">
+              Buka katalog
             </a>
-          ))}
-        </div>
-      </section>
+          </div>
 
-      {/* REGULASI UNGGULAN */}
-      <section className="mt-8" aria-label="Regulasi terbaru">
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-extrabold">Regulasi Kunci</h2>
-          <a href="/regulasi" className="text-sm font-bold text-pagar-700 underline">Lihat semua</a>
-        </div>
-        <div className="mt-3 grid gap-3 md:grid-cols-2">
-          {regs.map((r) => (
-            <RegulationCard key={r.slug} r={r} />
-          ))}
-        </div>
-      </section>
+          <ul>
+            {featuredRegulations.map((regulation) => (
+              <li key={regulation.slug} className="border-b border-ink-100 py-4 last:border-b-0">
+                <article className="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:gap-6">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <StatusBadge status={regulation.status} />
+                      <span className="text-sm text-ink-900/75">{store.shortRef(regulation.slug)}</span>
+                    </div>
+                    <a
+                      href={"/regulasi/" + regulation.slug}
+                      className="mt-2 block rounded-sm font-semibold leading-snug text-pagar-800 underline-offset-4 hover:underline focus-visible:outline"
+                    >
+                      {regulation.judul}
+                    </a>
+                    <p className="mt-1 line-clamp-3 text-sm leading-relaxed text-ink-900/80">{regulation.ringkasan}</p>
+                    <p className="mt-2 text-sm text-ink-900/75">{regulation.instansi}</p>
+                  </div>
 
-      {/* DEMO */}
-      <section className="mt-8 rounded-2xl border border-pagar-200 bg-pagar-50 p-5" aria-label="Coba demo">
-        <h2 className="font-extrabold text-pagar-800">Coba skenario demo</h2>
-        <p className="mt-1 text-sm text-ink-900/70">
-          “Apa dasar hukum kerahasiaan rekam medis dan siapa yang bertanggung jawab menjaganya?”
-        </p>
-        <a
-          href="/ai?q=Apa%20dasar%20hukum%20kerahasiaan%20rekam%20medis%20dan%20siapa%20yang%20bertanggung%20jawab%20menjaganya%3F"
-          className="mt-3 inline-block rounded-xl bg-pagar-700 px-4 py-2 text-sm font-bold text-white"
-        >
-          Jalankan di PAGARMIK AI →
-        </a>
-      </section>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm md:min-w-40 md:flex-col md:items-start">
+                    <span className="text-ink-900/75">
+                      {regulation.verifiedAt ? "Verifikasi " + regulation.verifiedAt : "Verifikasi belum tercatat"}
+                    </span>
+                    {regulation.sumberResmi ? (
+                      <a
+                        href={regulation.sumberResmi}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold text-pagar-700 underline underline-offset-2"
+                      >
+                        Sumber resmi
+                        <span className="sr-only"> untuk {regulation.judul}, terbuka di tab baru</span>
+                      </a>
+                    ) : (
+                      <span className="text-ink-900/70">Sumber resmi belum dicatat</span>
+                    )}
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <aside className="space-y-8">
+          {EXPLORE.map((group) => (
+            <section key={group.id} aria-labelledby={"explore-" + group.id}>
+              <h2 id={"explore-" + group.id} className="border-b border-ink-100 pb-3 text-lg font-semibold text-pagar-800">
+                {group.title}
+              </h2>
+              <ul className="divide-y divide-ink-100">
+                {group.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="flex min-h-11 items-center gap-3 py-2 font-medium text-ink-900 hover:text-pagar-700 focus-visible:outline"
+                    >
+                      <NavIcon name={link.icon} className="h-4 w-4 shrink-0 text-ink-900/60" />
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          <section className="border-t border-ink-100 pt-5" aria-labelledby="ai-example-title">
+            <h2 id="ai-example-title" className="text-lg font-semibold text-pagar-800">Tanya PAGARMIK AI</h2>
+            <p className="mt-2 text-sm leading-relaxed text-ink-900/80">
+              Jawaban menampilkan sitasi yang tersedia dan menyatakan bila dasar hukum belum cukup.
+            </p>
+            <a href={aiExample} className="mt-3 inline-flex min-h-11 items-center font-semibold text-pagar-700 underline underline-offset-2">
+              Contoh: kerahasiaan rekam medis
+            </a>
+          </section>
+        </aside>
+      </div>
     </div>
   );
 }

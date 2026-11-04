@@ -8,11 +8,16 @@ export default async function Profil() {
   const token = cookies().get("pagarmik_session")?.value;
   const user = await readSession(token);
   if (!user) {
-    return <div className="mx-auto max-w-sm text-sm">Belum masuk. <a className="font-bold text-pagar-700 underline" href="/masuk?next=/profil">Masuk →</a></div>;
+    return (
+      <div className="mx-auto max-w-sm text-sm">
+        <h1>Profil</h1>
+        <p className="mt-3">Belum masuk. <a className="font-bold text-pagar-700 underline" href="/masuk?next=/profil">Masuk →</a></p>
+      </div>
+    );
   }
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="text-2xl font-extrabold">Profil</h1>
+      <h1>Profil</h1>
       <div className="mt-4 rounded-2xl border bg-white p-5 text-sm">
         <p className="text-lg font-extrabold">{user.name}</p>
         <p className="text-ink-900/60">{user.email} · {user.role}</p>

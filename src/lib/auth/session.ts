@@ -63,5 +63,10 @@ export function can(user: SessionUser | null, minimum: AppRole): boolean {
   return RANK[user.role] >= RANK[minimum];
 }
 
+/** Regulation status is an approval action, so editors do not inherit verifier permission. */
+export function canVerifyRegulationStatus(user: SessionUser | null): boolean {
+  return user?.role === "VERIFIER" || user?.role === "ADMIN";
+}
+
 // NOTE: user demo tersimpan di data/users.json (dibuat saat seed). Production: tabel User via Prisma.
 // Google OAuth: tambahkan provider di route /api/auth/[...provider] memakai Auth.js dan petakan ke SessionUser.

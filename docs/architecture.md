@@ -22,7 +22,8 @@ Core libs (src/lib) — tanpa dependensi provider
   │                        → LLM → Citation Validator → Confidence → Response
   ├── citation/validator   setiap [id] harus cocok dengan chunk ter-retrieve
   ├── ingest/pipeline      PDF → cleaning → pasal split → chunking → index
-  ├── data/store           JsonStore (demo) ↔ PrismaStore+pgvector (prod)
+  ├── data/store           JsonStore (demo); Prisma adapter produksi belum terhubung
+  ├── data/verification-store  audit verifikasi JSON (demo satu proses)
   ├── auth/session         JWT jose + scrypt, RBAC ADMIN>EDITOR>VERIFIER>USER
   └── security/guards      rate-limit, zod validation, escapeHtml, upload guard
   ▼

@@ -4,19 +4,19 @@
 
 | Lapisan | Implementasi |
 |---|---|
-| Transport | HSTS (`middleware.ts`); wajib TLS di reverse proxy |
-| Clickjacking | `X-Frame-Options: DENY` + CSP `frame-ancestors 'none'` |
-| XSS | CSP, `escapeHtml` untuk render teks AI/regulasi, React auto-escape |
-| CSRF | Cek `Origin` vs host untuk semua POST/PUT/PATCH/DELETE `/api/*` + cookie `SameSite=Lax`, `HttpOnly` |
+| Transport | HSTS is added by API middleware only; TLS must terminate at a trusted proxy. Other baseline headers come from `next.config.mjs`. |
+| Clickjacking | `X-Frame-Options: DENY` is configured for all pages; CSP `frame-ancestors` is applied to API routes only. |
+| XSS | React escapes ordinary rendered text. Regulation detail JSON-LD uses `dangerouslySetInnerHTML` with `JSON.stringify` on admin/seed-derived metadata; script-closing input is not escaped. |
+| CSRF | Middleware checks host equality only when Origin is supplied (not full origin); missing Origin passes on other routes. Verification separately requires full same-origin. |
 | Auth | JWT HS256 (`jose`), password `scrypt`, `AUTH_SECRET` min 32 char (fail-closed di production) |
-| RBAC | ADMIN > EDITOR > VERIFIER > USER di setiap endpoint admin |
-| Input validation | `zod` di semua endpoint AI/admin/auth |
-| Rate limiting | Per-IP: umum 60/mnt, AI 30, analisis kasus 20 (+`Retry-After`) |
-| Upload | Hanya PDF, maks 25 MB, **magic-byte `%PDF`**, ekstraksi terisolasi; status hasil ingest selalu `BELUM_DIVERIFIKASI` |
-| SQL injection | Prisma parameterized queries (production); tidak ada query mentah dari input user |
+| RBAC | Endpoint ingest memerlukan EDITOR/ADMIN; perubahan status regulasi memerlukan VERIFIER/ADMIN dengan pemeriksaan role tepat di server. Audit GET dibatasi untuk VERIFIER/ADMIN. |
+| Input validation | Zod is used on selected AI/admin routes; auth forms and other endpoints do not share one uniform schema. Validate each route separately. |
+| Rate limiting | In-memory per-IP limits exist on selected search/AI routes; login/register are not rate-limited and limits are not shared across instances. |
+| Upload | PDF MIME, size, and magic bytes are checked in ingest; body parsing occurs before file-size validation. ClamAV scanning is a deployment TODO, not an active control. |
+| SQL injection | Active demo reads JSON; no active Prisma query path was found. Prisma parameterization applies only if/when that adapter is implemented. |
 | Secrets | `.env` di-gitignore; `docker-compose` mewajibkan `AUTH_SECRET`; akun demo **tidak** ditanam di production (`seed.ts` guard) |
-| AI security | Prompt-injection filter, retrieval isolation (upload user tak masuk system prompt), citation validator, trust levels |
-| Privacy | Tidak menyimpan data pasien; log AI hanya pertanyaan + sitasi |
+| AI security | Prompt filter and citation validator exist; provider may send prompts/context to an external OpenAI-compatible endpoint when configured. No external data-flow authorization/disclosure was verified. |
+| Privacy | No dedicated patient-record model was found, but ingest accepts arbitrary PDF/text and cannot guarantee patient data is excluded. Treat uploaded content and case queries as potentially sensitive. |
 
 ## Tugas operator saat hosting
 

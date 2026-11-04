@@ -8,3 +8,6 @@ coverage
 *.tsbuildinfo
 /data
 *.DS_Store
+.taste-skill
+.tmp-vitest
+node-compile-cache

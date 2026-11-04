@@ -12,7 +12,14 @@
       "tglBerlaku": "2023-08-08",
       "sumberResmi": "https://peraturan.go.id",
       "ringkasan": "UU Kesehatan omnibus yang mencabut dan mengganti UU 36/2009 beserta sejumlah UU kesehatan sektoral. Mengatur hak-kewajiban pasien dan tenaga kesehatan, penyelenggaraan rekam medis dan informasi kesehatan, kerahasiaan data kesehatan, serta sanksi.",
-      "topik": ["rekam-medis", "hukum-kesehatan", "hak-pasien", "privasi", "pmik", "data-kesehatan"],
+      "topik": [
+        "rekam-medis",
+        "hukum-kesehatan",
+        "hak-pasien",
+        "privasi",
+        "pmik",
+        "data-kesehatan"
+      ],
       "verifiedAt": "2026-09-01"
     },
     {
@@ -27,7 +34,14 @@
       "tglBerlaku": "2022-08-31",
       "sumberResmi": "https://peraturan.go.id",
       "ringkasan": "Menggantikan Permenkes 269/2008. Mewajibkan penyelenggaraan rekam medis elektronik (RME) yang terintegrasi dengan platform SATUSEHAT, mengatur isi, kerahasiaan, kepemilikan, penyimpanan, pemusnahan, serta hak akses pasien atas rekam medisnya.",
-      "topik": ["rekam-medis", "rme", "simrs", "privasi", "hak-pasien", "pmik"],
+      "topik": [
+        "rekam-medis",
+        "rme",
+        "simrs",
+        "privasi",
+        "hak-pasien",
+        "pmik"
+      ],
       "verifiedAt": "2026-09-01"
     },
     {
@@ -42,7 +56,14 @@
       "tglBerlaku": "2022-10-17",
       "sumberResmi": "https://peraturan.go.id",
       "ringkasan": "UU PDP: data kesehatan termasuk data pribadi spesifik yang wajib dilindungi dengan standar lebih tinggi. Mengatur hak subjek data, kewajiban pengendali data (termasuk faskes), transfer data, hingga sanksi administratif dan pidana.",
-      "topik": ["privasi", "perlindungan-data", "keamanan-informasi", "data-kesehatan", "rme", "simrs"],
+      "topik": [
+        "privasi",
+        "perlindungan-data",
+        "keamanan-informasi",
+        "data-kesehatan",
+        "rme",
+        "simrs"
+      ],
       "verifiedAt": "2026-09-01"
     },
     {
@@ -57,7 +78,13 @@
       "tglBerlaku": "2024-07-26",
       "sumberResmi": "https://peraturan.go.id",
       "ringkasan": "Aturan pelaksana UU Kesehatan 17/2023: mengatur detail penyelenggaraan upaya kesehatan, SDM kesehatan, perizinan faskes, rekam medis dan sistem informasi kesehatan, serta pembinaan dan pengawasan.",
-      "topik": ["rekam-medis", "hukum-kesehatan", "rme", "akreditasi", "data-kesehatan"],
+      "topik": [
+        "rekam-medis",
+        "hukum-kesehatan",
+        "rme",
+        "akreditasi",
+        "data-kesehatan"
+      ],
       "verifiedAt": "2026-09-01"
     },
     {
@@ -72,7 +99,11 @@
       "tglBerlaku": "2008-03-12",
       "sumberResmi": "https://peraturan.go.id",
       "ringkasan": "Aturan rekam medis era kertas yang mengatur kepemilikan (isi milik pasien, berkas milik faskes), kerahasiaan, dan tata cara pembukaan informasi. Dicabut dan diganti oleh Permenkes 24/2022.",
-      "topik": ["rekam-medis", "privasi", "hak-pasien"],
+      "topik": [
+        "rekam-medis",
+        "privasi",
+        "hak-pasien"
+      ],
       "verifiedAt": "2026-09-01"
     },
     {
@@ -83,12 +114,17 @@
       "jenis": "Permenkes",
       "instansi": "Kementerian Kesehatan RI",
       "status": "BERLAKU_DENGAN_CATATAN",
-      "tglPenetapan": "2012-10-16",
-      "tglBerlaku": "2012-10-16",
-      "sumberResmi": "https://peraturan.go.id",
+      "tglPenetapan": "2012-08-10",
+      "tglBerlaku": "2012-09-12",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-36-tahun-2012",
       "ringkasan": "Mengatur lingkup rahasia kedokteran, pihak yang wajib menyimpan rahasia, serta kondisi pengecualian pembukaan rahasia (persetujuan pasien, kepentingan hukum, audit, penelitian dengan anonimisasi, dan keadaan mendesak). Perlu dibaca bersama UU 17/2023 dan UU PDP.",
-      "topik": ["privasi", "rekam-medis", "hukum-kesehatan", "sengketa"],
-      "verifiedAt": "2026-09-01"
+      "topik": [
+        "privasi",
+        "rekam-medis",
+        "hukum-kesehatan",
+        "sengketa"
+      ],
+      "verifiedAt": "2026-11-03"
     },
     {
       "slug": "permenkes-6-2026",
@@ -101,9 +137,17 @@
       "tglPenetapan": "2026-06-04",
       "tglBerlaku": "2026-06-12",
       "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
-      "ringkasan": "Kodifikasi baru penyelenggaraan rumah sakit pelaksana UU 17/2023. Mencabut 22 aturan lama sekaligus — termasuk Permenkes 82/2013 (SIMRS), Permenkes 1171/2011 (Sistem Informasi RS), dan Permenkes 4/2018 (Kewajiban RS dan Kewajiban Pasien) — sehingga acuan kewajiban sistem informasi, hak-kewajiban, dan tata kelola RS kini terpusat di sini.",
-      "topik": ["rumah-sakit", "simrs", "rme", "hak-pasien", "hukum-kesehatan", "pmik", "akreditasi"],
-      "verifiedAt": "2026-10-11"
+      "ringkasan": "Permenkes 6/2026 mengatur penyelenggaraan Rumah Sakit sebagai pelaksanaan UU 17/2023. Pasal 84 mencabut dan menyatakan tidak berlaku 21 instrumen dalam daftar huruf a sampai u, termasuk Permenkes 82/2013 tentang SIMRS, Permenkes 1171/2011 tentang Sistem Informasi Rumah Sakit, dan Permenkes 4/2018 tentang Kewajiban Rumah Sakit dan Kewajiban Pasien; huruf c membatasi pencabutan pada ruang pengaturan yang disebut. Pasal 85 berlaku sejak diundangkan pada 12 Juni 2026. Masa penyesuaian 2 dan 4 tahun di Pasal 83 terpisah dari pencabutan tersebut.",
+      "topik": [
+        "rumah-sakit",
+        "simrs",
+        "rme",
+        "hak-pasien",
+        "hukum-kesehatan",
+        "pmik",
+        "akreditasi"
+      ],
+      "verifiedAt": "2026-11-03"
     },
     {
       "slug": "permenkes-82-2013",
@@ -114,11 +158,14 @@
       "instansi": "Kementerian Kesehatan RI",
       "status": "DICABUT",
       "tglPenetapan": "2013-12-10",
-      "tglBerlaku": "2013-12-10",
+      "tglBerlaku": "2014-01-20",
       "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-82-tahun-2013",
       "ringkasan": "Aturan SIMRS era awal yang mewajibkan setiap RS menyelenggarakan SIMRS. Dicabut dan diganti rezim Permenkes 6/2026 — dirujuk hanya untuk konteks historis dan migrasi.",
-      "topik": ["simrs", "rumah-sakit"],
-      "verifiedAt": "2026-10-11"
+      "topik": [
+        "simrs",
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
     },
     {
       "slug": "permenkes-4-2018",
@@ -129,7 +176,11 @@
       "instansi": "Kementerian Kesehatan RI",
       "status": "DICABUT",
       "ringkasan": "Mengatur kewajiban RS (termasuk informasi dan rekam medis) serta kewajiban pasien. Dicabut dan diganti rezim Permenkes 6/2026.",
-      "topik": ["rumah-sakit", "hak-pasien", "rekam-medis"],
+      "topik": [
+        "rumah-sakit",
+        "hak-pasien",
+        "rekam-medis"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -142,7 +193,11 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.anri.go.id/search?q=UU%20Kearsipan",
       "ringkasan": "Fondasi pengelolaan arsip nasional: setiap lembaga (termasuk faskes) wajib mengelola arsip dinamis dan statis; penyusutan arsip — pemindahan, pemusnahan, penyerahan — hanya sah berdasarkan Jadwal Retensi Arsip (JRA) melalui prosedur. Rekam medis yang inaktif adalah arsip yang tunduk pada rezim ini.",
-      "topik": ["kearsipan", "rekam-medis", "hukum-kesehatan"],
+      "topik": [
+        "kearsipan",
+        "rekam-medis",
+        "hukum-kesehatan"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -155,7 +210,10 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.anri.go.id/search?q=PP%20No.%2028",
       "ringkasan": "Pelaksana UU Kearsipan: mengatur penetapan JRA, penyusutan arsip, SDM kearsipan, perlindungan arsip vital, dan pembinaan. Acuan operasional penyimpanan vs pemusnahan arsip — termasuk arsip rekam medis.",
-      "topik": ["kearsipan", "rekam-medis"],
+      "topik": [
+        "kearsipan",
+        "rekam-medis"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -168,7 +226,11 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.anri.go.id/peraturan/peraturan-kepala-arsip-nasional-republik-indonesia-no-22-tahun-2015",
       "ringkasan": "Alur penetapan JRA: penyusunan, penilaian, persetujuan ANRI, hingga penetapan pimpinan lembaga. Tanpa JRA yang sah, pemusnahan arsip (termasuk rekam medis inaktif) tidak memiliki dasar.",
-      "topik": ["kearsipan", "rekam-medis", "pmik"],
+      "topik": [
+        "kearsipan",
+        "rekam-medis",
+        "pmik"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -181,7 +243,9 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.anri.go.id/peraturan/peraturan-kepala-arsip-nasional-republik-indonesia-no-12-tahun-2007",
       "ringkasan": "Mekanisme persetujuan JRA untuk lembaga negara/pemerintah pusat — pintu administratif pengesahan retensi arsip substantif seperti rekam medis RS pemerintah.",
-      "topik": ["kearsipan"],
+      "topik": [
+        "kearsipan"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -196,7 +260,12 @@
       "tglBerlaku": "2026-01-02",
       "sumberResmi": "https://peraturan.go.id/id/uu-no-1-tahun-2023",
       "ringkasan": "KUHP nasional baru pengganti KUHP kolonial; berlaku Januari 2026. Mengatur ulang tindak pidana umum — termasuk yang bersinggungan dengan pembukaan rahasia, dokumen, dan pertanggungjawaban pidana korporasi — yang relevan bagi faskes dan pengelola informasi kesehatan.",
-      "topik": ["hukum-kesehatan", "privasi", "sengketa", "pmik"],
+      "topik": [
+        "hukum-kesehatan",
+        "privasi",
+        "sengketa",
+        "pmik"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -211,7 +280,12 @@
       "tglBerlaku": "2008-04-30",
       "sumberResmi": "https://peraturan.go.id/id/uu-no-14-tahun-2008",
       "ringkasan": "Setiap badan publik (termasuk RS pemerintah) wajib membuka informasi publik, KECUALI informasi yang dikecualikan — antara lain rahasia pribadi pasien/rekam medis. Dilaksanakan PP 61/2010. Fondasi keseimbangan transparansi vs kerahasiaan di faskes publik.",
-      "topik": ["keterbukaan-informasi", "privasi", "rekam-medis", "rumah-sakit"],
+      "topik": [
+        "keterbukaan-informasi",
+        "privasi",
+        "rekam-medis",
+        "rumah-sakit"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -223,7 +297,10 @@
       "instansi": "Presiden RI",
       "status": "BERLAKU",
       "ringkasan": "Pelaksana UU KIP: tata cara permohonan informasi, uji konsekuensi informasi dikecualikan, dan PPID. Acuan faskes publik menangani permintaan informasi yang menyentuh data pasien.",
-      "topik": ["keterbukaan-informasi", "privasi"],
+      "topik": [
+        "keterbukaan-informasi",
+        "privasi"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -238,7 +315,12 @@
       "tglBerlaku": "2018-10-05",
       "sumberResmi": "https://peraturan.go.id/id/perpres-no-95-tahun-2018",
       "ringkasan": "SPBE: tata kelola sistem elektronik instansi pemerintah — keterpaduan, keamanan informasi, dan layanan digital. Relevan bagi RSUD/Dinkes sebagai penyelenggara sistem elektronik dan pengguna RME/SIMRS.",
-      "topik": ["sistem-elektronik", "simrs", "keamanan-informasi", "rumah-sakit"],
+      "topik": [
+        "sistem-elektronik",
+        "simrs",
+        "keamanan-informasi",
+        "rumah-sakit"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -251,7 +333,12 @@
       "status": "PERUBAHAN",
       "sumberResmi": "https://jdih.komdigi.go.id/",
       "ringkasan": "UU ITE: keabsahan dokumen/tanda tangan elektronik, keamanan sistem elektronik, dan delik siber. Diubah UU 19/2016 — baca versi berlaku. Fondasi hukum RME, TTE nakes, dan keamanan SIMRS.",
-      "topik": ["sistem-elektronik", "rme", "keamanan-informasi", "sengketa"],
+      "topik": [
+        "sistem-elektronik",
+        "rme",
+        "keamanan-informasi",
+        "sengketa"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -264,7 +351,12 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.komdigi.go.id/",
       "ringkasan": "Perubahan UU ITE: penegasan delik, penguatan alat bukti elektronik, dan kewajiban PSE. Versi berlaku rezim ITE yang mengikat RME, telemedicine, dan aplikasi kesehatan.",
-      "topik": ["sistem-elektronik", "rme", "keamanan-informasi", "telemedicine"],
+      "topik": [
+        "sistem-elektronik",
+        "rme",
+        "keamanan-informasi",
+        "telemedicine"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -276,7 +368,12 @@
       "instansi": "Presiden RI",
       "status": "BERLAKU",
       "ringkasan": "Pengganti PP 82/2012: kewajiban PSE (tata kelola, keamanan, perlindungan data pribadi, retensi data, audit) — berlaku untuk RS/vendor kesehatan sebagai PSE. Jembatan ITE ↔ UU PDP.",
-      "topik": ["sistem-elektronik", "perlindungan-data", "keamanan-informasi", "simrs"],
+      "topik": [
+        "sistem-elektronik",
+        "perlindungan-data",
+        "keamanan-informasi",
+        "simrs"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -289,7 +386,9 @@
       "status": "DICABUT",
       "sumberResmi": "https://jdih.komdigi.go.id/",
       "ringkasan": "PSTE generasi pertama. Dicabut dan diganti PP 71/2019 — hanya untuk konteks historis.",
-      "topik": ["sistem-elektronik"],
+      "topik": [
+        "sistem-elektronik"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -302,7 +401,11 @@
       "status": "BERLAKU_DENGAN_CATATAN",
       "sumberResmi": "https://jdih.komdigi.go.id/",
       "ringkasan": "Cikal bakal aturan PDP sektoral: prinsip perlindungan data dalam sistem elektronik (hak pemilik data, kewajiban PSE). Wajib dibaca bersama UU PDP 27/2022 yang levelnya lebih tinggi dan lebih baru.",
-      "topik": ["perlindungan-data", "sistem-elektronik", "privasi"],
+      "topik": [
+        "perlindungan-data",
+        "sistem-elektronik",
+        "privasi"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -315,7 +418,12 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.komdigi.go.id/",
       "ringkasan": "Kewajiban PSE privat (termasuk vendor/startup health-tech dan RS swasta): pendaftaran, tata kelola data, keamanan, dan penegakan. Relevan untuk kontrak dan due diligence vendor SIMRS/RME/telemedicine.",
-      "topik": ["sistem-elektronik", "simrs", "telemedicine", "keamanan-informasi"],
+      "topik": [
+        "sistem-elektronik",
+        "simrs",
+        "telemedicine",
+        "keamanan-informasi"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -327,7 +435,12 @@
       "instansi": "Kementerian Kesehatan RI",
       "status": "BELUM_DIVERIFIKASI",
       "ringkasan": "Mengatur layanan telemedicine antar fasilitas pelayanan kesehatan (konsultasi, diagnosis, teleradiologi, dsb.) termasuk aspek pencatatan dan kerahasiaan data yang dipertukarkan. Status keberlakuan perlu verifikasi silang dengan rezim UU 17/2023.",
-      "topik": ["telemedicine", "rme", "privasi", "rekam-medis"],
+      "topik": [
+        "telemedicine",
+        "rme",
+        "privasi",
+        "rekam-medis"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -337,10 +450,33 @@
       "tahun": 2013,
       "jenis": "Permenkes",
       "instansi": "Kementerian Kesehatan RI",
-      "status": "BELUM_DIVERIFIKASI",
-      "ringkasan": "Mengatur penyelenggaraan pekerjaan perekam medis: lingkup, kompetensi, dan peran PMIK dalam pengelolaan rekam medis dan informasi kesehatan. Status keberlakuan perlu verifikasi silang dengan rezim UU 17/2023 dan aturan konsil/kolegium terbaru.",
-      "topik": ["pmik", "kewenangan-profesi", "rekam-medis"],
-      "verifiedAt": "2026-10-11"
+      "status": "DICABUT",
+      "ringkasan": "Mengatur penyelenggaraan pekerjaan perekam medis. Dicabut dan dinyatakan tidak berlaku oleh Permenkes 13/2025 Pasal 309, efektif saat diundangkan pada 3 November 2025. Simpan untuk rujukan historis; gunakan rezim terbaru setelah penelaahan ketentuan peralihan Pasal 305 Permenkes 13/2025.",
+      "topik": [
+        "pmik",
+        "kewenangan-profesi",
+        "rekam-medis"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-13-2025",
+      "judul": "Peraturan Menteri Kesehatan Nomor 13 Tahun 2025 tentang Pengelolaan Sumber Daya Manusia Kesehatan",
+      "nomor": "13",
+      "tahun": 2025,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "BERLAKU",
+      "tglBerlaku": "2025-11-03",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-13-tahun-2025",
+      "ringkasan": "Mengatur pengelolaan sumber daya manusia kesehatan. Pasal 309 secara tegas mencabut Permenkes 55/2013 tentang Penyelenggaraan Pekerjaan Perekam Medis; Pasal 310 menetapkan mulai berlaku pada tanggal diundangkan, 3 November 2025. JDIH mencatat tanggal penetapan 18 Oktober 2025, sementara ekstraksi teks PDF resmi terbaca 8 Oktober 2025; tanggal penetapan sengaja tidak diisi sampai naskah visual diverifikasi. Pasal 305 memuat ketentuan peralihan yang perlu dibaca terpisah dan tidak dianggap menghidupkan kembali aturan yang secara tegas dicabut.",
+      "topik": [
+        "sdm-kesehatan",
+        "pmik",
+        "rekam-medis",
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
     },
     {
       "slug": "uu-36-2014",
@@ -351,7 +487,11 @@
       "instansi": "DPR RI / Presiden RI",
       "status": "DICABUT",
       "ringkasan": "Mengatur pengelompokan, kualifikasi, registrasi, dan pembinaan tenaga kesehatan (termasuk rumpun keteknisian medis tempat PMIK berada). DICABUT oleh UU 17/2023 (terverifikasi Database Peraturan) — baca rezim terbaru.",
-      "topik": ["kewenangan-profesi", "pmik", "hukum-kesehatan"],
+      "topik": [
+        "kewenangan-profesi",
+        "pmik",
+        "hukum-kesehatan"
+      ],
       "verifiedAt": "2026-10-12"
     },
     {
@@ -363,7 +503,11 @@
       "instansi": "DPR RI / Presiden RI",
       "status": "BERLAKU",
       "ringkasan": "Hak konsumen atas informasi yang benar dan keamanan — relevan bagi pasien sebagai konsumen jasa layanan kesehatan dan pengguna aplikasi/vendor health-tech dalam hubungan korporat.",
-      "topik": ["hak-pasien", "sengketa", "telemedicine"],
+      "topik": [
+        "hak-pasien",
+        "sengketa",
+        "telemedicine"
+      ],
       "verifiedAt": "2026-10-11"
     },
     {
@@ -376,7 +520,12 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.kemkes.go.id/news/memaknai-putusan-mahkamah-konstitusi-mengenai-kolegium",
       "ringkasan": "MK menegaskan kolegium adalah institusi keilmuan yang independen — berkedudukan sebagai unsur keanggotaan Konsil (bukan alat kelengkapan/subordinat Konsil) dan bertanggung jawab kepada Presiden melalui Konsil; ketentuan peralihan kolegium bentukan organisasi profesi (Pasal 451 UU 17/2023) bersifat sementara. Relevan bagi standar kompetensi dan sertifikasi PMIK/nakes.",
-      "topik": ["konsil-kolegium", "kewenangan-profesi", "hukum-kesehatan", "pmik"],
+      "topik": [
+        "konsil-kolegium",
+        "kewenangan-profesi",
+        "hukum-kesehatan",
+        "pmik"
+      ],
       "trustLevel": "L3_PUTUSAN_INSTITUSI",
       "verifiedAt": "2026-10-11"
     },
@@ -390,7 +539,11 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.anri.go.id/search?q=alih%20media%20arsip",
       "ringkasan": "Acuan resmi alih media arsip (konversi media, mis. kertas→digital) beserta persyaratan keabsahan hasilnya. Dipakai sebagai rujukan prosedural alih media arsip — termasuk rekam medis inaktif — agar hasilnya sah dan dapat dipertanggungjawabkan.",
-      "topik": ["kearsipan", "rekam-medis", "rme"],
+      "topik": [
+        "kearsipan",
+        "rekam-medis",
+        "rme"
+      ],
       "trustLevel": "L2_REPOSITORI_RESMI",
       "verifiedAt": "2026-10-11"
     },
@@ -404,7 +557,12 @@
       "status": "BERLAKU",
       "sumberResmi": "https://jdih.anri.go.id/search?q=autentikasi%20arsip",
       "ringkasan": "Pedoman autentikasi arsip — pembuktian keaslian dan keutuhan arsip hasil alih media/digitalisasi. Berpasangan dengan ketentuan tanda tangan elektronik (UU ITE) untuk menjamin RME hasil alih media sah sebagai alat bukti.",
-      "topik": ["kearsipan", "sistem-elektronik", "rme", "keamanan-informasi"],
+      "topik": [
+        "kearsipan",
+        "sistem-elektronik",
+        "rme",
+        "keamanan-informasi"
+      ],
       "trustLevel": "L2_REPOSITORI_RESMI",
       "verifiedAt": "2026-10-11"
     },
@@ -418,7 +576,12 @@
       "status": "DICABUT",
       "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
       "ringkasan": "UU pertama yang mewajibkan dokter/dokter gigi membuat rekam medis dan menjaga rahasia kedokteran. Dicabut UU 17/2023 — dirujuk untuk konteks historis dan pemahaman evolusi kewajiban dokumentasi klinis.",
-      "topik": ["rekam-medis", "privasi", "hukum-kesehatan", "kewenangan-profesi"],
+      "topik": [
+        "rekam-medis",
+        "privasi",
+        "hukum-kesehatan",
+        "kewenangan-profesi"
+      ],
       "verifiedAt": "2026-10-12"
     },
     {
@@ -431,7 +594,12 @@
       "status": "DICABUT",
       "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
       "ringkasan": "UU Kesehatan sebelum omnibus: mengatur hak atas informasi kesehatan, kerahasiaan, dan penyelenggaraan rekam medis. Dicabut UU 17/2023.",
-      "topik": ["hukum-kesehatan", "hak-pasien", "privasi", "rekam-medis"],
+      "topik": [
+        "hukum-kesehatan",
+        "hak-pasien",
+        "privasi",
+        "rekam-medis"
+      ],
       "verifiedAt": "2026-10-12"
     },
     {
@@ -444,7 +612,11 @@
       "status": "DICABUT",
       "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
       "ringkasan": "Mewajibkan RS menyelenggarakan rekam medis dan sistem informasi RS. Dicabut UU 17/2023; rezim RS kini di bawah UU 17/2023 jo. Permenkes 6/2026.",
-      "topik": ["rumah-sakit", "rekam-medis", "simrs"],
+      "topik": [
+        "rumah-sakit",
+        "rekam-medis",
+        "simrs"
+      ],
       "verifiedAt": "2026-10-12"
     },
     {
@@ -459,7 +631,11 @@
       "tglBerlaku": "2026-05-25",
       "sumberResmi": "https://peraturan.go.id/id/peraturan-bssn-no-1-tahun-2026",
       "ringkasan": "Pembaruan rezim pelatihan keamanan siber dan persandian nasional. Relevan bagi faskes/korporat kesehatan dalam menyiapkan SDM keamanan informasi (security awareness, penanganan insiden) untuk SIMRS/RME.",
-      "topik": ["keamanan-informasi", "simrs", "sistem-elektronik"],
+      "topik": [
+        "keamanan-informasi",
+        "simrs",
+        "sistem-elektronik"
+      ],
       "verifiedAt": "2026-10-12"
     },
     {
@@ -471,8 +647,891 @@
       "instansi": "Badan Siber dan Sandi Negara",
       "status": "PERUBAHAN",
       "ringkasan": "Rezim awal pelatihan keamanan siber nasional. Diubah PerBSSN 1/2026 — baca versi berlaku.",
-      "topik": ["keamanan-informasi"],
+      "topik": [
+        "keamanan-informasi"
+      ],
       "verifiedAt": "2026-10-12"
+    },
+    {
+      "slug": "uu-419-1949",
+      "judul": "Undang-Undang Nomor 419 Tahun 1949 tentang Ordonansi Obat Keras (Staatsblad 1949 Nomor 419)",
+      "nomor": "419",
+      "tahun": 1949,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Ordonansi Obat Keras; pranata awal penggolongan obat keras. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "obat-keras"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "uu-4-1984",
+      "judul": "Undang-Undang Nomor 4 Tahun 1984 tentang Wabah Penyakit Menular",
+      "nomor": "4",
+      "tahun": 1984,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mengatur penanggulangan wabah penyakit menular. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "wabah-penyakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "uu-20-2013",
+      "judul": "Undang-Undang Nomor 20 Tahun 2013 tentang Pendidikan Kedokteran",
+      "nomor": "20",
+      "tahun": 2013,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mengatur pendidikan kedokteran dan standar kompetensi dokter/dokter spesialis. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "pendidikan-kedokteran"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "uu-18-2014",
+      "judul": "Undang-Undang Nomor 18 Tahun 2014 tentang Kesehatan Jiwa",
+      "nomor": "18",
+      "tahun": 2014,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mengatur upaya kesehatan jiwa dan pelayanan orang dengan gangguan jiwa. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "kesehatan-jiwa"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "uu-38-2014",
+      "judul": "Undang-Undang Nomor 38 Tahun 2014 tentang Keperawatan",
+      "nomor": "38",
+      "tahun": 2014,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mengatur praktik keperawatan, standar kompetensi, dan registrasi perawat. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "keperawatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "uu-6-2018",
+      "judul": "Undang-Undang Nomor 6 Tahun 2018 tentang Kekarantinaan Kesehatan",
+      "nomor": "6",
+      "tahun": 2018,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mengatur kekarantinaan kesehatan di pintu masuk dan wilayah. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "kekarantinaan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "uu-4-2019",
+      "judul": "Undang-Undang Nomor 4 Tahun 2019 tentang Kebidanan",
+      "nomor": "4",
+      "tahun": 2019,
+      "jenis": "UU",
+      "instansi": "DPR RI / Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.go.id/id/uu-no-17-tahun-2023",
+      "ringkasan": "Mengatur praktik kebidanan, standar kompetensi, dan registrasi bidan. Dicabut UU 17/2023.",
+      "topik": [
+        "hukum-kesehatan",
+        "kebidanan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-26-1960",
+      "judul": "Peraturan Pemerintah Nomor 26 Tahun 1960 tentang Lafal Sumpah Dokter",
+      "nomor": "26",
+      "tahun": 1960,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-11-1961",
+      "judul": "Peraturan Pemerintah Nomor 11 Tahun 1961 tentang Penyakit Karantina",
+      "nomor": "11",
+      "tahun": 1961,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-20-1962",
+      "judul": "Peraturan Pemerintah Nomor 20 Tahun 1962 tentang Lafal Sumpah Janji Apoteker",
+      "nomor": "20",
+      "tahun": 1962,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-33-1963",
+      "judul": "Peraturan Pemerintah Nomor 33 Tahun 1963 tentang Lafal Sumpah/Janji Dokter Gigi",
+      "nomor": "33",
+      "tahun": 1963,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-10-1966",
+      "judul": "Peraturan Pemerintah Nomor 10 Tahun 1966 tentang Wajib Simpan Rahasia Kedokteran",
+      "nomor": "10",
+      "tahun": 1966,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-1-1988",
+      "judul": "Peraturan Pemerintah Nomor 1 Tahun 1988 tentang Masa Bakti dan Praktek Dokter dan Dokter Gigi",
+      "nomor": "1",
+      "tahun": 1988,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-40-1991",
+      "judul": "Peraturan Pemerintah Nomor 40 Tahun 1991 tentang Penanggulangan Wabah Penyakit Menular",
+      "nomor": "40",
+      "tahun": 1991,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-39-1995",
+      "judul": "Peraturan Pemerintah Nomor 39 Tahun 1995 tentang Penelitian dan Pengembangan Kesehatan",
+      "nomor": "39",
+      "tahun": 1995,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-72-1998",
+      "judul": "Peraturan Pemerintah Nomor 72 Tahun 1998 tentang Pengamanan Sediaan Farmasi dan Alat Kesehatan",
+      "nomor": "72",
+      "tahun": 1998,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-51-2009",
+      "judul": "Peraturan Pemerintah Nomor 51 Tahun 2009 tentang Pekerjaan Kefarmasian",
+      "nomor": "51",
+      "tahun": 2009,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-7-2011",
+      "judul": "Peraturan Pemerintah Nomor 7 Tahun 2011 tentang Pelayanan Darah",
+      "nomor": "7",
+      "tahun": 2011,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-33-2012",
+      "judul": "Peraturan Pemerintah Nomor 33 Tahun 2012 tentang Pemberian Air Susu Ibu Eksklusif",
+      "nomor": "33",
+      "tahun": 2012,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-109-2012",
+      "judul": "Peraturan Pemerintah Nomor 109 Tahun 2012 tentang Pengamanan Bahan Yang Mengandung Zat Adiktif Berupa Produk Tembakau Bagi Kesehatan",
+      "nomor": "109",
+      "tahun": 2012,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-49-2013",
+      "judul": "Peraturan Pemerintah Nomor 49 Tahun 2013 tentang Badan Pengawas Rumah Sakit",
+      "nomor": "49",
+      "tahun": 2013,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-46-2014",
+      "judul": "Peraturan Pemerintah Nomor 46 Tahun 2014 tentang Sistem Informasi Kesehatan",
+      "nomor": "46",
+      "tahun": 2014,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-61-2014",
+      "judul": "Peraturan Pemerintah Nomor 61 Tahun 2014 tentang Kesehatan Reproduksi",
+      "nomor": "61",
+      "tahun": 2014,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut oleh PP 28/2024 kecuali Pasal 31.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-66-2014",
+      "judul": "Peraturan Pemerintah Nomor 66 Tahun 2014 tentang Kesehatan Lingkungan",
+      "nomor": "66",
+      "tahun": 2014,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-103-2014",
+      "judul": "Peraturan Pemerintah Nomor 103 Tahun 2014 tentang Pelayanan Kesehatan Tradisional",
+      "nomor": "103",
+      "tahun": 2014,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-93-2015",
+      "judul": "Peraturan Pemerintah Nomor 93 Tahun 2015 tentang Rumah Sakit Pendidikan",
+      "nomor": "93",
+      "tahun": 2015,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-47-2016",
+      "judul": "Peraturan Pemerintah Nomor 47 Tahun 2016 tentang Fasilitas Pelayanan Kesehatan",
+      "nomor": "47",
+      "tahun": 2016,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-52-2017",
+      "judul": "Peraturan Pemerintah Nomor 52 Tahun 2017 tentang Peraturan Pelaksanaan Undang-Undang Nomor 20 Tahun 2013 tentang Pendidikan Kedokteran",
+      "nomor": "52",
+      "tahun": 2017,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-67-2019",
+      "judul": "Peraturan Pemerintah Nomor 67 Tahun 2019 tentang Pengelolaan Tenaga Kesehatan",
+      "nomor": "67",
+      "tahun": 2019,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-88-2019",
+      "judul": "Peraturan Pemerintah Nomor 88 Tahun 2019 tentang Kesehatan Kerja",
+      "nomor": "88",
+      "tahun": 2019,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-21-2020",
+      "judul": "Peraturan Pemerintah Nomor 21 Tahun 2020 tentang Pembatasan Sosial Berskala Besar dalam Rangka Percepatan Penanganan Corona Virus Disease 2019 (COVID-19)",
+      "nomor": "21",
+      "tahun": 2020,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-47-2021",
+      "judul": "Peraturan Pemerintah Nomor 47 Tahun 2021 tentang Penyelenggaraan Bidang Perumahsakitan",
+      "nomor": "47",
+      "tahun": 2021,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-53-2021",
+      "judul": "Peraturan Pemerintah Nomor 53 Tahun 2021 tentang Transplantasi Organ dan Jaringan Tubuh",
+      "nomor": "53",
+      "tahun": 2021,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "perpres-35-2008",
+      "judul": "Peraturan Presiden Nomor 35 Tahun 2008 tentang Tata Cara Pengangkatan dan Pemberhentian Keanggotaan Konsil Kedokteran Indonesia",
+      "nomor": "35",
+      "tahun": 2008,
+      "jenis": "Perpres",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "perpres-77-2015",
+      "judul": "Peraturan Presiden Nomor 77 Tahun 2015 tentang Pedoman Organisasi Rumah Sakit",
+      "nomor": "77",
+      "tahun": 2015,
+      "jenis": "Perpres",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "perpres-90-2017",
+      "judul": "Peraturan Presiden Nomor 90 Tahun 2017 tentang Konsil Tenaga Kesehatan Indonesia",
+      "nomor": "90",
+      "tahun": 2017,
+      "jenis": "Perpres",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "perpres-31-2019",
+      "judul": "Peraturan Presiden Nomor 31 Tahun 2019 tentang Pendayagunaan Dokter Spesialis",
+      "nomor": "31",
+      "tahun": 2019,
+      "jenis": "Perpres",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "perpres-86-2019",
+      "judul": "Peraturan Presiden Nomor 86 Tahun 2019 tentang Perubahan atas Peraturan Presiden Nomor 90 Tahun 2017 tentang Konsil Tenaga Kesehatan Indonesia",
+      "nomor": "86",
+      "tahun": 2019,
+      "jenis": "Perpres",
+      "instansi": "Presiden RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh PP 28/2024.",
+      "topik": [
+        "hukum-kesehatan"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "kepmenkes-772-2002",
+      "judul": "Keputusan Menteri Kesehatan Nomor 772/MENKES/SK/VI/2002 tentang Pedoman Peraturan Internal Rumah Sakit (Hospital By Laws)",
+      "nomor": "772/MENKES/SK/VI/2002",
+      "tahun": 2002,
+      "jenis": "Kepmenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "kepmenkes-058-2009",
+      "judul": "Keputusan Menteri Kesehatan Nomor 058/Menkes/SK/I/2009 tentang Pedoman Penyelenggaraan Rumah Sakit Bergerak",
+      "nomor": "058/Menkes/SK/I/2009",
+      "tahun": 2009,
+      "jenis": "Kepmenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-971-2009",
+      "judul": "Peraturan Menteri Kesehatan Nomor 971/MENKES/PER/XI/2009 tentang Standar Kompetensi Pejabat Struktural Kesehatan",
+      "nomor": "971/MENKES/PER/XI/2009",
+      "tahun": 2009,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut oleh Permenkes 6/2026 sepanjang mengatur kompetensi pejabat struktural kesehatan rumah sakit.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-755-2011",
+      "judul": "Peraturan Menteri Kesehatan Nomor 755/MENKES/PER/IV/2011 tentang Penyelenggaraan Komite Medik di Rumah Sakit",
+      "nomor": "755/MENKES/PER/IV/2011",
+      "tahun": 2011,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-1171-2011",
+      "judul": "Peraturan Menteri Kesehatan Nomor 1171/MENKES/PER/VI/2011 tentang Sistem Informasi Rumah Sakit",
+      "nomor": "1171/MENKES/PER/VI/2011",
+      "tahun": 2011,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-2306-2011",
+      "judul": "Peraturan Menteri Kesehatan Nomor 2306/MENKES/PER/XI/2011 tentang Persyaratan Teknis Prasarana Instalasi Elektrikal Rumah Sakit",
+      "nomor": "2306/MENKES/PER/XI/2011",
+      "tahun": 2011,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-49-2013",
+      "judul": "Peraturan Menteri Kesehatan Nomor 49 Tahun 2013 tentang Komite Keperawatan Rumah Sakit",
+      "nomor": "49",
+      "tahun": 2013,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-10-2014",
+      "judul": "Peraturan Menteri Kesehatan Nomor 10 Tahun 2014 tentang Dewan Pengawas Rumah Sakit",
+      "nomor": "10",
+      "tahun": 2014,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-17-2014",
+      "judul": "Peraturan Menteri Kesehatan Nomor 17 Tahun 2014 tentang Keanggotaan, Pengangkatan dan Pemberhentian Anggota Badan Pengawas Rumah Sakit Indonesia",
+      "nomor": "17",
+      "tahun": 2014,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-24-2014",
+      "judul": "Peraturan Menteri Kesehatan Nomor 24 Tahun 2014 tentang Rumah Sakit Kelas D Pratama",
+      "nomor": "24",
+      "tahun": 2014,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-85-2015",
+      "judul": "Peraturan Menteri Kesehatan Nomor 85 Tahun 2015 tentang Pola Tarif Nasional Rumah Sakit",
+      "nomor": "85",
+      "tahun": 2015,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-88-2015",
+      "judul": "Peraturan Menteri Kesehatan Nomor 88 Tahun 2015 tentang Pedoman Pengawasan, Sistem Pelaporan, dan Sistem Informasi Dalam Penyelenggaraan Pembinaan dan Pengawasan Rumah Sakit oleh Badan Pengawas Rumah Sakit",
+      "nomor": "88",
+      "tahun": 2015,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-11-2016",
+      "judul": "Peraturan Menteri Kesehatan Nomor 11 Tahun 2016 tentang Penyelenggaraan Pelayanan Rawat Jalan Eksekutif di Rumah Sakit",
+      "nomor": "11",
+      "tahun": 2016,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-42-2018",
+      "judul": "Peraturan Menteri Kesehatan Nomor 42 Tahun 2018 tentang Komite Etik dan Hukum Rumah Sakit",
+      "nomor": "42",
+      "tahun": 2018,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-3-2020",
+      "judul": "Peraturan Menteri Kesehatan Nomor 3 Tahun 2020 tentang Klasifikasi dan Perizinan Rumah Sakit",
+      "nomor": "3",
+      "tahun": 2020,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-80-2020",
+      "judul": "Peraturan Menteri Kesehatan Nomor 80 Tahun 2020 tentang Komite Mutu Rumah Sakit",
+      "nomor": "80",
+      "tahun": 2020,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-31-2022",
+      "judul": "Peraturan Menteri Kesehatan Nomor 31 Tahun 2022 tentang Peraturan Pelaksanaan Peraturan Pemerintah Nomor 93 Tahun 2015 tentang Rumah Sakit Pendidikan",
+      "nomor": "31",
+      "tahun": 2022,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-40-2022",
+      "judul": "Peraturan Menteri Kesehatan Nomor 40 Tahun 2022 tentang Persyaratan Teknis Bangunan, Prasarana, dan Peralatan Kesehatan Rumah Sakit",
+      "nomor": "40",
+      "tahun": 2022,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "permenkes-33-2023",
+      "judul": "Peraturan Menteri Kesehatan Nomor 33 Tahun 2023 tentang Rumah Sakit Kapal",
+      "nomor": "33",
+      "tahun": 2023,
+      "jenis": "Permenkes",
+      "instansi": "Kementerian Kesehatan RI",
+      "status": "DICABUT",
+      "sumberResmi": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+      "ringkasan": "Dicabut dan dinyatakan tidak berlaku oleh Permenkes 6/2026.",
+      "topik": [
+        "rumah-sakit"
+      ],
+      "verifiedAt": "2026-11-03"
+    },
+    {
+      "slug": "pp-33-2026",
+      "judul": "Peraturan Pemerintah Nomor 33 Tahun 2026 tentang Peraturan Pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi",
+      "nomor": "33",
+      "tahun": 2026,
+      "jenis": "PP",
+      "instansi": "Presiden RI",
+      "status": "BELUM_BERLAKU",
+      "tglPenetapan": "2026-07-16",
+      "tglBerlaku": "2027-01-16",
+      "sumberResmi": "https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf",
+      "ringkasan": "Aturan pelaksana UU 27/2022 tentang Pelindungan Data Pribadi: mengatur lebih lanjut penyelenggaraan pelindungan data pribadi sebagaimana diamanatkan Pasal 10, 12, 13, 16, 34, 48, 54, 56, 57, dan 61 UU PDP. Ditetapkan 16 Juli 2026; mulai berlaku 16 Januari 2027 (6 bulan setelah diundangkan).",
+      "topik": [
+        "perlindungan-data",
+        "privasi",
+        "keamanan-informasi"
+      ],
+      "verifiedAt": "2026-11-03"
     }
   ],
   "pasals": [
@@ -659,11 +1718,20 @@
     {
       "regulationSlug": "permenkes-55-2013",
       "nomor": "lingkup-pekerjaan",
-      "teksAsli": "RINGKASAN TERVERIFIKASI (bukan kutipan harfiah): Mengatur penyelenggaraan pekerjaan perekam medis — lingkup pengelolaan rekam medis dan informasi kesehatan oleh PMIK yang kompeten. Status keberlakuan perlu verifikasi silang dengan rezim terbaru. Lihat dokumen resmi untuk teks harfiah.",
+      "teksAsli": "RINGKASAN HISTORIS TERVERIFIKASI (bukan kutipan harfiah): Permenkes 55/2013 mengatur penyelenggaraan pekerjaan Perekam Medis. Peraturan ini dicabut dan dinyatakan tidak berlaku oleh Permenkes 13/2025 Pasal 309, efektif 3 November 2025. Gunakan hanya untuk konteks historis dan baca aturan terbaru; lihat naskah resmi untuk teks lengkap.",
       "isVerbatim": false,
-      "artiSederhana": "Pekerjaan rekam medis adalah pekerjaan profesi yang harus dilakukan PMIK kompeten, bukan staf sembarang.",
-      "relevansiPmIK": "Dasar advokasi penempatan PMIK, uraian tugas, dan penolakan pendelegasian pekerjaan RMIK ke non-kompeten.",
-      "risikoKepatuhan": "Pengelolaan RMIK oleh SDM tak kompeten melemahkan mutu data dan akuntabilitas hukum."
+      "artiSederhana": "Peraturan ini dahulu mengatur lingkup pekerjaan Perekam Medis; setelah dicabut, teks ini bukan dasar hukum aktif.",
+      "relevansiPmIK": "Gunakan hanya sebagai konteks historis; untuk kewajiban dan status saat ini, telaah Permenkes 13/2025 dan ketentuan peralihannya.",
+      "risikoKepatuhan": "Mengutip Permenkes 55/2013 seolah-olah masih berlaku dapat menyesatkan analisis."
+    },
+    {
+      "regulationSlug": "permenkes-13-2025",
+      "nomor": "309",
+      "teksAsli": "RINGKASAN TERVERIFIKASI (bukan kutipan harfiah): Pasal 309 huruf n mencantumkan Permenkes 55/2013 tentang Penyelenggaraan Pekerjaan Perekam Medis dalam daftar peraturan yang dicabut dan dinyatakan tidak berlaku. Pasal 310 menetapkan Permenkes 13/2025 mulai berlaku pada tanggal diundangkan, 3 November 2025. Lihat naskah resmi untuk teks lengkap.",
+      "isVerbatim": false,
+      "artiSederhana": "Permenkes 55/2013 tidak lagi berlaku sejak Permenkes 13/2025 diundangkan pada 3 November 2025.",
+      "relevansiPmIK": "Gunakan aturan terbaru setelah memeriksa ketentuan peralihan Pasal 305; simpan Permenkes 55/2013 hanya sebagai sumber historis.",
+      "risikoKepatuhan": "Menampilkan Permenkes 55/2013 sebagai aturan aktif dapat membuat pengguna mengambil kesimpulan berdasarkan dasar hukum yang telah dicabut."
     },
     {
       "regulationSlug": "perpres-95-2018",
@@ -766,67 +1834,1587 @@
     }
   ],
   "topics": [
-    { "slug": "rekam-medis", "nama": "Rekam Medis", "ikon": "🗂️", "deskripsi": "Penyelenggaraan, isi, kepemilikan, penyimpanan, dan pemusnahan rekam medis." },
-    { "slug": "privasi", "nama": "Privasi", "ikon": "🔐", "deskripsi": "Kerahasiaan isi rekam medis dan rahasia kedokteran." },
-    { "slug": "perlindungan-data", "nama": "Perlindungan Data", "ikon": "🛡️", "deskripsi": "UU PDP, data kesehatan sebagai data spesifik, hak subjek data." },
-    { "slug": "hukum-kesehatan", "nama": "Hukum Kesehatan", "ikon": "⚖️", "deskripsi": "UU Kesehatan dan peraturan pelaksananya." },
-    { "slug": "hak-pasien", "nama": "Hak Pasien", "ikon": "👨‍⚕️", "deskripsi": "Hak akses, salinan, persetujuan, dan pengaduan pasien." },
-    { "slug": "rme", "nama": "RME", "ikon": "👩‍💻", "deskripsi": "Rekam medis elektronik, SATUSEHAT, interoperabilitas." },
-    { "slug": "simrs", "nama": "SIMRS", "ikon": "🖥️", "deskripsi": "Sistem informasi rumah sakit, otorisasi, audit trail." },
-    { "slug": "pmik", "nama": "PMIK", "ikon": "🧑‍💼", "deskripsi": "Kewenangan, peran, dan tanggung jawab Perekam Medis dan Informasi Kesehatan." },
-    { "slug": "data-kesehatan", "nama": "Data Kesehatan", "ikon": "📊", "deskripsi": "Tata kelola, integrasi, dan pemanfaatan data kesehatan." },
-    { "slug": "keamanan-informasi", "nama": "Keamanan Informasi", "ikon": "🔒", "deskripsi": "Kontrol akses, enkripsi, respons insiden." },
-    { "slug": "sengketa", "nama": "Sengketa", "ikon": "🧑‍⚖️", "deskripsi": "Sengketa medis, mediasi, dan pembuktian." },
-    { "slug": "akreditasi", "nama": "Akreditasi", "ikon": "📝", "deskripsi": "Standar akreditasi terkait MIRM dan informasi kesehatan." },
-    { "slug": "rumah-sakit", "nama": "Rumah Sakit", "ikon": "🏥", "deskripsi": "Penyelenggaraan RS, kewajiban RS-pasien, SIMRS, dan tata kelola pasca Permenkes 6/2026." },
-    { "slug": "kewenangan-profesi", "nama": "Kewenangan Profesi", "ikon": "📋", "deskripsi": "Kewenangan dan praktik profesi PMIK serta tenaga kesehatan." },
-    { "slug": "kearsipan", "nama": "Kearsipan", "ikon": "🗄️", "deskripsi": "JRA, retensi, penyusutan, dan pemusnahan arsip termasuk rekam medis inaktif." },
-    { "slug": "telemedicine", "nama": "Telemedicine", "ikon": "🩺", "deskripsi": "Layanan kesehatan jarak jauh, pencatatan, dan kerahasiaan data lintas faskes." },
-    { "slug": "keterbukaan-informasi", "nama": "Keterbukaan Informasi", "ikon": "📢", "deskripsi": "KIP, informasi dikecualikan, PPID, dan uji konsekuensi di faskes publik." },
-    { "slug": "sistem-elektronik", "nama": "Sistem Elektronik", "ikon": "🔌", "deskripsi": "ITE, PSTE, PSE, SPBE, TTE, dan keamanan sistem informasi kesehatan." },
-    { "slug": "konsil-kolegium", "nama": "Konsil & Kolegium", "ikon": "🏛️", "deskripsi": "Kedudukan konsil, kolegium independen, standar kompetensi, dan sertifikasi profesi." }
+    {
+      "slug": "rekam-medis",
+      "nama": "Rekam Medis",
+      "ikon": "🗂️",
+      "deskripsi": "Penyelenggaraan, isi, kepemilikan, penyimpanan, dan pemusnahan rekam medis."
+    },
+    {
+      "slug": "privasi",
+      "nama": "Privasi",
+      "ikon": "🔐",
+      "deskripsi": "Kerahasiaan isi rekam medis dan rahasia kedokteran."
+    },
+    {
+      "slug": "perlindungan-data",
+      "nama": "Perlindungan Data",
+      "ikon": "🛡️",
+      "deskripsi": "UU PDP, data kesehatan sebagai data spesifik, hak subjek data."
+    },
+    {
+      "slug": "hukum-kesehatan",
+      "nama": "Hukum Kesehatan",
+      "ikon": "⚖️",
+      "deskripsi": "UU Kesehatan dan peraturan pelaksananya."
+    },
+    {
+      "slug": "hak-pasien",
+      "nama": "Hak Pasien",
+      "ikon": "👨‍⚕️",
+      "deskripsi": "Hak akses, salinan, persetujuan, dan pengaduan pasien."
+    },
+    {
+      "slug": "rme",
+      "nama": "RME",
+      "ikon": "👩‍💻",
+      "deskripsi": "Rekam medis elektronik, SATUSEHAT, interoperabilitas."
+    },
+    {
+      "slug": "simrs",
+      "nama": "SIMRS",
+      "ikon": "🖥️",
+      "deskripsi": "Sistem informasi rumah sakit, otorisasi, audit trail."
+    },
+    {
+      "slug": "pmik",
+      "nama": "PMIK",
+      "ikon": "🧑‍💼",
+      "deskripsi": "Kewenangan, peran, dan tanggung jawab Perekam Medis dan Informasi Kesehatan."
+    },
+    {
+      "slug": "data-kesehatan",
+      "nama": "Data Kesehatan",
+      "ikon": "📊",
+      "deskripsi": "Tata kelola, integrasi, dan pemanfaatan data kesehatan."
+    },
+    {
+      "slug": "keamanan-informasi",
+      "nama": "Keamanan Informasi",
+      "ikon": "🔒",
+      "deskripsi": "Kontrol akses, enkripsi, respons insiden."
+    },
+    {
+      "slug": "sengketa",
+      "nama": "Sengketa",
+      "ikon": "🧑‍⚖️",
+      "deskripsi": "Sengketa medis, mediasi, dan pembuktian."
+    },
+    {
+      "slug": "akreditasi",
+      "nama": "Akreditasi",
+      "ikon": "📝",
+      "deskripsi": "Standar akreditasi terkait MIRM dan informasi kesehatan."
+    },
+    {
+      "slug": "rumah-sakit",
+      "nama": "Rumah Sakit",
+      "ikon": "🏥",
+      "deskripsi": "Penyelenggaraan RS, kewajiban RS-pasien, SIMRS, dan tata kelola pasca Permenkes 6/2026."
+    },
+    {
+      "slug": "kewenangan-profesi",
+      "nama": "Kewenangan Profesi",
+      "ikon": "📋",
+      "deskripsi": "Kewenangan dan praktik profesi PMIK serta tenaga kesehatan."
+    },
+    {
+      "slug": "kearsipan",
+      "nama": "Kearsipan",
+      "ikon": "🗄️",
+      "deskripsi": "JRA, retensi, penyusutan, dan pemusnahan arsip termasuk rekam medis inaktif."
+    },
+    {
+      "slug": "telemedicine",
+      "nama": "Telemedicine",
+      "ikon": "🩺",
+      "deskripsi": "Layanan kesehatan jarak jauh, pencatatan, dan kerahasiaan data lintas faskes."
+    },
+    {
+      "slug": "keterbukaan-informasi",
+      "nama": "Keterbukaan Informasi",
+      "ikon": "📢",
+      "deskripsi": "KIP, informasi dikecualikan, PPID, dan uji konsekuensi di faskes publik."
+    },
+    {
+      "slug": "sistem-elektronik",
+      "nama": "Sistem Elektronik",
+      "ikon": "🔌",
+      "deskripsi": "ITE, PSTE, PSE, SPBE, TTE, dan keamanan sistem informasi kesehatan."
+    },
+    {
+      "slug": "konsil-kolegium",
+      "nama": "Konsil & Kolegium",
+      "ikon": "🏛️",
+      "deskripsi": "Kedudukan konsil, kolegium independen, standar kompetensi, dan sertifikasi profesi."
+    }
   ],
   "relations": [
-    { "from": "uu-17-2023", "to": "pp-28-2024", "type": "TURUNAN" },
-    { "from": "pp-28-2024", "to": "uu-17-2023", "type": "MELAKSANAKAN" },
-    { "from": "permenkes-24-2022", "to": "permenkes-269-2008", "type": "MENCABUT" },
-    { "from": "uu-17-2023", "to": "permenkes-36-2012", "type": "BERIRISAN" },
-    { "from": "uu-27-2022", "to": "permenkes-24-2022", "type": "MEMPERKUAT" },
-    { "from": "uu-27-2022", "to": "uu-17-2023", "type": "BERIRISAN" },
-    { "from": "permenkes-6-2026", "to": "permenkes-82-2013", "type": "MENCABUT" },
-    { "from": "permenkes-6-2026", "to": "permenkes-4-2018", "type": "MENCABUT" },
-    { "from": "permenkes-6-2026", "to": "uu-17-2023", "type": "TURUNAN" },
-    { "from": "permenkes-6-2026", "to": "pp-28-2024", "type": "BERIRISAN" },
-    { "from": "pp-28-2012", "to": "uu-43-2009", "type": "MELAKSANAKAN" },
-    { "from": "uu-43-2009", "to": "pp-28-2012", "type": "TURUNAN" },
-    { "from": "perka-anri-22-2015", "to": "uu-43-2009", "type": "TURUNAN" },
-    { "from": "perka-anri-12-2007", "to": "uu-43-2009", "type": "TURUNAN" },
-    { "from": "uu-43-2009", "to": "uu-17-2023", "type": "BERIRISAN" },
-    { "from": "uu-1-2023", "to": "uu-17-2023", "type": "BERIRISAN" },
-    { "from": "uu-1-2023", "to": "uu-27-2022", "type": "MEMPERKUAT" },
-    { "from": "uu-19-2016", "to": "uu-11-2008", "type": "MENGUBAH" },
-    { "from": "pp-71-2019", "to": "pp-82-2012", "type": "MENCABUT" },
-    { "from": "pp-71-2019", "to": "uu-19-2016", "type": "MELAKSANAKAN" },
-    { "from": "pp-61-2010", "to": "uu-14-2008", "type": "MELAKSANAKAN" },
-    { "from": "uu-14-2008", "to": "uu-27-2022", "type": "BERIRISAN" },
-    { "from": "permenkominfo-20-2016", "to": "uu-27-2022", "type": "BERIRISAN" },
-    { "from": "permenkominfo-5-2020", "to": "pp-71-2019", "type": "TURUNAN" },
-    { "from": "perpres-95-2018", "to": "permenkes-24-2022", "type": "BERIRISAN" },
-    { "from": "uu-8-1999", "to": "uu-17-2023", "type": "BERIRISAN" },
-    { "from": "permenkes-20-2019", "to": "permenkes-24-2022", "type": "BERIRISAN" },
-    { "from": "permenkes-55-2013", "to": "uu-36-2014", "type": "BERIRISAN" },
-    { "from": "mk-111-182-puu-2024", "to": "uu-17-2023", "type": "MEMPERKUAT" },
-    { "from": "peranri-2-2021", "to": "uu-43-2009", "type": "TURUNAN" },
-    { "from": "peranri-1-2023", "to": "uu-43-2009", "type": "TURUNAN" },
-    { "from": "peranri-1-2023", "to": "uu-19-2016", "type": "BERIRISAN" },
-    { "from": "pp-71-2019", "to": "permenkes-24-2022", "type": "BERIRISAN" },
-    { "from": "uu-17-2023", "to": "uu-29-2004", "type": "MENCABUT" },
-    { "from": "uu-17-2023", "to": "uu-36-2009", "type": "MENCABUT" },
-    { "from": "uu-17-2023", "to": "uu-44-2009", "type": "MENCABUT" },
-    { "from": "uu-17-2023", "to": "uu-36-2014", "type": "MENCABUT" },
-    { "from": "perbssn-1-2026", "to": "perbssn-5-2021", "type": "MENGUBAH" },
-    { "from": "perbssn-1-2026", "to": "pp-71-2019", "type": "BERIRISAN" },
-    { "from": "perbssn-1-2026", "to": "perpres-95-2018", "type": "BERIRISAN" }
+    {
+      "from": "uu-17-2023",
+      "to": "pp-28-2024",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Peraturan Pemerintah Nomor 28 Tahun 2024 tentang Peraturan Pelaksanaan Undang-Undang Nomor 17 Tahun 2023 tentang Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "uu-17-2023",
+      "type": "MELAKSANAKAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Menimbang: melaksanakan ketentuan Pasal 24 ayat (2) dan sejumlah pasal lain Undang-Undang Nomor 17 Tahun 2023 tentang Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-24-2022",
+      "to": "permenkes-269-2008",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-24-tahun-2022",
+            "citation": "Pasal 46 mencabut Peraturan Menteri Kesehatan Nomor 269/MENKES/PER/III/2008 tentang Rekam Medis"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "permenkes-36-2012",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-27-2022",
+      "to": "permenkes-24-2022",
+      "type": "MEMPERKUAT",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-27-2022",
+      "to": "uu-17-2023",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-82-2013",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf h mencabut Peraturan Menteri Kesehatan Nomor 82 Tahun 2013 tentang Sistem Informasi Manajemen Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-4-2018",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf o mencabut Peraturan Menteri Kesehatan Nomor 4 Tahun 2018 tentang Kewajiban Rumah Sakit dan Kewajiban Pasien"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-13-2025",
+      "to": "permenkes-55-2013",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-13-tahun-2025",
+            "citation": "Pasal 309 mencabut Peraturan Menteri Kesehatan Nomor 55 Tahun 2013 tentang Penyelenggaraan Pekerjaan Perekam Medis"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "uu-17-2023",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Melaksanakan Peraturan Pemerintah Nomor 28 Tahun 2024 tentang Peraturan Pelaksanaan Undang-Undang Nomor 17 Tahun 2023 tentang Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "pp-28-2024",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "pp-28-2012",
+      "to": "uu-43-2009",
+      "type": "MELAKSANAKAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/5240/pp-no-28-tahun-2012",
+            "citation": "Melaksanakan Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-43-2009",
+      "to": "pp-28-2012",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/5240/pp-no-28-tahun-2012",
+            "citation": "Peraturan Pemerintah Nomor 28 Tahun 2012 tentang Pelaksanaan Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "perka-anri-22-2015",
+      "to": "uu-43-2009",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.go.id/id/peraturan-anri-no-22-tahun-2015",
+            "citation": "Menimbang: untuk melaksanakan ketentuan Pasal 55 Peraturan Pemerintah Nomor 28 Tahun 2012 tentang Pelaksanaan Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-43-2009",
+      "to": "uu-17-2023",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-1-2023",
+      "to": "uu-17-2023",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-1-2023",
+      "to": "uu-27-2022",
+      "type": "MEMPERKUAT",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-19-2016",
+      "to": "uu-11-2008",
+      "type": "MENGUBAH",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/37582/uu-no-19-tahun-2016",
+            "citation": "Undang-Undang Nomor 19 Tahun 2016 tentang Perubahan atas Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-71-2019",
+      "to": "pp-82-2012",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/122030/pp-no-71-tahun-2019",
+            "citation": "Pasal 103 ayat (2) mencabut Peraturan Pemerintah Nomor 82 Tahun 2012 tentang Penyelenggaraan Sistem dan Transaksi Elektronik"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-71-2019",
+      "to": "uu-19-2016",
+      "type": "MELAKSANAKAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/122030/pp-no-71-tahun-2019",
+            "citation": "Mengatur lebih lanjut Undang-Undang Nomor 11 Tahun 2008 tentang Informasi dan Transaksi Elektronik sebagaimana diubah dengan Undang-Undang Nomor 19 Tahun 2016"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-61-2010",
+      "to": "uu-14-2008",
+      "type": "MELAKSANAKAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/5084/pp-no-61-tahun-2010",
+            "citation": "Menimbang: melaksanakan ketentuan Pasal 20 ayat (2) dan Pasal 58 Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-14-2008",
+      "to": "uu-27-2022",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "permenkominfo-20-2016",
+      "to": "uu-27-2022",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "permenkominfo-5-2020",
+      "to": "pp-71-2019",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/203049/permenkominfo-no-5-tahun-2020",
+            "citation": "Melaksanakan Peraturan Pemerintah Nomor 71 Tahun 2019 tentang Penyelenggaraan Sistem dan Transaksi Elektronik"
+          }
+        ]
+      }
+    },
+    {
+      "from": "perpres-95-2018",
+      "to": "permenkes-24-2022",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-8-1999",
+      "to": "uu-17-2023",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "permenkes-20-2019",
+      "to": "permenkes-24-2022",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "permenkes-55-2013",
+      "to": "uu-36-2014",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "mk-111-182-puu-2024",
+      "to": "uu-17-2023",
+      "type": "MENGUJI",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/DownloadUjiMateri/238/putusan_mkri_182-PUU-XXII-2024.pdf",
+            "citation": "Putusan Nomor 111/PUU-XXII/2024 dan Nomor 182/PUU-XXII/2024 menguji materiil Undang-Undang Nomor 17 Tahun 2023 tentang Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "peranri-2-2021",
+      "to": "uu-43-2009",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/192769/peraturan-anri-no-2-tahun-2021",
+            "citation": "Melaksanakan Peraturan Pemerintah Nomor 28 Tahun 2012 tentang Pelaksanaan Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "peranri-1-2023",
+      "to": "uu-43-2009",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/255082/peraturan-anri-no-1-tahun-2023",
+            "citation": "Menimbang: untuk melaksanakan ketentuan Pasal 108 ayat (2) Peraturan Pemerintah Nomor 28 Tahun 2012 tentang Pelaksanaan Undang-Undang Nomor 43 Tahun 2009 tentang Kearsipan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "peranri-1-2023",
+      "to": "uu-19-2016",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "pp-71-2019",
+      "to": "permenkes-24-2022",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-29-2004",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 3 mencabut Undang-Undang Nomor 29 Tahun 2004 tentang Praktik Kedokteran"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-36-2009",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 4 mencabut Undang-Undang Nomor 36 Tahun 2009 tentang Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-44-2009",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 5 mencabut Undang-Undang Nomor 44 Tahun 2009 tentang Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-36-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 8 mencabut Undang-Undang Nomor 36 Tahun 2014 tentang Tenaga Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "perbssn-1-2026",
+      "to": "perbssn-5-2021",
+      "type": "MENGUBAH",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/353764/peraturan-bssn-no-1-tahun-2026",
+            "citation": "Pasal I mengubah beberapa ketentuan dalam Peraturan BSSN Nomor 5 Tahun 2021 tentang Pelatihan Keamanan Siber dan Persandian"
+          }
+        ]
+      }
+    },
+    {
+      "from": "perbssn-1-2026",
+      "to": "pp-71-2019",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "perbssn-1-2026",
+      "to": "perpres-95-2018",
+      "type": "BERIRISAN",
+      "evidence": {
+        "verificationStatus": "LEGAL_REVIEW_REQUIRED",
+        "sources": []
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-419-1949",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 1 mencabut Undang-Undang Nomor 419 Tahun 1949 tentang Ordonansi Obat Keras (Staatsblad 1949 Nomor 419)"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-4-1984",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 2 mencabut Undang-Undang Nomor 4 Tahun 1984 tentang Wabah Penyakit Menular"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-20-2013",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 6 mencabut Undang-Undang Nomor 20 Tahun 2013 tentang Pendidikan Kedokteran"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-18-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 7 mencabut Undang-Undang Nomor 18 Tahun 2014 tentang Kesehatan Jiwa"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-38-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 9 mencabut Undang-Undang Nomor 38 Tahun 2014 tentang Keperawatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-6-2018",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 10 mencabut Undang-Undang Nomor 6 Tahun 2018 tentang Kekarantinaan Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-17-2023",
+      "to": "uu-4-2019",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023",
+            "citation": "Pasal 454 angka 11 mencabut Undang-Undang Nomor 4 Tahun 2019 tentang Kebidanan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-26-1960",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf a mencabut Peraturan Pemerintah Nomor 26 Tahun 1960 tentang Lafal Sumpah Dokter"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-11-1961",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf b mencabut Peraturan Pemerintah Nomor 11 Tahun 1961 tentang Penyakit Karantina"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-20-1962",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf c mencabut Peraturan Pemerintah Nomor 20 Tahun 1962 tentang Lafal Sumpah Janji Apoteker"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-33-1963",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf d mencabut Peraturan Pemerintah Nomor 33 Tahun 1963 tentang Lafal Sumpah/Janji Dokter Gigi"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-10-1966",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf e mencabut Peraturan Pemerintah Nomor 10 Tahun 1966 tentang Wajib Simpan Rahasia Kedokteran"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-1-1988",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf f mencabut Peraturan Pemerintah Nomor 1 Tahun 1988 tentang Masa Bakti dan Praktek Dokter dan Dokter Gigi"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-40-1991",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf g mencabut Peraturan Pemerintah Nomor 40 Tahun 1991 tentang Penanggulangan Wabah Penyakit Menular"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-39-1995",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf h mencabut Peraturan Pemerintah Nomor 39 Tahun 1995 tentang Penelitian dan Pengembangan Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-72-1998",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf i mencabut Peraturan Pemerintah Nomor 72 Tahun 1998 tentang Pengamanan Sediaan Farmasi dan Alat Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-51-2009",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf j mencabut Peraturan Pemerintah Nomor 51 Tahun 2009 tentang Pekerjaan Kefarmasian"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-7-2011",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf k mencabut Peraturan Pemerintah Nomor 7 Tahun 2011 tentang Pelayanan Darah"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-33-2012",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf l mencabut Peraturan Pemerintah Nomor 33 Tahun 2012 tentang Pemberian Air Susu Ibu Eksklusif"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-109-2012",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf m mencabut Peraturan Pemerintah Nomor 109 Tahun 2012 tentang Pengamanan Bahan Yang Mengandung Zat Adiktif Berupa Produk Tembakau Bagi Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-49-2013",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf n mencabut Peraturan Pemerintah Nomor 49 Tahun 2013 tentang Badan Pengawas Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-46-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf o mencabut Peraturan Pemerintah Nomor 46 Tahun 2014 tentang Sistem Informasi Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-61-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf p mencabut Peraturan Pemerintah Nomor 61 Tahun 2014 tentang Kesehatan Reproduksi"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-66-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf q mencabut Peraturan Pemerintah Nomor 66 Tahun 2014 tentang Kesehatan Lingkungan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-103-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf r mencabut Peraturan Pemerintah Nomor 103 Tahun 2014 tentang Pelayanan Kesehatan Tradisional"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-93-2015",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf s mencabut Peraturan Pemerintah Nomor 93 Tahun 2015 tentang Rumah Sakit Pendidikan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-47-2016",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf t mencabut Peraturan Pemerintah Nomor 47 Tahun 2016 tentang Fasilitas Pelayanan Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-52-2017",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf u mencabut Peraturan Pemerintah Nomor 52 Tahun 2017 tentang Peraturan Pelaksanaan Undang-Undang Nomor 20 Tahun 2013 tentang Pendidikan Kedokteran"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-67-2019",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf v mencabut Peraturan Pemerintah Nomor 67 Tahun 2019 tentang Pengelolaan Tenaga Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-88-2019",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf w mencabut Peraturan Pemerintah Nomor 88 Tahun 2019 tentang Kesehatan Kerja"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-21-2020",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf x mencabut Peraturan Pemerintah Nomor 21 Tahun 2020 tentang Pembatasan Sosial Berskala Besar dalam Rangka Percepatan Penanganan Corona Virus Disease 2019 (COVID-19)"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-47-2021",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf y mencabut Peraturan Pemerintah Nomor 47 Tahun 2021 tentang Penyelenggaraan Bidang Perumahsakitan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "pp-53-2021",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf z mencabut Peraturan Pemerintah Nomor 53 Tahun 2021 tentang Transplantasi Organ dan Jaringan Tubuh"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "perpres-35-2008",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf aa mencabut Peraturan Presiden Nomor 35 Tahun 2008 tentang Tata Cara Pengangkatan dan Pemberhentian Keanggotaan Konsil Kedokteran Indonesia"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "perpres-77-2015",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf bb mencabut Peraturan Presiden Nomor 77 Tahun 2015 tentang Pedoman Organisasi Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "perpres-90-2017",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf cc mencabut Peraturan Presiden Nomor 90 Tahun 2017 tentang Konsil Tenaga Kesehatan Indonesia"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "perpres-31-2019",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf dd mencabut Peraturan Presiden Nomor 31 Tahun 2019 tentang Pendayagunaan Dokter Spesialis"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-28-2024",
+      "to": "perpres-86-2019",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://peraturan.bpk.go.id/Details/294077/pp-no-28-tahun-2024",
+            "citation": "Pasal 1170 huruf ee mencabut Peraturan Presiden Nomor 86 Tahun 2019 tentang Perubahan atas Peraturan Presiden Nomor 90 Tahun 2017 tentang Konsil Tenaga Kesehatan Indonesia"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "kepmenkes-772-2002",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf a mencabut Keputusan Menteri Kesehatan Nomor 772/MENKES/SK/VI/2002 tentang Pedoman Peraturan Internal Rumah Sakit (Hospital By Laws)"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "kepmenkes-058-2009",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf b mencabut Keputusan Menteri Kesehatan Nomor 058/Menkes/SK/I/2009 tentang Pedoman Penyelenggaraan Rumah Sakit Bergerak"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-971-2009",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf c mencabut Peraturan Menteri Kesehatan Nomor 971/MENKES/PER/XI/2009 tentang Standar Kompetensi Pejabat Struktural Kesehatan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-755-2011",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf d mencabut Peraturan Menteri Kesehatan Nomor 755/MENKES/PER/IV/2011 tentang Penyelenggaraan Komite Medik di Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-1171-2011",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf e mencabut Peraturan Menteri Kesehatan Nomor 1171/MENKES/PER/VI/2011 tentang Sistem Informasi Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-2306-2011",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf f mencabut Peraturan Menteri Kesehatan Nomor 2306/MENKES/PER/XI/2011 tentang Persyaratan Teknis Prasarana Instalasi Elektrikal Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-49-2013",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf g mencabut Peraturan Menteri Kesehatan Nomor 49 Tahun 2013 tentang Komite Keperawatan Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-10-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf i mencabut Peraturan Menteri Kesehatan Nomor 10 Tahun 2014 tentang Dewan Pengawas Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-17-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf j mencabut Peraturan Menteri Kesehatan Nomor 17 Tahun 2014 tentang Keanggotaan, Pengangkatan dan Pemberhentian Anggota Badan Pengawas Rumah Sakit Indonesia"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-24-2014",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf k mencabut Peraturan Menteri Kesehatan Nomor 24 Tahun 2014 tentang Rumah Sakit Kelas D Pratama"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-85-2015",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf l mencabut Peraturan Menteri Kesehatan Nomor 85 Tahun 2015 tentang Pola Tarif Nasional Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-88-2015",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf m mencabut Peraturan Menteri Kesehatan Nomor 88 Tahun 2015 tentang Pedoman Pengawasan, Sistem Pelaporan, dan Sistem Informasi Dalam Penyelenggaraan Pembinaan dan Pengawasan Rumah Sakit oleh Badan Pengawas Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-11-2016",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf n mencabut Peraturan Menteri Kesehatan Nomor 11 Tahun 2016 tentang Penyelenggaraan Pelayanan Rawat Jalan Eksekutif di Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-42-2018",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf p mencabut Peraturan Menteri Kesehatan Nomor 42 Tahun 2018 tentang Komite Etik dan Hukum Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-3-2020",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf q mencabut Peraturan Menteri Kesehatan Nomor 3 Tahun 2020 tentang Klasifikasi dan Perizinan Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-80-2020",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf r mencabut Peraturan Menteri Kesehatan Nomor 80 Tahun 2020 tentang Komite Mutu Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-31-2022",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf s mencabut Peraturan Menteri Kesehatan Nomor 31 Tahun 2022 tentang Peraturan Pelaksanaan Peraturan Pemerintah Nomor 93 Tahun 2015 tentang Rumah Sakit Pendidikan"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-40-2022",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf t mencabut Peraturan Menteri Kesehatan Nomor 40 Tahun 2022 tentang Persyaratan Teknis Bangunan, Prasarana, dan Peralatan Kesehatan Rumah Sakit"
+          }
+        ]
+      }
+    },
+    {
+      "from": "permenkes-6-2026",
+      "to": "permenkes-33-2023",
+      "type": "MENCABUT",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-6-tahun-2026",
+            "citation": "Pasal 84 huruf u mencabut Peraturan Menteri Kesehatan Nomor 33 Tahun 2023 tentang Rumah Sakit Kapal"
+          }
+        ]
+      }
+    },
+    {
+      "from": "pp-33-2026",
+      "to": "uu-27-2022",
+      "type": "MELAKSANAKAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf",
+            "citation": "Menimbang: melaksanakan ketentuan Pasal 10 ayat (2), Pasal 12 ayat (2), Pasal 13 ayat (3), Pasal 16 ayat (3), Pasal 34 ayat (3), Pasal 48 ayat (5), Pasal 54 ayat (3), Pasal 56 ayat (5), Pasal 57 ayat (5), dan Pasal 61 Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi"
+          }
+        ]
+      }
+    },
+    {
+      "from": "uu-27-2022",
+      "to": "pp-33-2026",
+      "type": "TURUNAN",
+      "evidence": {
+        "verificationStatus": "VERIFIED",
+        "verifiedAt": "2026-11-03",
+        "verifiedBy": "RUANGPMIK Editorial",
+        "sources": [
+          {
+            "url": "https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf",
+            "citation": "Peraturan Pemerintah Nomor 33 Tahun 2026 tentang Peraturan Pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi"
+          }
+        ]
+      }
+    }
   ],
   "articles": [
     {
@@ -834,8 +3422,18 @@
       "judul": "Bolehkah PMIK Memberikan Salinan Rekam Medis kepada Keluarga Pasien?",
       "ringkasan": "Keluarga tidak otomatis berhak atas isi rekam medis. Penyerahan salinan membutuhkan persetujuan pasien/kuasa atau dasar hukum lain yang sah, plus pencatatan.",
       "konten": "## Prinsip\n\nIsi rekam medis adalah milik pasien dan bersifat rahasia. Keluarga — termasuk pasangan — bukan pemegang hak otomatis.\n\n## Alur yang benar\n\n1. Minta identitas pemohon dan hubungan dengan pasien.\n2. Minta surat kuasa/persetujuan tertulis pasien (atau penetapan wali bagi pasien tidak cakap).\n3. Verifikasi keabsahan dokumen.\n4. Serahkan salinan/ringkasan sesuai minimisasi data, dengan berita acara serah terima.\n5. Catat akses pada log pelepasan informasi.\n\n## Pengecualian\n\nPenegakan hukum atas permintaan resmi, audit dengan pembatasan, dan kondisi kegawatdaruratan tertentu — masing-masing dengan prosedur tercatat (lihat Permenkes 36/2012 dan baca bersama UU 17/2023 serta UU PDP).\n\n## Contoh kasus\n\nIstri pasien meminta seluruh rekam medis suaminya yang sadar dan cakap. Tindakan benar: minta persetujuan tertulis suami terlebih dahulu; tanpa itu, tolak secara sopan dan tawarkan mekanisme kuasa.",
-      "dasarHukum": ["permenkes-24-2022", "uu-17-2023", "permenkes-36-2012", "uu-27-2022"],
-      "topik": ["rekam-medis", "privasi", "hak-pasien", "pmik"],
+      "dasarHukum": [
+        "permenkes-24-2022",
+        "uu-17-2023",
+        "permenkes-36-2012",
+        "uu-27-2022"
+      ],
+      "topik": [
+        "rekam-medis",
+        "privasi",
+        "hak-pasien",
+        "pmik"
+      ],
       "verifiedAt": "2026-09-15"
     },
     {
@@ -843,8 +3441,17 @@
       "judul": "Kewajiban RME dan Integrasi SATUSEHAT: Apa yang Harus Disiapkan PMIK?",
       "ringkasan": "Permenkes 24/2022 mewajibkan RME terintegrasi SATUSEHAT. PMIK menyiapkan migrasi data, mutu kode, interoperabilitas, dan keamanan.",
       "konten": "## Kewajiban\n\nFaskes wajib menyelenggarakan RME yang terhubung ke platform nasional. Masa transisi telah diatur; keterlambatan adalah temuan kepatuhan.\n\n## Checklist PMIK\n\n1. Inventarisasi rekam medis kertas dan status digitalisasi.\n2. Validasi kelengkapan dan ketepatan pengodean diagnosis/tindakan.\n3. Pastikan vendor SIMRS/RME mendukung standar interoperabilitas (FHIR).\n4. Terapkan role-based access, audit trail, dan backup terenkripsi.\n5. Susun SOP pelepasan informasi elektronik dan consent.\n6. Latih staf dan dokumentasikan semuanya untuk akreditasi.",
-      "dasarHukum": ["permenkes-24-2022", "uu-17-2023", "pp-28-2024"],
-      "topik": ["rme", "simrs", "pmik", "akreditasi"],
+      "dasarHukum": [
+        "permenkes-24-2022",
+        "uu-17-2023",
+        "pp-28-2024"
+      ],
+      "topik": [
+        "rme",
+        "simrs",
+        "pmik",
+        "akreditasi"
+      ],
       "verifiedAt": "2026-09-15"
     }
   ]

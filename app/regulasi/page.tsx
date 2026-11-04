@@ -15,7 +15,7 @@ export default function RegulasiList({ searchParams }: { searchParams: Record<st
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold">Repository Regulasi</h1>
+      <h1>Repository regulasi</h1>
       <p className="mt-1 text-sm text-ink-900/60">
         {all.length} regulasi terindeks · <span className="font-bold text-emerald-700">{berlaku} berlaku</span> ·{" "}
         <span className="font-bold text-red-700">{dicabut} dicabut</span> · status dari metadata terverifikasi, bukan dari AI.
@@ -30,7 +30,6 @@ export default function RegulasiList({ searchParams }: { searchParams: Record<st
         </div>
       ) : (
         <div className="mt-4 rounded-2xl border border-dashed border-ink-100 bg-white p-8 text-center">
-          <p className="text-3xl" aria-hidden>🗂️</p>
           <p className="mt-2 text-sm font-bold">Tidak ada regulasi berstatus ini.</p>
           <a href="/regulasi" className="mt-1 inline-block text-sm font-bold text-pagar-700 underline">Tampilkan semua →</a>
         </div>

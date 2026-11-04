@@ -27,7 +27,10 @@ Tanpa sumber valid → `noSource: true` + pesan jujur (tidak mengarang).
 
 - `POST /api/admin/ingest` (multipart: metadata + `pdf?`/`fullText`) — peran EDITOR+
   → `{ ok, slug, pasalCount, status: "BELUM_DIVERIFIKASI" }`
-- `GET /api/admin/verify?slug=&status=` — peran VERIFIER+ → verification record
+- `POST /api/admin/verify` (form atau JSON: `slug`, `status`, `catatan`, `sumberUrl?`) — peran VERIFIER/ADMIN; mencatat audit dan memperbarui status pada mode JSON demo
+- `GET /api/admin/verify?slug=` — peran VERIFIER/ADMIN; membaca riwayat verifikasi
+
+Mode demo menyimpan riwayat di `data/verification.json`. Integrasi tabel Prisma `VerificationRecord` belum tersedia; file JSON ini hanya cocok untuk demo satu proses dengan filesystem persisten.
 
 ## Auth
 

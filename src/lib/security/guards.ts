@@ -19,6 +19,16 @@ export function rateLimit(key: string, perMinute = 60): { ok: boolean; retryAfte
   return { ok: true, retryAfterSec: 0 };
 }
 
+/** Require an explicit same-origin value for browser requests that mutate state. */
+export function isSameOrigin(origin: string | null, expectedOrigin: string): boolean {
+  if (!origin) return false;
+  try {
+    return new URL(origin).origin === new URL(expectedOrigin).origin;
+  } catch {
+    return false;
+  }
+}
+
 export const questionSchema = z.object({
   question: z.string().min(3).max(2000),
   filters: z.object({

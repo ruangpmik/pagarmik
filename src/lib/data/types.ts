@@ -3,6 +3,7 @@
 
 export type RegulationStatus =
   | "BERLAKU"
+  | "BELUM_BERLAKU"
   | "BERLAKU_DENGAN_CATATAN"
   | "PERUBAHAN"
   | "DICABUT"
@@ -31,6 +32,15 @@ export interface Regulation {
   verifiedAt?: string;
   /** Override trust level chunk (default L1 untuk pasal, L2 untuk ikhtisar). Putusan → L3. */
   trustLevel?: TrustLevel;
+}
+
+export interface VerificationRecord {
+  regulationSlug: string;
+  status: RegulationStatus;
+  catatan: string;
+  sumberUrl?: string;
+  verifiedBy: string;
+  createdAt: string;
 }
 
 export interface Pasal {
@@ -81,18 +91,32 @@ export interface KnowledgeArticle {
   verifiedAt?: string;
 }
 
+export interface RelationSource {
+  url: string;
+  citation: string;
+}
+
+export interface RelationEvidence {
+  verificationStatus: "VERIFIED" | "LEGAL_REVIEW_REQUIRED";
+  sources: RelationSource[];
+  verifiedAt?: string;
+  verifiedBy?: string;
+}
+
 export interface Relation {
   from: string;
   to: string;
-  type: "MENCABUT" | "MENGUBAH" | "MELAKSANAKAN" | "MERUJUK" | "TURUNAN" | "MEMPERKUAT" | "BERIRISAN";
+  type: "MENCABUT" | "MENGUBAH" | "MELAKSANAKAN" | "MERUJUK" | "TURUNAN" | "MEMPERKUAT" | "BERIRISAN" | "MENGUJI";
+  evidence?: RelationEvidence;
 }
 
 export const STATUS_LABEL: Record<RegulationStatus, string> = {
-  BERLAKU: "🟢 BERLAKU",
-  BERLAKU_DENGAN_CATATAN: "🟡 BERLAKU DENGAN CATATAN",
-  PERUBAHAN: "🟠 PERUBAHAN",
-  DICABUT: "🔴 DICABUT",
-  BELUM_DIVERIFIKASI: "⚪ BELUM DIVERIFIKASI",
+  BERLAKU: "BERLAKU",
+  BELUM_BERLAKU: "BELUM BERLAKU",
+  BERLAKU_DENGAN_CATATAN: "BERLAKU DENGAN CATATAN",
+  PERUBAHAN: "PERUBAHAN",
+  DICABUT: "DICABUT",
+  BELUM_DIVERIFIKASI: "BELUM DIVERIFIKASI",
 };
 
 export const TRUST_LABEL: Record<TrustLevel, string> = {

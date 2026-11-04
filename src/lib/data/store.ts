@@ -4,7 +4,8 @@
 
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
-import type { LegalChunk, Pasal, Regulation, Topic, KnowledgeArticle, Relation, TrustLevel } from "@/lib/data/types";
+import type { LegalChunk, Pasal, Regulation, Topic, KnowledgeArticle, Relation, TrustLevel, VerificationRecord } from "@/lib/data/types";
+import { getVerificationStore } from "@/lib/data/verification-store";
 
 interface SeedFile {
   regulations: Regulation[];
@@ -32,6 +33,17 @@ function loadSeed(): SeedFile {
         ...(c.pasals ?? []).filter((p: Pasal) => !knownPasal.has(`${p.regulationSlug}::${p.nomor}`))
       );
     } catch { /* abaikan file korup */ }
+  }
+  const latestBySlug = new Map<string, VerificationRecord>();
+  for (const record of getVerificationStore().records()) {
+    latestBySlug.set(record.regulationSlug, record);
+  }
+  for (const regulation of raw.regulations as Regulation[]) {
+    const latest = latestBySlug.get(regulation.slug);
+    if (latest) {
+      regulation.status = latest.status;
+      regulation.verifiedAt = latest.createdAt;
+    }
   }
   return raw;
 }
@@ -98,6 +110,9 @@ export class JsonStore {
   relations(): Relation[] { return this.seed.relations; }
   relationsOf(slug: string): Relation[] {
     return this.seed.relations.filter((r) => r.from === slug || r.to === slug);
+  }
+  verificationRecords(slug?: string): VerificationRecord[] {
+    return getVerificationStore().records(slug);
   }
   allChunks(): LegalChunk[] { return this.chunks; }
   /** Label singkat untuk sitasi, mis. "Permenkes 24/2022", "UU 17/2023". */

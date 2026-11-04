@@ -3,7 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --pagar: #1f6e58;
+  --brand-navy: #0b2e45;
+  --brand-navy-dark: #071f30;
+  --brand-teal: #15966d;
+  --accent-teal: #0f7254;
+  --accent-teal-hover: #0c5c43;
+  --brand-orange: #f2782b;
+  --canvas: #f5f7fa;
+  --frame: #edf2f4;
+  --surface: #ffffff;
+  --surface-raised: #f4f7f8;
+  --nav-active: #e4ecef;
+  --sheet-edge: #e1e8eb;
+  --control-border: #c8d3da;
+  --text-primary: #1a2738;
+  --text-muted: #526173;
+  --border: #d7dee7;
+  --focus: #145cc7;
+  --danger: #b42318;
+  --warning: #8a5a00;
+  --success: #176b45;
+
+  --color-pagar-50: 245 247 250;
+  --color-pagar-100: 215 222 231;
+  --color-pagar-200: 188 199 211;
+  --color-pagar-300: 145 160 178;
+  --color-pagar-400: 82 97 115;
+  --color-pagar-500: 21 150 109;
+  --color-pagar-600: 12 92 67;
+  --color-pagar-700: 15 114 84;
+  --color-pagar-800: 11 46 69;
+  --color-pagar-900: 7 31 48;
+  --color-pagar-950: 4 20 30;
+  --color-ink-50: 245 247 250;
+  --color-ink-100: 215 222 231;
+  --color-ink-900: 26 39 56;
+  --color-ink-950: 13 30 53;
+  --color-gold-400: 138 90 0;
+  --color-gold-500: 119 72 0;
   color-scheme: light;
 }
 
@@ -12,23 +49,129 @@ html {
 }
 
 body {
-  @apply bg-white text-ink-900 antialiased;
+  @apply bg-ink-50 text-ink-900 antialiased;
+  background-color: var(--frame);
+  color: var(--text-primary);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.app-shell {
+  min-height: 100svh;
+  background: var(--frame);
+}
+
+.app-sidebar {
+  position: sticky;
+  top: 0;
+  display: none;
+  height: 100svh;
+  min-height: 520px;
+  flex-direction: column;
+  padding: 20px 16px 16px;
+  background: var(--frame);
+}
+
+.app-workspace {
+  min-width: 0;
+}
+
+.app-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 48px;
+  background: var(--frame);
+}
+
+.global-search {
+  width: min(548px, 62vw);
+  margin-inline: auto;
+}
+
+.app-sheet {
+  min-height: calc(100svh - 48px);
+  background: var(--surface);
+}
+
+.home-search-panel {
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--surface-raised);
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 60;
+  left: 16px;
+  top: 8px;
+  transform: translateY(-160%);
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: var(--brand-navy);
+  color: white;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (min-width: 1024px) {
+  .app-shell {
+    display: grid;
+    grid-template-columns: 228px minmax(0, 1fr);
+  }
+
+  .app-sidebar {
+    display: flex;
+  }
+
+  .app-sheet {
+    min-height: calc(100svh - 64px);
+    margin: 0 8px 8px 0;
+    border: 1px solid var(--sheet-edge);
+    border-radius: 16px;
+  }
+
+  .home-search-panel {
+    padding: 24px;
+  }
+}
+
+main h1 {
+  color: var(--brand-navy);
+  font-size: clamp(1.75rem, 2.5vw, 2rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* Kunci keterbacaan kontrol form: teks selalu gelap di atas putih,
    terlepas dari mode browser/OS pengguna. */
 input, select, textarea {
-  @apply bg-white text-ink-900 border-ink-100;
-  color: #141a20;
-  background-color: #ffffff;
+  @apply border-ink-100;
+  color: var(--text-primary);
+  background-color: var(--surface);
 }
 input::placeholder, textarea::placeholder {
-  color: rgba(20, 26, 32, 0.4);
+  color: var(--text-muted);
   opacity: 1;
 }
 select option {
-  color: #141a20;
-  background-color: #ffffff;
+  color: var(--text-primary);
+  background-color: var(--surface);
 }
 
 .prose-pagar h2 {
@@ -44,13 +187,64 @@ select option {
   @apply list-disc;
 }
 
-/* Pagar motif: garis vertikal khas brand */
-.pagar-stripes {
-  background-image: repeating-linear-gradient(
-    90deg,
-    #1f6e58 0px,
-    #1f6e58 6px,
-    transparent 6px,
-    transparent 14px
-  );
-}
+/*
+ * Keep the semantic palette correct in already-running local Next servers.
+ * Tailwind config changes are loaded on server start; these token-backed
+ * fallbacks prevent a stale generated utility sheet from showing the former
+ * green palette until the next normal dev-server restart.
+ */
+.bg-pagar-50 { background-color: rgb(var(--color-pagar-50)) !important; }
+.bg-pagar-100 { background-color: rgb(var(--color-pagar-100)) !important; }
+.bg-pagar-200 { background-color: rgb(var(--color-pagar-200)) !important; }
+.bg-pagar-300 { background-color: rgb(var(--color-pagar-300)) !important; }
+.bg-pagar-400 { background-color: rgb(var(--color-pagar-400)) !important; }
+.bg-pagar-500 { background-color: rgb(var(--color-pagar-500)) !important; }
+.bg-pagar-600 { background-color: rgb(var(--color-pagar-600)) !important; }
+.bg-pagar-700 { background-color: rgb(var(--color-pagar-700)) !important; }
+.bg-pagar-800 { background-color: rgb(var(--color-pagar-800)) !important; }
+.bg-pagar-900 { background-color: rgb(var(--color-pagar-900)) !important; }
+.bg-pagar-950 { background-color: rgb(var(--color-pagar-950)) !important; }
+.text-pagar-50 { color: rgb(var(--color-pagar-50)) !important; }
+.text-pagar-100 { color: rgb(var(--color-pagar-100)) !important; }
+.text-pagar-200 { color: rgb(var(--color-pagar-200)) !important; }
+.text-pagar-300 { color: rgb(var(--color-pagar-300)) !important; }
+.text-pagar-400 { color: rgb(var(--color-pagar-400)) !important; }
+.text-pagar-500 { color: rgb(var(--color-pagar-500)) !important; }
+.text-pagar-600 { color: rgb(var(--color-pagar-600)) !important; }
+.text-pagar-700 { color: rgb(var(--color-pagar-700)) !important; }
+.text-pagar-800 { color: rgb(var(--color-pagar-800)) !important; }
+.text-pagar-900 { color: rgb(var(--color-pagar-900)) !important; }
+.text-pagar-950 { color: rgb(var(--color-pagar-950)) !important; }
+.border-pagar-50 { border-color: rgb(var(--color-pagar-50)) !important; }
+.border-pagar-100 { border-color: rgb(var(--color-pagar-100)) !important; }
+.border-pagar-200 { border-color: rgb(var(--color-pagar-200)) !important; }
+.border-pagar-300 { border-color: rgb(var(--color-pagar-300)) !important; }
+.border-pagar-400 { border-color: rgb(var(--color-pagar-400)) !important; }
+.border-pagar-500 { border-color: rgb(var(--color-pagar-500)) !important; }
+.border-pagar-600 { border-color: rgb(var(--color-pagar-600)) !important; }
+.border-pagar-700 { border-color: rgb(var(--color-pagar-700)) !important; }
+.border-pagar-800 { border-color: rgb(var(--color-pagar-800)) !important; }
+.border-pagar-900 { border-color: rgb(var(--color-pagar-900)) !important; }
+.border-pagar-950 { border-color: rgb(var(--color-pagar-950)) !important; }
+.bg-ink-50 { background-color: rgb(var(--color-ink-50)) !important; }
+.bg-ink-100 { background-color: rgb(var(--color-ink-100)) !important; }
+.text-ink-900 { color: rgb(var(--color-ink-900)) !important; }
+.border-ink-100 { border-color: rgb(var(--color-ink-100)) !important; }
+.bg-ink-50\/50 { background-color: rgb(var(--color-ink-50) / 0.5) !important; }
+.bg-ink-50\/60 { background-color: rgb(var(--color-ink-50) / 0.6) !important; }
+.text-ink-900\/50 { color: rgb(var(--color-ink-900) / 0.5) !important; }
+.text-ink-900\/60 { color: rgb(var(--color-ink-900) / 0.6) !important; }
+.text-ink-900\/65 { color: rgb(var(--color-ink-900) / 0.65) !important; }
+.text-ink-900\/70 { color: rgb(var(--color-ink-900) / 0.7) !important; }
+.text-ink-900\/75 { color: rgb(var(--color-ink-900) / 0.75) !important; }
+.text-ink-900\/80 { color: rgb(var(--color-ink-900) / 0.8) !important; }
+.hover\:bg-pagar-50:hover { background-color: rgb(var(--color-pagar-50)) !important; }
+.hover\:bg-pagar-600:hover { background-color: rgb(var(--color-pagar-600)) !important; }
+.hover\:text-pagar-700:hover { color: rgb(var(--color-pagar-700)) !important; }
+.hover\:text-pagar-800:hover { color: rgb(var(--color-pagar-800)) !important; }
+.hover\:border-pagar-300:hover { border-color: rgb(var(--color-pagar-300)) !important; }
+
+/* App surfaces use one restrained radius and no resting-card shadow. */
+main .rounded-xl,
+main .rounded-2xl { border-radius: 0.75rem !important; }
+

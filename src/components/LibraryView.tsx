@@ -20,66 +20,97 @@ export default function LibraryView() {
     setHistory(getHistory());
   }, []);
 
-  const searches = history.filter((h) => h.kind === "search" || h.kind === "pasal" || h.kind === "chat" || h.kind === "case");
-  const reads = history.filter((h) => h.kind === "regulation" || h.kind === "article");
+  const searches = history.filter((item) => item.kind === "search" || item.kind === "pasal" || item.kind === "chat" || item.kind === "case");
+  const reads = history.filter((item) => item.kind === "regulation" || item.kind === "article");
 
   return (
-    <div>
-      <h2 className="mt-6 font-extrabold">🔖 Bookmark ({bookmarks.length})</h2>
-      {bookmarks.length === 0 ? (
-        <p className="mt-1 text-sm text-ink-900/60">Belum ada. Ketuk ☆ Simpan pada regulasi, pasal, atau artikel.</p>
-      ) : (
-        <ul className="mt-2 space-y-2">
-          {bookmarks.map((b) => (
-            <li key={`${b.type}:${b.slug}:${b.pasal ?? ""}`} className="flex items-center gap-2 rounded-2xl border border-ink-100 bg-white p-3 text-sm">
-              <a
-                href={b.type === "regulasi" ? `/regulasi/${b.slug}?tab=pasal` : b.type === "pasal" ? `/regulasi/${b.slug}?tab=pasal` : `/artikel/${b.slug}`}
-                className="flex-1 font-bold text-pagar-700"
-              >
-                {b.type === "pasal" ? `Pasal ${b.pasal} — ` : ""}{b.title}
-                <span className="block text-[11px] font-normal text-ink-900/50">{fmtDate(b.at)}</span>
-              </a>
-              <button
-                onClick={() => setBookmarks(removeBookmark(b.type, b.slug, b.pasal))}
-                className="rounded-full border px-2 py-1 text-xs font-bold text-red-700"
-                aria-label={`Hapus bookmark ${b.title}`}
-              >
-                ✕
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className="space-y-8">
+      <section aria-labelledby="saved-title">
+        <h2 id="saved-title" className="border-b border-ink-100 pb-3 text-xl font-semibold text-pagar-800">
+          Simpanan <span className="font-normal text-ink-900/70">({bookmarks.length})</span>
+        </h2>
+        {bookmarks.length === 0 ? (
+          <p className="py-4 text-sm text-ink-900/75">
+            Belum ada simpanan. Gunakan tombol Simpan pada regulasi, pasal, atau artikel untuk menyimpannya.
+          </p>
+        ) : (
+          <ul>
+            {bookmarks.map((bookmark) => (
+              <li key={bookmark.type + ":" + bookmark.slug + ":" + (bookmark.pasal ?? "")} className="flex items-start gap-3 border-b border-ink-100 py-4">
+                <a
+                  href={
+                    bookmark.type === "regulasi"
+                      ? "/regulasi/" + bookmark.slug + "?tab=pasal"
+                      : bookmark.type === "pasal"
+                        ? "/regulasi/" + bookmark.slug + "?tab=pasal"
+                        : "/artikel/" + bookmark.slug
+                  }
+                  className="min-h-11 min-w-0 flex-1 rounded-sm py-1 font-semibold text-pagar-800 hover:underline focus-visible:outline"
+                >
+                  {bookmark.type === "pasal" ? "Pasal " + bookmark.pasal + " — " : ""}
+                  {bookmark.title}
+                  <span className="mt-1 block text-sm font-normal text-ink-900/70">{fmtDate(bookmark.at)}</span>
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setBookmarks(removeBookmark(bookmark.type, bookmark.slug, bookmark.pasal))}
+                  className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-md text-ink-900/70 hover:bg-pagar-50 focus-visible:outline"
+                  style={{ color: "var(--danger)" }}
+                  aria-label={"Hapus bookmark " + bookmark.title}
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <path d="m6 6 12 12M18 6 6 18" />
+                  </svg>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
-      <h2 className="mt-6 font-extrabold">🕘 Riwayat Pencarian & AI ({searches.length})</h2>
-      {searches.length === 0 ? (
-        <p className="mt-1 text-sm text-ink-900/60">Jejak pencarian dan pertanyaan AI tercatat otomatis di perangkat ini.</p>
-      ) : (
-        <ul className="mt-2 space-y-1.5 text-sm">
-          {searches.map((h) => (
-            <li key={h.href + h.at}>
-              <a href={h.href} className="block truncate rounded-xl bg-ink-50/60 px-3 py-2 hover:bg-pagar-50">
-                <span className="mr-1.5 rounded bg-white px-1.5 py-0.5 text-[10px] font-bold uppercase text-pagar-700">{h.kind}</span>
-                {h.label} <span className="text-[11px] text-ink-900/50">· {fmtDate(h.at)}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <section aria-labelledby="search-history-title">
+        <h2 id="search-history-title" className="border-b border-ink-100 pb-3 text-xl font-semibold text-pagar-800">
+          Riwayat pencarian dan AI <span className="font-normal text-ink-900/70">({searches.length})</span>
+        </h2>
+        {searches.length === 0 ? (
+          <p className="py-4 text-sm text-ink-900/75">
+            Jejak pencarian dan pertanyaan AI tersimpan otomatis di browser ini.
+          </p>
+        ) : (
+          <ul>
+            {searches.map((item) => (
+              <li key={item.href + item.at} className="border-b border-ink-100">
+                <a href={item.href} className="flex min-h-11 flex-wrap items-center gap-x-2 gap-y-1 py-3 text-sm hover:text-pagar-700">
+                  <span className="font-semibold text-pagar-800">{item.label}</span>
+                  <span className="text-ink-900/70">{item.kind} · {fmtDate(item.at)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
 
-      <h2 className="mt-6 font-extrabold">📖 Terakhir Dibaca ({reads.length})</h2>
-      {reads.length > 0 && (
-        <ul className="mt-2 space-y-1.5 text-sm">
-          {reads.slice(0, 10).map((h) => (
-            <li key={h.href + h.at}>
-              <a href={h.href} className="block truncate rounded-xl bg-ink-50/60 px-3 py-2 hover:bg-pagar-50">
-                {h.label} <span className="text-[11px] text-ink-900/50">· {fmtDate(h.at)}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
-      <p className="mt-4 text-xs text-ink-900/50">Tersimpan lokal di perangkat ini. Sinkronisasi akun (PostgreSQL) hadir di tahap berikut.</p>
+      <section aria-labelledby="recent-reads-title">
+        <h2 id="recent-reads-title" className="border-b border-ink-100 pb-3 text-xl font-semibold text-pagar-800">
+          Terakhir dibaca <span className="font-normal text-ink-900/70">({reads.length})</span>
+        </h2>
+        {reads.length === 0 ? (
+          <p className="py-4 text-sm text-ink-900/75">Dokumen yang Anda buka akan tercatat di sini.</p>
+        ) : (
+          <ul>
+            {reads.slice(0, 10).map((item) => (
+              <li key={item.href + item.at} className="border-b border-ink-100">
+                <a href={item.href} className="flex min-h-11 flex-wrap items-center gap-x-2 gap-y-1 py-3 text-sm hover:text-pagar-700">
+                  <span className="font-semibold text-pagar-800">{item.label}</span>
+                  <span className="text-ink-900/70">{item.kind} · {fmtDate(item.at)}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <p className="text-sm text-ink-900/70">Simpanan dan riwayat tersimpan lokal di browser ini.</p>
     </div>
   );
 }

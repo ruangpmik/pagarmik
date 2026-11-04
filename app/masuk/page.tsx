@@ -3,7 +3,7 @@ export const metadata = { title: "Masuk" };
 export default function Masuk({ searchParams }: { searchParams: Record<string, string | undefined> }) {
   return (
     <div className="mx-auto max-w-sm">
-      <h1 className="text-2xl font-extrabold">Masuk</h1>
+      <h1>Masuk</h1>
       {searchParams.error && <p className="mt-2 rounded-xl bg-red-50 p-3 text-sm text-red-800" role="alert">Email atau kata sandi salah.</p>}
       <form action="/api/auth/login" method="post" className="mt-4 grid gap-2">
         <input type="hidden" name="next" value={searchParams.next ?? "/"} />

@@ -12,7 +12,7 @@ export async function GET() {
     totalPasal: regs.reduce((a, r) => a + store.pasalsOf(r.slug).length, 0),
     totalChunks: store.allChunks().length,
     byStatus: Object.fromEntries(
-      ["BERLAKU", "BERLAKU_DENGAN_CATATAN", "PERUBAHAN", "DICABUT", "BELUM_DIVERIFIKASI"].map((s) => [s, regs.filter((r) => r.status === s).length])
+      ["BERLAKU", "BELUM_BERLAKU", "BERLAKU_DENGAN_CATATAN", "PERUBAHAN", "DICABUT", "BELUM_DIVERIFIKASI"].map((s) => [s, regs.filter((r) => r.status === s).length])
     ),
     topTopics: [...topikCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10),
     // Production: searches/day, AI questions/day, failed searches, no-source rate, citation accuracy — dari tabel SearchQuery/AiMessage.

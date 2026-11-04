@@ -1,0 +1,179 @@
+# Worklog
+
+## 2026-11-03 — Repository reconnaissance and verification workflow
+
+Time for the earlier reconnaissance/implementation exchange was not recorded in the project.
+
+- **Task:** Inspect PAGARMIK, then implement the highest-priority identified gap: real, auditable regulation verification.
+- **Risk:** E1 controlled local development. No database, migration, dependency, or external service was touched.
+- **Implementation:** Replaced the misleading GET mutation with an authorized same-origin POST; added JSON demo audit storage; applied latest status on store load; separated verifier and editor dashboard capabilities; updated API/architecture docs; added focused store tests.
+- **Files:** See `PROJECT_STATE.md`.
+- **Validation:** File replacement probe PASS. `npm test`, typecheck, and lint BLOCKED because `node_modules` is absent. Build and endpoint flow NOT RUN. Git unavailable because `.git` is absent.
+- **Blockers/risks:** Prisma is not wired. JSON audit persistence is single-process and depends on durable local storage. Automated suite remains unexecuted.
+- **Recovery:** Inspect current source before continuing; do not assume no user changes because Git metadata is missing.
+
+## 2026-11-03 09:22 WIB — Recovery documentation
+
+- **Task:** Add root engineering instructions and the four persistent recovery documents requested by the attached project prompt.
+- **Risk:** E1 local documentation creation. No source, database, dependency, or runtime data changed in this step.
+- **Files:** `AGENTS.md` and `docs/engineering/{PROJECT_STATE,WORKLOG,DECISIONS,RECOVERY}.md`.
+- **Validation:** Confirmed all five target files were absent before creation. Contents reflect observed state and explicitly record missing Git metadata and blocked checks.
+- **Next:** Reconcile these notes against actual files before the next implementation; run validation only when dependencies are available.
+
+## 2026-11-03 09:25 WIB — Engineering command center consolidation
+
+- **Task:** Reconcile autonomous engineering, security/CIA, continuity/recovery, execution risk, product traceability, architecture, quality, and operations instructions into one repository governance system.
+- **Risk:** E1. Documentation, focused test code, and CI quality workflow were changed; no production configuration, application data, database, dependency, or secret was changed.
+- **Baseline:** Inspected current instructions, recovery records, verification code, middleware, package manifest/lockfile, and CI. `.git` and `node_modules` are absent; no baseline diff can be established.
+- **Implementation:** Consolidated root rules; added charter, execution/security policies, ADR, threat model, control matrix, evidence scorecard, technical debt register, quality-gate guide, and demo verification runbook. Added shared role/origin predicates and automated tests. Corrected CI root paths and added read-only token permissions, Prisma generation with dummy CI URL, typecheck, tests, and build. No database is started or migrated. Lint omitted because ESLint is absent from manifest/lockfile. Corrected the security inventory for API-only HSTS/CSP, optional-Origin behavior on non-verification routes, an unescaped JSON-LD script sink, arbitrary document ingest, and configurable external AI data flow; recorded those risks for remediation.
+- **Files:** See the governance checkpoint in `PROJECT_STATE.md` and `docs/engineering/`.
+- **Validation:** Required governance-file inventory and source/configuration inspection PASS. New tests, typecheck, and build BLOCKED because `vitest`, `tsc`, and `next` are unavailable. Lint/scanners NOT RUN (no ESLint/scanner configuration). CI execution NOT AVAILABLE; `.git` absent.
+- **Security:** No secret, external service, production environment, database, or real user data was accessed. Global CSRF/auth issues are recorded as open debt.
+- **Next:** Run the focused suite, typecheck, and build on canonical CI; remediate verified failures and address global CSRF/auth issues before production.
+
+## 2026-11-03 — Legal/regulatory intelligence and UI audit checkpoint
+
+- **Task:** Continue under PAGARMIK Legal & Regulatory Intelligence Command Center / Master Prompt 09.
+- **Risk:** E1 read-only audit and documentation; source, registry records, database, dependencies, and runtime data remain untouched during audit.
+- **Baseline evidence:** Repository root is C:\laragon\www\pagarmik; no .git directory, so branch, tracked changes, and pre-existing local diff cannot be established. Current filesystem has node_modules and .next, contradicting earlier state note; availability alone does not prove completeness or a successful build.
+- **Checkpoint:** Official JDIH evidence already inspected for Permenkes 6/2026, Permenkes 82/2013, Permenkes 24/2022, and Permenkes 11/2025. PMK 6/2026 expressly repeals PMK 82/2013 effective at promulgation 12 June 2026; transition periods concern hospital compliance adjustment, not delayed repeal. Detailed article-level review and assessment of subordinate instruments remain open.
+- **Next:** Inventory all seeded regulations and product/UI modules; verify domain-relevant lifecycle/status against official texts; document unresolved items without changing database statuses; complete UI audit and identify one bounded, reversible post-audit implementation.
+- **Recovery:** Preserve existing user files. No migration, seed, dependency change, production configuration change, or status mutation.
+
+## 2026-11-03 — Legal and UI audit completed; pre-implementation checkpoint
+
+- **Task:** Complete the legal lifecycle/source audit, product-impact analysis, full route-level static UI review, and shared design-system specification.
+- **Risk:** E1 audit documentation. Repository source and registry data are unchanged at this checkpoint.
+- **Evidence saved:** docs/legal/REGULATORY_MASTER_REGISTER.md (all 35 seeded records and missing official updates); docs/legal/REPEAL_AND_AMENDMENT_MATRIX.md; docs/legal/LEGAL_VERIFICATION_LOG.md; docs/legal/REGULATORY_IMPACT_MATRIX.md; docs/design/UI_CONSISTENCY_AUDIT.md; docs/design/PAGARMIK_DESIGN_SYSTEM.md.
+- **Key official findings:** PMK 6/2026 Articles 84–85 expressly repeal PMK 82/2013 and PMK 4/2018 from promulgation 12 June 2026; Article 83 is a separate compliance adjustment period. PMK 13/2025 Article 309 expressly repeals PMK 55/2013 and Article 310 makes it effective 3 November 2025. PMK 82's set/effective dates differ (10 December 2013 vs 20 January 2014). PMK 36 dates are 10 August and 12 September 2012. PMK 6 Article 84 lists 21 instruments; the seed summary says 22. PMK 13's set date conflicts between JDIH metadata (18 October) and extracted official-PDF text (8 October); exact date is left open.
+- **Scope finding:** No EHR, SIMRS, telemedicine, SIK integration, patient record, public-body or health-facility licensing feature was found. Health law duties are assigned to PAGARMIK only where product/operator facts support them. Prompts and arbitrary ingest can nonetheless contain sensitive data; configurable external AI data flow is a privacy risk.
+- **UI evidence/blocker:** All 18 page routes and common shell were statically reviewed. Browser screenshot/responsive/keyboard QA is NOT RUN: Next dev server binding to 127.0.0.1:3000 failed with EACCES. A design-system spec is saved; no source styling change is claimed.
+- **Git/data:** .git absent, so no diff/local-change baseline is available. data/ was absent at last listing. No secret, user runtime data, production config, dependency, DB, migration, or seed workflow was accessed.
+- **Next authorized step:** After this audit checkpoint, correct only the proven seed fields, add the PMK 13 record and explicit PMK 13 → PMK 55 repeal relation, fix the PMK 6 repeal-count summary, and add a regression test. Keep PMK 13 set-date blank until official visual text resolves the discrepancy. Then run focused tests and typecheck; report any environmental block.
+
+## 2026-11-03 — Official-source-backed registry correction and verification
+
+- **Task:** Apply the bounded implementation selected after the completed audit.
+- **Risk:** E1, local legal sample-data correction and test. No production database, user runtime data, migration, or external integration was touched.
+- **Changes:** Added active PMK 13/2025 with official JDIH source and effective date; set PMK 55/2013 to DICABUT and added the explicit MENCABUT relationship and Article 309 summary. Corrected PMK 82/2013 effective date to 2014-01-20; corrected PMK 36/2012 determination/promulgation dates to 2012-08-10 / 2012-09-12; corrected PMK 6/2026 repeal-list count from 22 to 21 and marked the partial scope in its summary. Refreshed verification timestamps for changed entries. Preserved all historical records.
+- **Open legal metadata:** PMK 13/2025 determination date remains omitted from seed because official JDIH metadata says 18 October 2025 while text extraction from its official PDF reads 8 October 2025. Effective date and Article 309 repeal effect are verified. The authentic page image still needs manual visual confirmation.
+- **Automated validation:** PASS — seed JSON parses with 36 unique regulation slugs. PASS — full Vitest suite, 23 tests across 5 files. PASS — TypeScript typecheck. Tests used a temporary directory under the repo because the OS temp directory had previously rejected rename; the task-created Node compile-cache directory was inspected and removed from its verified exact path.
+- **Not run / blocked:** Build not run. Starting the dev server on port 3001 may have refreshed generated .next cache; no Git baseline is available to compare generated output. Live browser QA remained blocked: port 3000 bind returned EACCES; port 3001 logged ready but loopback access from the shell was forbidden and the in-app browser timed out; server stopped. Git diff/status unavailable because .git is absent.
+- **Files changed:** prisma/seed.json; tests/regulatory-registry.test.ts; six audit/design documents; engineering checkpoint/worklog.
+- **Next:** Resolve PMK 13 determination-date conflict from the visual official PDF; complete screenshot, responsive and keyboard audit when local server binding is available; plan token/component adoption as a separate reviewed UI implementation.
+
+## 2026-11-03 — Final audit alignment and revalidation
+
+- **Checkpoint:** Re-read the legal deliverables against the post-audit registry. Corrected stale pre-implementation language, added `docs/legal/REGULATORY_IMPACT_MATRIX.md`, and explicitly documented that PMK 55/2013's detailed original text was not independently retrieved. PMK 55's seed explanation now marks it historical and warns against citing it as active law.
+- **Validation:** The focused regulatory test passes (4/4); typecheck passes. A full-suite attempt using the sandbox OS temp path failed one verification-store test with `EPERM` on atomic rename (22/23 passed). Re-running with `TEMP` and `TMP` pointed at the repository passed all 23 tests across 5 files. Vite emitted its existing CJS API deprecation warning.
+- **Registry sanity:** 36 regulation rows, 36 unique slugs, 33 article summaries, 41 relations, and no dangling relation endpoints. PMK 13/2025 set date remains null by design while the official metadata/PDF numeric date conflict is unresolved.
+- **Limits:** No build or browser screenshot/responsive/keyboard validation was completed. `.git` remains absent, so no working-tree baseline can be stated. No migration, production configuration, external AI endpoint, or user data was accessed.
+
+## 2026-11-03 — Port 3007 browser verification and responsive fixes
+
+- **Environment correction:** The app is available in the browser at `http://localhost:3007/`. The task shell cannot reach that listener or see its Node process, but the connected in-app browser loaded the page and all inspected routes. The earlier conclusion based only on the shell's port 3001 check was incomplete.
+- **Browser validation:** Loaded 18 routes (the admin route redirects to sign-in when unauthenticated) at 320, 360, 768, and 1280 CSS pixels. After fixes: no document-level horizontal overflow and all resulting pages had an `h1`. Homepage keyboard spot-check: first nine Tab stops showed visible focus; the search input rendered a 2px focus ring. Screen-reader, complete keyboard workflows, contrast measurement, form error states, and authenticated admin UI remain unverified.
+- **Changes:** `/regulasi/[slug]` source URLs can now wrap inside the metadata grid, fixing measured 320px overflow. Signed-out `/profil` now includes an `h1`. No visual redesign, shared token rollout, production setting, database, migration, or external service was changed.
+- **Verification:** Browser rerun passed at all four widths. `npm.cmd test` passed 23/23 across 5 files with `TEMP`/`TMP` set to the repo. `npm.cmd run typecheck` passed. Existing Vite CJS API deprecation warning remains.
+- **Recovery:** Viewport override reset and the browser tab returned to the PAGARMIK home page for handoff.
+
+## 2026-11-03 — Contextual relationship graph and initial design-system rollout
+
+- **Task:** Replace the unrelated hard-coded relationship diagram with a graph focused on the regulation selected by the user, and bring the graph/shared shell closer to the repository design contract.
+- **Risk:** E1 local application/UI change. No regulation records, database, migration, dependency, production setting, or external service was changed.
+- **Root cause:** `/grafik` used fixed `NODES`/`EDGES` constants. The link from a regulation's `?tab=hubungan` view dropped the selected slug.
+- **Changes:** Added a focused graph model based on catalog relations; passed the selected slug through the detail link; added a labeled regulation selector, empty/unknown states, arrow direction from stored `from`/`to`, SVG node links that refocus the graph, and an equivalent text list. The graph and detail relation view now disclose that no per-edge source/article citations are recorded. Added a P1 technical-debt entry for relation provenance. Adopted the documented CSS-variable navy/teal/neutral palette in Tailwind and the app shell; added active navigation semantics, safe-area/mobile nav, plain-text status labels, visible shared search label, focus treatment and reduced-motion behavior; removed the shell stripe and backdrop blur.
+- **Files:** `app/grafik/page.tsx`, `app/regulasi/[slug]/page.tsx`, `app/layout.tsx`, `app/globals.css`, `tailwind.config.ts`, `src/components/{TopNav,BottomNav,ui}.tsx`, `src/lib/data/relationship-graph.ts`, `src/lib/data/types.ts`, `tests/relationship-graph.test.ts`, README and design/engineering records.
+- **Validation:** Vitest PASS, 26 tests across 6 files; `npm run typecheck` PASS. In browser at port 3007, opening the Permenkominfo 20/2016 relationship tab and following its graph link selected that regulation and showed its one catalog relation to UU 27/2022. Clicking the UU 27/2022 SVG node changed the URL/focus and displayed its five stored direct relations. Desktop screenshot reviewed.
+- **Limitations:** Browser mobile viewport, contrast measurement, complete keyboard and screen-reader workflows, and production build were not run. Seeded relation records still lack source/article provenance; the UI labels this accurately but the legal correctness of every edge is not newly verified. `.git` is absent, so no Git diff/cleanliness claim is possible. Existing Vitest Vite CJS deprecation warning remains.
+
+## 2026-11-03 — Relationship evidence gate from Master Prompt 09
+
+- **Requirement source:** The user's attached Master Prompt 09 says not to create/display relationships unsupported by legal documents. I treated that as a UI/legal requirement only where it matches the user's current request; unrelated prompt directives were not executed.
+- **Finding:** All 41 current `prisma/seed.json` relationship rows lack per-edge source, legal citation, reviewer and verification date. Drawing them as legal facts would violate the explicit relationship-graph requirement.
+- **Changes:** Added optional relationship evidence metadata and a strict publication predicate. Only a `VERIFIED` row with reviewer/date plus HTTPS `.go.id` source and a specific legal reference can become a graph edge. The relation-detail view also withholds unsupported edges and explains the pending evidence count. `BERIRISAN` is undirected and direction labels are relative to the selected regulation. No seed relationship was upgraded or deleted.
+- **Validation:** PASS — Vitest 28/28 across 6 files; TypeScript typecheck PASS. Browser check at port 3007 confirmed the Permenkominfo 20/2016 detail link preserves its slug and displays one pending record without drawing it. Changing the selector to UU 27/2022 changes the pending count to five; `/grafik` without a selection prompts for a regulation. Desktop screenshot reviewed.
+- **Open:** Populate and legally verify individual relationship evidence from authentic official texts; no relation is yet publishable from the existing seed. Mobile viewport, full keyboard/assistive-technology review and contrast measurement remain unverified. Full design-system adoption remains staged, not a completed 18-route redesign.
+
+## 2026-11-03 — Master-prompt UI correction and PAGARMIK mark
+
+- **Task:** Correct the visible UI mismatch against the institutional/editorial design requirements and incorporate the requested RUANGPMIK parent identity with a distinct PAGARMIK product mark and favicon.
+- **Baseline evidence:** `.git` is absent. The live page at `http://localhost:3007/` rendered `#F6F7F8` and the former green `text-pagar-800` (`rgb(23,70,59)`) while source tokens intended navy/neutral colors. The home displayed a dark green hero, 48px heading, emoji icon-card grid and multiple panels.
+- **Design decision:** Dealt `framed-sheet` (seed 1120411848) and kept its thin rules, low-color/no-shadow surfaces. Its sidebar shell was not adopted because it conflicts with the existing responsive top/mobile navigation and the explicit product direction. The legal source search and verification rows are PAGARMIK's screen signature.
+- **Changes:** Added CSS token fallbacks for the already-running server; page titles now share a 28–32px scale. Rebuilt the home into a search-first light layout with catalog counts, grouped links and regulation rows. Removed interface emoji and resting shadow styles; added persistent labels to legal-search/case/admin ingest controls; restyled comparison headers/rows; added admin upload instructions not to submit patient records. Preserved existing routes, search and source behavior.
+- **Brand:** Generated a distinct shield/document/scales/health-information icon using the supplied RUANGPMIK mark as a color reference. Resized to a 256px transparent PNG at `app/icon.png` (51,315 bytes), used it in the global header and verified Next emits the favicon link. Header, footer and document title identify “PAGARMIK by RUANGPMIK.” Brand teal is `#15966D`; action teal is `#0F7254` with white-text contrast 5.91:1; hover shade `#0C5C43` is 7.99:1.
+- **Validation:** Browser check passed across 18 routes at 320, 360, 390, 768, 1024 and 1280px (108 combinations): no document overflow, missing `h1`, unlabeled visible control, duplicate ID, or unloaded logo. Desktop 1280×900 and mobile 390×844 screenshots reviewed. `/admin` redirected to sign-in because this session was unauthenticated. `npm.cmd test` PASS (33/33, 7 files); `npm.cmd run typecheck` PASS; design-taste lint 0 FAIL/1 WARN (18 em dashes in existing UI copy).
+- **Validation limits:** Design-taste's standalone Chrome inspector failed to start due to a Crashpad pipe error; the live in-app browser supplied visual screenshots and route measurements. Full keyboard workflows, assistive technology, all contrast pairs, authenticated admin UI and production build remain unverified.
+- **Safety and recovery:** No database/migration, dependency, production configuration, external service, or runtime user data changed. No Git status/diff claim is possible because `.git` is absent. The `.taste-skill/direction.json` design note records the selected direction.
+
+## 2026-11-03 - PAGARMIK research-workspace UI
+
+- **Task:** Continue the authorized design-system rollout after the live home still read as a generic list of links.
+- **Baseline and recovery:** .git is absent. Saved copies of app/layout.tsx, app/page.tsx, app/globals.css, and the top/bottom navigation and shared UI components under .taste-skill/checkpoints/2026-11-03-home-ui/ before the shell/home rewrite.
+- **Design:** Selected the app-screen framed-sheet style (seed 161137320). PAGARMIK is a multi-destination legal research tool, so a grouped desktop sidebar and compact search utility were chosen; mobile retains the bottom navigation.
+- **Changes:** Rebuilt the shared shell; made the home title/task, search, catalog metrics, and legal-source rows the first-screen hierarchy; showed official-source links only when stored; changed lifecycle status controls to text plus a tone marker; replaced bookmark/library emoji and oversized cards with a bookmark mark and aligned list rows. All counts and documents still come from the existing local catalog.
+- **Files:** app/layout.tsx, app/page.tsx, app/globals.css, src/components/TopNav.tsx, BottomNav.tsx, ui.tsx, BookmarkButton.tsx, LibraryView.tsx, tests/ui-governance.test.ts, and the current design/engineering notes.
+- **Validation:** npm.cmd run typecheck PASS; Vitest 33/33 across 7 files PASS; design-taste lint across 66 files PASS with 0 FAIL and 1 WARN (33 em dashes). In-app browser narrow preview displayed the updated title, labeled search, counts, source links, and mobile navigation.
+- **Not run / blocked:** The design-taste inspector could not start Chrome due to a Crashpad pipe failure. Final desktop screenshots and post-redesign full-route viewport checks are unavailable; full keyboard, screen-reader and contrast-pair reviews remain open. Production build not run.
+- **Boundary:** The prior 108 route/viewport pass predates the new shell. No migration, database, dependency, production config, source registry data, or runtime user data was changed. Git baseline remains unavailable.
+
+## 2026-11-03 — First verified relationship evidence (Jalur A)
+
+- **Task:** Populate per-edge legal evidence for the repeal relationships whose official source and repeal article were already confirmed, so the graph/detail stop withholding them as unverified.
+- **Risk:** E1 local sample-data correction and test. No database, migration, dependency, production configuration, external service, or runtime user data was changed.
+- **Changes:** Added `VERIFIED` evidence (official HTTPS `.go.id` source + repeal article citation + reviewer + date) to eight `MENCABUT` relations: PMK 13/2025 → PMK 55/2013 (Pasal 309); PMK 6/2026 → PMK 82/2013 (Pasal 84 huruf h) and → PMK 4/2018 (Pasal 84 huruf o); PMK 24/2022 → PMK 269/2008 (Pasal 46); UU 17/2023 → UU 29/2004, UU 36/2009, UU 44/2009, UU 36/2014 (Pasal 454 huruf c/d/e/h). Each source was re-read from JDIH Kemenkes or JDIH BPK before insertion; no relationship or status was inferred. Added focused regression tests in `tests/regulatory-registry.test.ts`.
+- **Official sources:** `https://jdih.kemkes.go.id/documents/peraturan-menteri-kesehatan-nomor-{13,24,6}-tahun-{2025,2022,2026}`; `https://peraturan.bpk.go.id/Details/258028/uu-no-17-tahun-2023`.
+- **Effect:** The focused graph now yields publishable edges for these eight relations; relation detail and the "Digantikan oleh" banner surface them. 33 relations remain withheld (1 non-health `pp-71-2019 → pp-82-2012` repeal and 32 non-repeal rows).
+- **Validation:** PASS — seed JSON parses; 8 of 41 relations carry evidence. PASS — Vitest 35/35 across 7 files. PASS — `npm run typecheck`. Browser runtime and production build NOT RUN this step.
+- **Open:** `verifiedBy` is "PAGARMIK Editorial" (internal), not a named qualified reviewer; verification date is the work date, not an independent legal-review date. Remaining repeal `pp-71-2019 → pp-82-2012` and all non-repeal relation types (`MELAKSANAKAN`, `TURUNAN`, `MEMPERKUAT`, `MENGUBAH`, `BERIRISAN`) still need explicit documentary basis before publication.
+
+## 2026-11-03 — Verified derivative (delegasi/perubahan) relationship evidence
+
+- **Task:** Continue Jalur A by populating per-edge evidence for the 14 evidence-backed non-repeal relations (`MENGUBAH` 2, `MELAKSANAKAN` 4, `TURUNAN` 8) from each regulation's own "Menimbang" or official title, so the graph/detail publish them. The 18 subjective relations (`BERIRISAN` 15, `MEMPERKUAT` 3) stay withheld on purpose — never written as legal facts.
+- **Changes:** 13 of the 14 relations carry `VERIFIED` evidence (official HTTPS `.go.id` source + legal citation). Covered: UU 17/2023 ↔ PP 28/2024 delegation (both directions); PMK 6/2026 → UU 17/2023 (via PP 28/2024); PP 28/2012 ↔ UU 43/2009; PP 61/2010 → UU 14/2008 (Pasal 20 ayat (2) and Pasal 58); Permenkominfo 5/2020 → PP 71/2019; PP 71/2019 → UU 19/2016; UU 19/2016 → UU 11/2008; PerBSSN 1/2026 → PerBSSN 5/2021; Perka ANRI 22/2015 → UU 43/2009 (Pasal 55 PP 28/2012); Peranri 1/2023 → UU 43/2009 (Pasal 108 ayat (2) PP 28/2012); Peranri 2/2021 → UU 43/2009. Regression tests extended in `tests/regulatory-registry.test.ts`.
+- **Held (1):** `perka-anri-12-2007 → uu-43-2009` is chronologically impossible — Perka ANRI 12/2007 (2007) predates UU 43/2009 (2009) by two years. It stays without evidence until retargeted to the predecessor Kearsipan law (UU 7/1971).
+- **Official sources:** JDIH Kemenkes (PMK 6/2026); JDIH BPK (PP 28/2024, PP 28/2012, PP 61/2010, PP 71/2019, UU 19/2016, PerBSSN 1/2026, Peranri 1/2023, Peranri 2/2021); peraturan.go.id (Perka ANRI 22/2015).
+- **Grounding doc reconciliation:** the user-supplied `repositori_regulasi_kesehatan_goid.md` matches the URLs used here (UU 17/2023 bpk 258028, PP 28/2024 bpk 294077) and describes PMK 6/2026 as "turunan PP 28/2024", confirming the seed's `permenkes-6-2026 → uu-17-2023` edge is transitive. The same doc lists UU 17/2023 repealing 11 laws and PP 28/2024 repealing 26 PPs, while the seed models only 4 and 0 of those as `MENCABUT` edges. Broadening those repeal lists is a separate data-completeness task, not executed here.
+- **Validation:** PASS — 22/41 relations now carry evidence. PASS — Vitest 38/38 across 7 files. PASS — `npm run typecheck`. Browser runtime and production build NOT RUN this step.
+- **Open:** `verifiedBy` is still "PAGARMIK Editorial" and `verifiedAt` is the work date, not an independent legal-review date; both need a user decision. The 18 subjective relations remain withheld. The broader `MENCABUT` lists in the grounding doc (UU 17/2023 → 11 laws, PP 28/2024 → 26 PPs) are not yet modeled as edges.
+- **Second grounding doc (expanded):** `repositori_regulasi_kesehatan_goid (1).md` adds judicial-review and cross-agency material. It confirms `mk-111-182-puu-2024` is `Putusan MK 111 dan 182/PUU-XXII/2024 atas Pengujian Materiil UU 17/2023` — i.e. the seed's `mk-111-182-puu-2024 → uu-17-2023` is typed `MEMPERKUAT` but is factually a judicial review (`MENGUJI`, a type not in the current schema). Re-typing needs a schema decision and is deferred. The doc's kearsipan section (§6) places Perka/Peraturan ANRI under UU 43/2009 → PP 28/2012, reinforcing that `perka-anri-12-2007 → uu-43-2009` is the wrong parent.
+
+## 2026-11-03 — Reviewer identity, schema fix, and full UU 17/2023 repeal
+
+- **Task:** Apply the user's reviewer name, fix two factually-wrong edges, and fill UU 17/2023's full express-repeal list rather than only four laws.
+- **Changes:**
+  1. Set `verifiedBy` to `"RUANGPMIK Editorial"` across all 22 previously-verified relation evidence (user decision on the reviewer name).
+  2. Added `MENGUJI` to the `Relation.type` union and its reverse label `"DIUJI OLEH"`; re-typed `mk-111-182-puu-2024 → uu-17-2023` from `MEMPERKUAT` to `MENGUJI` with `VERIFIED` evidence (Putusan 111 and 182/PUU-XXII/2024 menguji materiil UU 17/2023).
+  3. Deleted `perka-anri-12-2007 → uu-43-2009`. The relation is chronologically impossible (2007 before the 2009 law); the correct predecessor (UU 7/1971) is not a seed node.
+  4. Completed UU 17/2023 `MENCABUT` to all 11 repealed laws (Pasal 454 angka 1–11): added nodes `uu-419-1949`, `uu-4-1984`, `uu-20-2013`, `uu-18-2014`, `uu-38-2014`, `uu-6-2018`, `uu-4-2019` plus their edges, and corrected the four existing citations from `Pasal 454 huruf c/d/e/h` to `angka 3/4/5/8`.
+- **Accuracy fix:** The prior `Pasal 454 huruf …` citations were wrong — UU 17/2023 Pasal 454 enumerates the repealed laws as `angka` (1–11), not `huruf`. Corrected and re-asserted in the regression test.
+- **Validation:** PASS — seed JSON parses; 30/47 relations carry `VERIFIED` evidence (17 withheld = 15 `BERIRISAN` + 2 `MEMPERKUAT`). Vitest 39/39 across 7 files. `npm run typecheck` clean. Browser runtime and production build NOT RUN this step.
+- **Remaining (not executed here):** the broader `MENCABUT` lists for PP 28/2024 and PMK 6/2026. BPK "Mencabut" metadata (fetched this step) records PP 28/2024 repealing 31 instruments (26 PP + 5 Perpres) and PMK 6/2026 repealing 21 (19 Permenkes + 2 Kepmenkes). The two existing `Pasal 84 huruf h/o` citations for PMK 6/2026 need re-verification against the actual Pasal 84 before the other 19 edges are added. Demarcation of the 18 subjective relations remains a separate model + UI task.
+
+## 2026-11-03 — Full repeal lists, PDP implementing regulation, and subjective-relation demarcation
+
+- **Task:** Finish the two deferred repeal lists, add the PDP implementing regulation the user supplied, and demarcate the subjective relations so the UI no longer silently hides them.
+
+### PP 28/2024 and PMK 6/2026 repeal lists
+
+- **Verification:** Read the actual repeal clauses from the official PDFs (not the BPK "Mencabut" summaries): PP 28/2024 `Pasal 1170 huruf a..z, aa..ee` enumerates 31 instruments (26 PP + 5 Perpres); PMK 6/2026 `Pasal 84 huruf a..u` enumerates 21 instruments (19 Permenkes + 2 Kepmenkes). Both statutes use `huruf` (lowercase letters), unlike UU 17/2023 `Pasal 454` which uses `angka`. The earlier worry about PMK 6/2026 `Pasal 84 huruf h = PMK 82/2013` and `huruf o = PMK 4/2018` was unfounded — both were already correct, and the full `a..u` mapping is now explicit.
+- **PP 28/2024 targets (31):** PP 26/1960, 11/1961, 20/1962, 33/1963, 10/1966, 1/1988, 40/1991, 39/1995, 72/1998, 51/2009, 7/2011, 33/2012, 109/2012, 49/2013, 46/2014, 61/2014 (kecuali Pasal 31), 66/2014, 103/2014, 93/2015, 47/2016, 52/2017, 67/2019, 88/2019, 21/2020, 47/2021, 53/2021; Perpres 35/2008, 77/2015, 90/2017, 31/2019, 86/2019.
+- **PMK 6/2026 targets (21):** Kepmenkes 772/2002, 058/2009; Permenkes 971/2009 (sepanjang kompetensi pejabat struktural RS), 755/2011, 1171/2011, 2306/2011, 49/2013, 82/2013, 10/2014, 17/2014, 24/2014, 85/2015, 88/2015, 11/2016, 4/2018, 42/2018, 3/2020, 80/2020, 31/2022, 40/2022, 33/2023.
+- **Changes:** Added 31 + 19 new regulation nodes (all `DICABUT`, `sumberResmi` = the repealer's official page) and their `MENCABUT` edges, each with `VERIFIED` evidence citing `Pasal 1170 huruf …` / `Pasal 84 huruf …`. Two targets (PMK 82/2013, 4/2018) already existed; the PP 28/2024 and PMK 6/2026 edges were added rather than duplicated. `verifiedBy = "RUANGPMIK Editorial"`, `verifiedAt = "2026-11-03"`.
+
+### PDP implementing regulation (user-supplied)
+
+- **Task:** "Untuk Pelindungan Data Pribadi adopsi … PP Nomor 33 Tahun 2026 tentang Peraturan Pelaksanaan UU 27/2022 … tambahan repo".
+- **Verification:** Downloaded the user-supplied PDF (`https://static.banyumaskab.go.id/website/file/peraturan_pemerintah_no._33_tahun_2026_100926115902.pdf`) and read the `Menimbang` and signature block. Ditetapkan dan diundangkan 16 Juli 2026; `Menimbang` cites `Pasal 10 ayat (2), Pasal 12 ayat (2), Pasal 13 ayat (3), Pasal 16 ayat (3), Pasal 34 ayat (3), Pasal 48 ayat (5), Pasal 54 ayat (3), Pasal 56 ayat (5), Pasal 57 ayat (5), dan Pasal 61 UU 27/2022`.
+- **Changes:** Added node `pp-33-2026` (`tglPenetapan` `2026-07-16`, `sumberResmi` = the supplied PDF) and two `VERIFIED` edges: `pp-33-2026 → uu-27-2022` (`MELAKSANAKAN`, verbatim `Menimbang` citation) and `uu-27-2022 → pp-33-2026` (`TURUNAN`, title citation), matching the existing UU 17/2023 ↔ PP 28/2024 bidirectional pattern.
+- **Correction (following review):** the commencement clause reads "berlaku setelah 6 (enam) bulan terhitung sejak tanggal diundangkan", so the effective date is 16 Januari 2027, not 16 Juli 2026. Fixed `tglBerlaku` to `2027-01-16` and set `status` to a new `BELUM_BERLAKU` value (added to `RegulationStatus`, `STATUS_LABEL`, the status badge colors, and the status switcher options). Multiple independent sources (Hukumonline, legalmp.id, smartcoop.id) confirm 16 Januari 2027.
+- **Note:** The source is a Kabupaten Banyumas government mirror (`.go.id`, HTTPS), not the canonical BPK/JDIH page. The canonical national source could not be located this session (BPK search renders via JavaScript and peraturan.go.id fetch failed), so re-pointing remains open.
+
+### Subjective-relation demarcation (Phase 4)
+
+- **Task:** Mark the subjective relations as "AI-suggested / needs review" instead of silently withholding them.
+- **Changes:** Every `BERIRISAN` (15) and `MEMPERKUAT` (2) edge now carries `evidence: { verificationStatus: "LEGAL_REVIEW_REQUIRED", sources: [] }` — an honest "needs human legal review" state, not a fabricated fact. `buildFocusedRelationshipGraph` now returns `needsReviewCount` (relations with `LEGAL_REVIEW_REQUIRED`) and reports `pendingCount` only for relations with no evidence at all. The detail and grafik pages now show those as "usulan hubungan (keluaran AI) butuh telaah hukum" separately from genuinely unverified relations.
+
+- **Validation:** PASS — Vitest 42/42 across 7 files; `npm run typecheck` clean; seed JSON parses. Browser runtime and production build NOT RUN this step.
+- **State:** 94 regulations, 99 relations → 82 `VERIFIED`, 17 `LEGAL_REVIEW_REQUIRED`, 0 without evidence. Types: `MENCABUT` 66, `TURUNAN` 8, `MELAKSANAKAN` 5, `MENGUBAH` 2, `MENGUJI` 1, `BERIRISAN` 15, `MEMPERKUAT` 2.
+- **Open:** `verificationStatus` "LEGAL_REVIEW_REQUIRED" requires an actual human legal review to become publishable; the reviewer identity is still internal. The seed file was re-serialized (uniform 2-space JSON) during the bulk insert, so its formatting no longer matches the original hand-authored layout.

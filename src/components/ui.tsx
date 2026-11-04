@@ -1,16 +1,18 @@
 import { STATUS_LABEL, type Regulation } from "@/lib/data/types";
 
 export function StatusBadge({ status }: { status: Regulation["status"] }) {
-  const map: Record<string, string> = {
-    BERLAKU: "bg-emerald-50 text-emerald-800 border-emerald-200",
-    BERLAKU_DENGAN_CATATAN: "bg-yellow-50 text-yellow-800 border-yellow-200",
-    PERUBAHAN: "bg-orange-50 text-orange-800 border-orange-200",
-    DICABUT: "bg-red-50 text-red-800 border-red-200",
-    BELUM_DIVERIFIKASI: "bg-gray-50 text-gray-700 border-gray-200",
+  const colors: Record<string, string> = {
+    BERLAKU: "var(--success)",
+    BELUM_BERLAKU: "var(--text-muted)",
+    BERLAKU_DENGAN_CATATAN: "var(--warning)",
+    PERUBAHAN: "var(--brand-navy)",
+    DICABUT: "var(--danger)",
+    BELUM_DIVERIFIKASI: "var(--text-muted)",
   };
   return (
-    <span className={`inline-block rounded-full border px-2.5 py-0.5 text-xs font-semibold ${map[status]}`}>
-      {STATUS_LABEL[status]}
+    <span className="inline-flex items-center gap-2 text-sm font-semibold" style={{ color: colors[status] }}>
+      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: colors[status] }} aria-hidden="true" />
+      <span>{STATUS_LABEL[status]}</span>
     </span>
   );
 }
@@ -39,7 +41,7 @@ export function Disclaimer() {
 
 export function RegulationCard({ r }: { r: Regulation }) {
   return (
-    <a href={`/regulasi/${r.slug}`} className="block rounded-2xl border border-ink-100 bg-white p-4 shadow-sm transition hover:shadow-md">
+    <a href={`/regulasi/${r.slug}`} className="block rounded-xl border border-ink-100 bg-white p-4 transition-colors hover:border-pagar-300 hover:bg-pagar-50">
       <div className="flex flex-wrap items-center gap-2">
         <StatusBadge status={r.status} />
         <span className="text-xs text-ink-900/60">{r.jenis} · {r.tahun}</span>
@@ -53,24 +55,41 @@ export function RegulationCard({ r }: { r: Regulation }) {
   );
 }
 
-export function SearchBar({ action = "/legal-search", big = false }: { action?: string; big?: boolean }) {  return (
-    <form action={action} method="get" role="search" className={`flex gap-2 ${big ? "flex-col sm:flex-row" : ""}`}>
-      <label htmlFor="q" className="sr-only">Cari regulasi atau tanya hukum</label>
-      <input
-        id="q"
-        name="q"
-        required
-        minLength={3}
-        placeholder='🔍 "Apa dasar hukum kerahasiaan rekam medis?"'
-        className={`w-full rounded-2xl border border-ink-100 bg-white text-ink-900 shadow-sm outline-none placeholder:text-ink-900/40 focus:border-pagar-500 focus:ring-2 focus:ring-pagar-100 ${big ? "px-5 py-4 text-base" : "px-4 py-2.5 text-sm"}`}
-      />
-      <div className={`flex gap-2 ${big ? "" : ""}`}>
-        <button type="submit" className="whitespace-nowrap rounded-2xl bg-pagar-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-pagar-600">
-          Cari Regulasi
+export function SearchBar({
+  action = "/legal-search",
+  big = false,
+  showAiLink = true,
+  label = "Cari regulasi atau pertanyaan hukum",
+  placeholder = 'Contoh: "Apa dasar hukum kerahasiaan rekam medis?"',
+  submitLabel = "Cari Regulasi",
+}: {
+  action?: string;
+  big?: boolean;
+  showAiLink?: boolean;
+  label?: string;
+  placeholder?: string;
+  submitLabel?: string;
+}) {
+  return (
+    <form action={action} method="get" role="search" className="grid gap-2">
+      <label htmlFor="q" className="text-sm font-semibold text-pagar-800">{label}</label>
+      <div className="flex flex-col gap-2 sm:flex-row">
+        <input
+          id="q"
+          name="q"
+          required
+          minLength={3}
+          placeholder={placeholder}
+          className={`min-h-11 min-w-0 flex-1 rounded-lg border border-ink-100 bg-white text-ink-900 placeholder:text-ink-900/60 ${big ? "px-5 py-3 text-base" : "px-4 py-2.5 text-sm"}`}
+        />
+        <button type="submit" className="min-h-11 whitespace-nowrap rounded-lg bg-pagar-700 px-5 py-2.5 text-sm font-bold text-white hover:bg-pagar-600">
+          {submitLabel}
         </button>
-        <a href="/ai" className="whitespace-nowrap rounded-2xl border border-pagar-700 px-5 py-2.5 text-sm font-bold text-pagar-700 hover:bg-pagar-50">
-          Tanya AI
-        </a>
+        {showAiLink && (
+          <a href="/ai" className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-lg border border-pagar-700 px-5 py-2.5 text-sm font-bold text-pagar-700 hover:bg-pagar-50">
+            Tanya AI
+          </a>
+        )}
       </div>
     </form>
   );
@@ -90,14 +109,15 @@ export function ScoreBar({ score }: { score: number }) {
 
 const STATUS_OPTS: [string, string][] = [
   ["", "Semua"],
-  ["BERLAKU", "🟢 Berlaku"],
-  ["BERLAKU_DENGAN_CATATAN", "🟡 Catatan"],
-  ["PERUBAHAN", "🟠 Perubahan"],
-  ["DICABUT", "🔴 Dicabut"],
-  ["BELUM_DIVERIFIKASI", "⚪ Belum verif"],
+  ["BERLAKU", "Berlaku"],
+  ["BELUM_BERLAKU", "Belum berlaku"],
+  ["BERLAKU_DENGAN_CATATAN", "Berlaku dengan catatan"],
+  ["PERUBAHAN", "Perubahan"],
+  ["DICABUT", "Dicabut"],
+  ["BELUM_DIVERIFIKASI", "Belum diverifikasi"],
 ];
 
-/** Switcher Berlaku ↔ Tidak Berlaku (+ status lain) dengan hitungan. */
+/** Switcher status berlaku dan tidak berlaku dengan hitungan. */
 export function StatusSwitcher({ base, current, extra, counts }: {
   base: string;
   current?: string;
@@ -112,7 +132,7 @@ export function StatusSwitcher({ base, current, extra, counts }: {
     return qs ? `${base}?${qs}` : base;
   };
   return (
-    <div className="flex gap-1 overflow-x-auto rounded-2xl border border-ink-100 bg-white p-1.5 shadow-sm" role="group" aria-label="Filter status keberlakuan">
+    <div className="flex gap-1 overflow-x-auto rounded-xl border border-ink-100 bg-white p-1.5" role="group" aria-label="Filter status keberlakuan">
       {STATUS_OPTS.map(([v, label]) => {
         const active = (current ?? "") === v;
         const n = counts?.[v || "ALL"];
@@ -120,8 +140,8 @@ export function StatusSwitcher({ base, current, extra, counts }: {
           <a
             key={v || "all"}
             href={href(v)}
-            aria-pressed={active}
-            className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-bold transition ${active ? "bg-pagar-700 text-white shadow" : "text-ink-900/70 hover:bg-pagar-50 hover:text-pagar-700"}`}
+            aria-current={active ? "page" : undefined}
+            className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-bold transition-colors ${active ? "bg-pagar-700 text-white" : "text-ink-900/75 hover:bg-pagar-50 hover:text-pagar-700"}`}
           >
             {label}{typeof n === "number" ? ` · ${n}` : ""}
           </a>

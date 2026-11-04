@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getStore } from "@/lib/data/store";
+import { buildFocusedRelationshipGraph, relationLabelForFocus } from "@/lib/data/relationship-graph";
 import { StatusBadge, ConfidenceBadge, Disclaimer } from "@/components/ui";
+import { InlineMarkdown } from "@/components/Markdown";
 import BookmarkButton from "@/components/BookmarkButton";
 import RememberVisit from "@/components/RememberVisit";
 import { answerQuestion } from "@/lib/rag/pipeline";
@@ -21,7 +23,8 @@ export default async function RegulationDetail({ params, searchParams }: { param
   const reg = store.regulation(params.slug);
   if (!reg) notFound();
   const pasals = store.pasalsOf(reg.slug);
-  const rels = store.relationsOf(reg.slug);
+  const relationGraph = buildFocusedRelationshipGraph(reg.slug, store.regulations(), store.relations());
+  const rels = relationGraph.edges.map(({ relation }) => relation);
   const tab = searchParams.tab ?? "ringkasan";
   const pengganti = rels
     .filter((r) => r.to === reg.slug && (r.type === "MENCABUT" || r.type === "MENGUBAH"))
@@ -50,7 +53,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
       <a href="/regulasi" className="text-sm font-bold text-pagar-700">← Semua regulasi</a>
       <RememberVisit kind="regulation" label={reg.judul} href={`/regulasi/${reg.slug}`} />
       <div className="mt-2 flex flex-wrap items-start justify-between gap-2">
-        <h1 className="max-w-[75%] text-2xl font-extrabold leading-tight">{reg.judul}</h1>
+        <h1>{reg.judul}</h1>
         <BookmarkButton type="regulasi" slug={reg.slug} title={reg.judul} />
       </div>
       <div className="mt-2 flex flex-wrap items-center gap-2">
@@ -60,7 +63,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
       {(reg.status === "DICABUT" || reg.status === "PERUBAHAN") && (
         <div className="mt-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm" role="alert">
           <p className="font-extrabold text-red-800">
-            ⚠️ {reg.status === "DICABUT" ? "Aturan ini sudah dicabut — jangan jadikan dasar tindakan." : "Aturan ini telah berubah — gunakan versi berlaku."}
+          <strong>Status peraturan.</strong> {reg.status === "DICABUT" ? "Aturan ini tercatat dicabut; jangan jadikan dasar tindakan tanpa memeriksa ketentuan penggantinya." : "Aturan ini tercatat mengalami perubahan; periksa versi dan ketentuan yang berlaku."}
           </p>
           {pengganti.length > 0 && (
             <p className="mt-1 text-red-900/80">
@@ -76,7 +79,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
         {[["Nomor", reg.nomor], ["Tahun", String(reg.tahun)], ["Jenis", reg.jenis], ["Instansi", reg.instansi],
           ["Penetapan", reg.tglPenetapan ?? "—"], ["Berlaku", reg.tglBerlaku ?? "—"],
           ["Sumber resmi", reg.sumberResmi ?? "—"], ["Terverifikasi", reg.verifiedAt ?? "—"]].map(([k, v]) => (
-          <div key={k}><dt className="text-xs text-ink-900/50">{k}</dt><dd className="font-semibold">{v}</dd></div>
+          <div key={k} className="min-w-0"><dt className="text-xs text-ink-900/50">{k}</dt><dd className="break-all font-semibold">{v}</dd></div>
         ))}
       </dl>
 
@@ -110,8 +113,8 @@ export default async function RegulationDetail({ params, searchParams }: { param
                 <p className="text-sm text-ink-900/80">{p.artiSederhana}</p>
                 <h3 className="mt-2 text-sm font-bold">Relevansi untuk PMIK</h3>
                 <p className="text-sm text-ink-900/80">{p.relevansiPmIK}</p>
-                {p.risikoKepatuhan && (<><h3 className="mt-2 text-sm font-bold">⚠️ Risiko Kepatuhan</h3><p className="text-sm text-ink-900/80">{p.risikoKepatuhan}</p></>)}
-                <a href={`/ai?q=${encodeURIComponent(`Jelaskan Pasal ${p.nomor} ${reg.judul} untuk PMIK`)}`} className="mt-3 inline-block text-sm font-bold text-pagar-700 underline">✦ Explain This Pasal dengan AI</a>
+                {p.risikoKepatuhan && (<><h3 className="mt-2 text-sm font-bold">Risiko kepatuhan</h3><p className="text-sm text-ink-900/80">{p.risikoKepatuhan}</p></>)}
+                <a href={`/ai?q=${encodeURIComponent(`Jelaskan Pasal ${p.nomor} ${reg.judul} untuk PMIK`)}`} className="mt-3 inline-block text-sm font-semibold text-pagar-700 underline underline-offset-2">Jelaskan pasal ini dengan PAGARMIK AI</a>
               </article>
             ))}
             {pasals.length === 0 && <p className="text-sm text-ink-900/60">Belum ada pasal terindeks untuk regulasi ini.</p>}
@@ -120,16 +123,38 @@ export default async function RegulationDetail({ params, searchParams }: { param
         {tab === "hubungan" && (
           <div className="rounded-2xl border border-ink-100 bg-white p-5">
             <h2 className="font-extrabold">Hubungan Regulasi</h2>
-            {rels.length === 0 && <p className="mt-2 text-sm">Belum ada relasi tercatat.</p>}
+            {relationGraph.needsReviewCount > 0 && (
+              <p className="mt-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm leading-relaxed text-amber-950">
+                {relationGraph.needsReviewCount} usulan hubungan (keluaran AI) butuh telaah hukum sebelum ditampilkan sebagai hubungan hukum, sehingga untuk sementara ditahan.
+              </p>
+            )}
+            {relationGraph.pendingCount > 0 && (
+              <p className="mt-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm leading-relaxed text-amber-950">
+                {relationGraph.pendingCount} catatan hubungan di katalog belum memiliki sumber resmi, rujukan pasal, dan tanggal verifikasi per relasi, sehingga tidak ditampilkan sebagai hubungan hukum.
+              </p>
+            )}
+            {rels.length === 0 && <p className="mt-2 text-sm text-ink-900/75">Belum ada hubungan terverifikasi yang dapat ditampilkan.</p>}
             <ul className="mt-2 space-y-2 text-sm">
               {rels.map((r, i) => {
                 const other = r.from === reg.slug ? r.to : r.from;
-                const dir = r.from === reg.slug ? "→" : "←";
                 const target = store.regulation(other);
-                return <li key={i} className="rounded-xl bg-ink-50/60 p-3"><span className="font-bold">{r.type}</span> {dir} <a className="font-bold text-pagar-700 underline" href={`/regulasi/${other}`}>{target?.judul ?? other}</a></li>;
+                return (
+                  <li key={i} className="rounded-xl bg-ink-50/60 p-3">
+                    <span className="font-bold">{relationLabelForFocus(r, reg.slug)}</span>{" "}
+                    <a className="font-bold text-pagar-700 underline" href={`/regulasi/${other}`}>{target?.judul ?? other}</a>
+                    {r.evidence?.sources.map((source) => (
+                      <p key={`${source.url}:${source.citation}`} className="mt-1 text-xs text-ink-900/75">
+                        Dasar relasi: {source.citation} · <a className="font-semibold text-pagar-700 underline" href={source.url} target="_blank" rel="noreferrer">Sumber resmi</a>
+                      </p>
+                    ))}
+                    {r.evidence?.verifiedAt && <p className="mt-1 text-xs text-ink-900/60">Terverifikasi: {r.evidence.verifiedAt}</p>}
+                  </li>
+                );
               })}
             </ul>
-            <a href="/grafik" className="mt-3 inline-block text-sm font-bold text-pagar-700 underline">Lihat relationship graph →</a>
+            <a href={`/grafik?regulasi=${encodeURIComponent(reg.slug)}`} className="mt-3 inline-block min-h-11 text-sm font-bold text-pagar-700 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]">
+              Lihat grafik hubungan untuk regulasi ini →
+            </a>
           </div>
         )}
         {tab === "terkait" && (
@@ -141,7 +166,7 @@ export default async function RegulationDetail({ params, searchParams }: { param
         {tab === "ai" && ai && (
           <div className="rounded-2xl border border-ink-100 bg-white p-5">
             <div className="flex items-center gap-3"><h2 className="font-extrabold">AI Analysis</h2><ConfidenceBadge level={ai.confidence} /></div>
-            <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed">{ai.answer}</p>
+            <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed"><InlineMarkdown text={ai.answer} /></p>
             <h3 className="mt-4 text-sm font-bold">Sumber</h3>
             <ul className="mt-1 space-y-1 text-sm">
               {ai.citations.map((c) => <li key={c.chunkId}>[{c.chunkId}] {c.regulasiJudul}{c.pasalNomor ? ` — Pasal ${c.pasalNomor}` : ""} <span className="text-xs text-ink-900/50">({c.trustLevel})</span></li>)}

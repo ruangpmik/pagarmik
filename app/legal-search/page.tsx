@@ -4,7 +4,7 @@ import type { Regulation } from "@/lib/data/types";
 import { SearchBar, StatusBadge, Disclaimer, ScoreBar, StatusSwitcher } from "@/components/ui";
 import RememberVisit from "@/components/RememberVisit";
 
-export const metadata = { title: "Legal Search" };
+export const metadata = { title: "Pencarian hukum" };
 
 const JENIS = ["UU", "PP", "Perpres", "Permenkes", "Permenkominfo", "Perka ANRI", "PeranRI", "Peraturan BSSN", "Putusan MK", "Putusan MA", "Kepmenkes", "SE", "Pedoman", "Standar"];
 
@@ -33,9 +33,9 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold">Legal Search</h1>
+      <h1>Pencarian hukum</h1>
       {q ? <RememberVisit kind="search" label={q.slice(0, 80)} href={`/legal-search?q=${encodeURIComponent(q)}`} /> : null}
-      <p className="mt-1 text-sm text-ink-900/60">Hybrid search: keyword + semantik + filter metadata, dengan reranking otoritas dan trust level.</p>
+      <p className="mt-1 text-base leading-relaxed text-ink-900/80">Cari regulasi dan pasal berdasarkan kata kunci serta metadata sumber.</p>
       <div className="mt-4"><SearchBar /></div>
 
       <div className="mt-3">
@@ -51,16 +51,25 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
         />
       </div>
 
-      <form method="get" className="mt-3 grid grid-cols-2 gap-2 rounded-2xl border border-ink-100 bg-ink-50/50 p-3 md:grid-cols-4" aria-label="Filter">
+      <form method="get" className="mt-3 grid grid-cols-2 gap-3 rounded-2xl border border-ink-100 bg-ink-50/50 p-3 md:grid-cols-4" aria-label="Filter pencarian">
         <input type="hidden" name="q" value={q} />
         {filters.status ? <input type="hidden" name="status" value={filters.status} /> : null}
-        <select name="jenis" defaultValue={filters.jenis ?? ""} className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900">
-          <option value="">Semua jenis</option>
-          {JENIS.map((j) => <option key={j} value={j}>{j}</option>)}
-        </select>
-        <input name="tahun" defaultValue={filters.tahun ?? ""} placeholder="Tahun" inputMode="numeric" className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900" />
-        <input name="topik" defaultValue={filters.topik ?? ""} placeholder="Topik (mis. privasi)" className="rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900" />
-        <button className="rounded-lg bg-pagar-700 px-3 py-2 text-sm font-bold text-white">Terapkan</button>
+        <div className="grid gap-1">
+          <label htmlFor="filter-jenis" className="text-sm font-medium text-ink-900">Jenis regulasi</label>
+          <select id="filter-jenis" name="jenis" defaultValue={filters.jenis ?? ""} className="min-h-11 min-w-0 rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900">
+            <option value="">Semua jenis</option>
+            {JENIS.map((j) => <option key={j} value={j}>{j}</option>)}
+          </select>
+        </div>
+        <div className="grid gap-1">
+          <label htmlFor="filter-tahun" className="text-sm font-medium text-ink-900">Tahun</label>
+          <input id="filter-tahun" name="tahun" defaultValue={filters.tahun ?? ""} inputMode="numeric" className="min-h-11 min-w-0 rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900" />
+        </div>
+        <div className="grid gap-1">
+          <label htmlFor="filter-topik" className="text-sm font-medium text-ink-900">Topik</label>
+          <input id="filter-topik" name="topik" defaultValue={filters.topik ?? ""} className="min-h-11 min-w-0 rounded-lg border border-ink-100 bg-white px-2 py-2 text-sm text-ink-900" />
+        </div>
+        <button className="min-h-11 self-end rounded-lg bg-pagar-700 px-3 py-2 text-sm font-semibold text-white">Terapkan filter</button>
       </form>
 
       {q && (
@@ -71,7 +80,7 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
 
       <div className="mt-3 grid gap-3">
         {grouped.map(({ reg, best, pasals }) => (
-          <a key={reg.slug} href={`/regulasi/${reg.slug}`} className="block rounded-2xl border border-ink-100 bg-white p-4 shadow-sm hover:shadow-md">
+          <a key={reg.slug} href={`/regulasi/${reg.slug}`} className="block rounded-2xl border border-ink-100 bg-white p-4 underline-offset-4 hover:border-pagar-300">
             <div className="flex flex-wrap items-center gap-2">
               <StatusBadge status={reg.status} />
               <span className="text-xs text-ink-900/60">{reg.jenis} · {reg.nomor}/{reg.tahun}</span>
@@ -80,12 +89,12 @@ export default function LegalSearch({ searchParams }: { searchParams: Record<str
             <h2 className="mt-1 font-bold text-pagar-800">{reg.judul}</h2>
             <p className="mt-1 text-sm text-ink-900/70">{reg.ringkasan}</p>
             <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink-900/60">
-              <span>🏛️ {reg.instansi}</span>
-              <span>📅 Berlaku: {reg.tglBerlaku ?? "—"}</span>
-              <span>🏷️ {reg.topik.join(", ")}</span>
-              {pasals.length > 0 && <span>⚖️ Pasal relevan: {pasals.join(", ")}</span>}
-              <span>🔗 {reg.sumberResmi ?? "—"}</span>
-              <span>✅ Terverifikasi: {reg.verifiedAt ?? "—"}</span>
+              <span>Instansi: {reg.instansi}</span>
+              <span>Tanggal berlaku: {reg.tglBerlaku ?? "Belum tercatat"}</span>
+              <span>Topik: {reg.topik.join(", ") || "Belum diklasifikasikan"}</span>
+              {pasals.length > 0 && <span>Pasal relevan: {pasals.join(", ")}</span>}
+              <span>Sumber resmi: {reg.sumberResmi ?? "Belum tercatat"}</span>
+              <span>Verifikasi: {reg.verifiedAt ?? "Belum tercatat"}</span>
             </div>
           </a>
         ))}

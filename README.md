@@ -14,7 +14,7 @@ repository regulasi terstruktur + pencarian hukum hybrid + **PAGARMIK AI** (RAG 
 - Pasal Explorer — `/pasal`
 - PAGARMIK AI: chat RAG + sitasi klikabel + confidence + evidence — `/ai`, `POST /api/ai/chat`
 - Analisis Kasus 8-bagian (norma vs interpretasi vs rekomendasi) — `/analisis-kasus`
-- Regulatory Timeline, Relationship Graph interaktif, Topic Hub (12 topik), Knowledge Base terverifikasi
+- Regulatory Timeline, relationship graph yang mengikuti regulasi terpilih, Topic Hub (12 topik), Knowledge Base terverifikasi
 - Compare Regulasi (tabel aspek + highlight) — `/bandingkan`
 - Auth email/password + JWT + RBAC (Google OAuth siap via Auth.js), profil, admin dashboard
 - Admin ingest: PDF → ekstraksi → pasal split → chunking → indexing; verifikasi status

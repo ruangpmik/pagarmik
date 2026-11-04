@@ -3,7 +3,7 @@ export const metadata = { title: "Daftar" };
 export default function Daftar() {
   return (
     <div className="mx-auto max-w-sm">
-      <h1 className="text-2xl font-extrabold">Daftar</h1>
+      <h1>Daftar</h1>
       <form action="/api/auth/register" method="post" className="mt-4 grid gap-2">
         <label className="text-sm font-bold">Nama<input name="name" required className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
         <label className="text-sm font-bold">Email<input name="email" type="email" required className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
