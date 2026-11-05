@@ -3,23 +3,68 @@
 import { useState, type FormEvent } from "react";
 import { CONTACT_EMAIL } from "@/lib/site";
 
+type Status = "idle" | "sending" | "success" | "error";
+
 export default function MasukanForm() {
   const [nama, setNama] = useState("");
+  const [email, setEmail] = useState("");
   const [subjek, setSubjek] = useState("");
   const [pesan, setPesan] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const lines: string[] = [];
-    if (nama.trim()) lines.push(`Dari: ${nama.trim()}`);
-    lines.push(pesan.trim());
-    const subject = subjek.trim() || "Masukan PAGARMIK";
-    const url = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n\n"))}`;
-    window.location.href = url;
+    setStatus("sending");
+    setError("");
+    try {
+      const res = await fetch("/api/masukan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nama, email, subjek, pesan }),
+      });
+      const data = (await res.json()) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) {
+        setStatus("error");
+        setError(data.error || "Gagal mengirim. Coba lagi nanti.");
+        return;
+      }
+      setStatus("success");
+      setNama("");
+      setEmail("");
+      setSubjek("");
+      setPesan("");
+    } catch {
+      setStatus("error");
+      setError("Jaringan bermasalah. Coba lagi.");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="space-y-3">
+        <p className="rounded-xl border border-emerald-300 bg-emerald-50 p-4 text-sm font-semibold text-emerald-800" role="status">
+          Terima kasih! Masukan Anda sudah terkirim ke {CONTACT_EMAIL}.
+        </p>
+        <button type="button" onClick={() => setStatus("idle")} className="btn-secondary">
+          Kirim masukan lain
+        </button>
+      </div>
+    );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {status === "error" && (
+        <p className="rounded-xl border border-rose-300 bg-rose-50 p-3 text-sm text-rose-700" role="alert">
+          {error}{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold underline underline-offset-2">
+            Kirim lewat email langsung
+          </a>
+          .
+        </p>
+      )}
+
       <div className="grid gap-1.5">
         <label htmlFor="nama" className="text-xs font-semibold uppercase tracking-wider text-slate-500">
           Nama (opsional)
@@ -30,6 +75,20 @@ export default function MasukanForm() {
           value={nama}
           onChange={(e) => setNama(e.target.value)}
           placeholder="Nama atau institusi Anda"
+          className="form-input"
+        />
+      </div>
+
+      <div className="grid gap-1.5">
+        <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+          Email Anda (opsional)
+        </label>
+        <input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Agar kami bisa membalas"
           className="form-input"
         />
       </div>
@@ -64,16 +123,9 @@ export default function MasukanForm() {
         />
       </div>
 
-      <button type="submit" className="btn-primary">
-        Kirim via Email
+      <button type="submit" className="btn-primary" disabled={status === "sending"}>
+        {status === "sending" ? "Mengirim..." : "Kirim Masukan"}
       </button>
-      <p className="text-xs text-slate-500">
-        Tombol membuka aplikasi email Anda dengan pesan terisi otomatis ke{" "}
-        <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-pagar-700 underline underline-offset-2">
-          {CONTACT_EMAIL}
-        </a>
-        .
-      </p>
     </form>
   );
 }
