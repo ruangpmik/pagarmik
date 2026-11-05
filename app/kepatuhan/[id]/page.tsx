@@ -10,6 +10,7 @@ import {
 } from "@/lib/matters/store";
 import { readSession } from "@/lib/auth/session";
 import { answerQuestion } from "@/lib/rag/pipeline";
+import { getStore } from "@/lib/data/store";
 import { TRUST_LABEL } from "@/lib/data/types";
 import {
   Alert,
@@ -65,6 +66,7 @@ export default async function MatterDetailPage({
   const matter = getMatterStore().get(params.id);
   if (!matter) notFound();
   if (matter.ownedBy !== user.email && user.role !== "ADMIN") notFound();
+  const regStore = getStore();
 
   const q = (searchParams.q ?? "").trim();
   const ans = q ? await answerQuestion(q) : null;
@@ -106,6 +108,28 @@ export default async function MatterDetailPage({
             <dd className="mt-0.5 font-medium text-slate-800">{new Date(matter.createdAt).toLocaleDateString("id-ID")}</dd>
           </div>
         </dl>
+
+        {(matter.regulasiTerkait ?? []).length > 0 && (
+          <div>
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400">Regulasi Terkait</h3>
+            <ul className="mt-2 flex flex-wrap gap-2">
+              {(matter.regulasiTerkait ?? []).map((slug) => {
+                const r = regStore.regulation(slug);
+                return (
+                  <li key={slug}>
+                    <a
+                      href={`/regulasi/${slug}`}
+                      title={r?.judul}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-teal-300 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-800 hover:bg-teal-100"
+                    >
+                      {r ? regStore.shortRef(slug) : slug}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
 
         <div className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700">
           <p className="whitespace-pre-line">{matter.deskripsi}</p>

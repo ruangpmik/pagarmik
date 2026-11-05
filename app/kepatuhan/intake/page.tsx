@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { readSession } from "@/lib/auth/session";
+import { getStore } from "@/lib/data/store";
 import {
   MATTER_PRIORITY_LABEL,
   MATTER_TIPE_LABEL,
@@ -24,6 +25,8 @@ export default async function IntakePage({
   if (!user) redirect("/masuk?next=/kepatuhan/intake");
 
   const showError = searchParams.error === "validation";
+  const regStore = getStore();
+  const regulations = regStore.regulations();
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -110,6 +113,29 @@ export default async function IntakePage({
             </label>
             <input id="tenggat" name="tenggat" type="date" className="form-input" />
           </div>
+        </div>
+
+        <div className="grid gap-1.5">
+          <label htmlFor="regulasiTerkait" className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            Regulasi Terkait (opsional)
+          </label>
+          <select
+            id="regulasiTerkait"
+            name="regulasiTerkait"
+            multiple
+            size={5}
+            className="form-input h-auto"
+            aria-describedby="regulasi-terkait-hint"
+          >
+            {regulations.map((r) => (
+              <option key={r.slug} value={r.slug} title={r.judul}>
+                {regStore.shortRef(r.slug)} — {r.judul}
+              </option>
+            ))}
+          </select>
+          <p id="regulasi-terkait-hint" className="text-xs text-slate-500">
+            Tahan Ctrl (Windows) / ⌘ (Mac) untuk memilih beberapa. Bersifat penanda; riset tetap menelusuri seluruh repositori.
+          </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5 border-t border-slate-200 pt-4">

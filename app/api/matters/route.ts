@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readSession } from "@/lib/auth/session";
+import { getStore } from "@/lib/data/store";
 import { getMatterStore, type MatterPriority, type MatterTipe } from "@/lib/matters/store";
 
 const TIPE: MatterTipe[] = ["RMIK", "PDP", "RME", "KEBIJAKAN_INTERNAL", "LAIN"];
@@ -24,12 +25,24 @@ export async function POST(req: NextRequest) {
   if (!PRIORITAS.includes(prioritas)) return fail();
   if (tenggat && !/^\d{4}-\d{2}-\d{2}$/.test(tenggat)) return fail();
 
+  // Regulasi terkait: dedupe, buang slug tak dikenal, batasi jumlah.
+  const regulasiTerkait = Array.from(
+    new Set(
+      (form?.getAll("regulasiTerkait") ?? [])
+        .map((v) => String(v).trim())
+        .filter((v) => v.length > 0),
+    ),
+  )
+    .filter((slug) => getStore().regulation(slug))
+    .slice(0, 20);
+
   const matter = getMatterStore().create({
     judul,
     deskripsi,
     tipe,
     prioritas,
     tenggat: tenggat || undefined,
+    regulasiTerkait,
     ownedBy: user.email,
     ownerName: user.name,
   });

@@ -20,6 +20,7 @@ export interface Matter {
   status: MatterStatus;
   prioritas: MatterPriority;
   tenggat?: string; // YYYY-MM-DD
+  regulasiTerkait: string[]; // slug regulasi
   ownedBy: string; // email
   ownerName: string;
   createdAt: string;

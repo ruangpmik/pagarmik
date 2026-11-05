@@ -57,6 +57,7 @@ export class MatterStore {
     tipe: MatterTipe;
     prioritas: MatterPriority;
     tenggat?: string;
+    regulasiTerkait?: string[];
     ownedBy: string;
     ownerName: string;
   }): Matter {
@@ -70,6 +71,7 @@ export class MatterStore {
       status: "BARU",
       prioritas: input.prioritas,
       tenggat: input.tenggat,
+      regulasiTerkait: input.regulasiTerkait ?? [],
       ownedBy: input.ownedBy,
       ownerName: input.ownerName,
       createdAt: now,
