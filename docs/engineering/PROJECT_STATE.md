@@ -1,8 +1,17 @@
 # Project State
 
-Updated: 2026-11-03 - Full repeal lists, PDP implementing regulation, subjective demarcation
+Updated: 2026-11-05 - Full-stack UI/UX consistency, lifecycle states, interactive AI panels, and 18-route standardization
 
-## Latest checkpoint — full repeal lists, PDP implementing regulation, subjective demarcation
+## Latest checkpoint — full-stack UI/UX consistency, lifecycle states, and 18-route standardization
+
+- **Git baseline reconciled:** `.git` is present on branch `main` (tracking `origin/main` at `290cba2`). Earlier notes stating `.git` was absent are superseded.
+- **Scope:** E1 local UI/UX standardization across shared design tokens, components, feedback/loading mechanisms, App Router lifecycle states (`loading.tsx`, `error.tsx`, `not-found.tsx`), and all 18 page routes without altering business logic, API JSON contracts, legal registry data, or authentication/authorization rules.
+- **Defect fixes:** Fixed `app/topik/layout.tsx` (removed nested `<html lang="en"><body>` boilerplate and `Next.js` metadata); removed remaining `font-extrabold` in `src/components/TopNav.tsx` to match loaded IBM Plex Sans weights (`400, 500, 600, 700`); added HTML form error redirects on `POST /api/admin/ingest` (`?ingestError=...`) and `POST /api/auth/register` (`?error=exists|validation`) while keeping JSON API responses unchanged.
+- **Shared foundation & feedback system:** Added semantic feedback tokens and primitive classes in `app/globals.css`; expanded `src/components/ui.tsx` with `Alert`, `EmptyState`, `Breadcrumb`, `LegalBlock`, Indonesian `ConfidenceBadge`, and `SearchBar` with `id`/`defaultValue` preservation; added `src/components/FeedbackProvider.tsx` (deduplicated toast notifications + online/offline network detection + focus-trapped accessible confirmation dialog) and `src/components/SubmitButton.tsx` (double-submit prevention + honest step/indeterminate progress); added `src/components/CompareAiPanel.tsx` (`/api/ai/compare` with retry) and `src/components/ExplainPasalButton.tsx` (`/api/ai/explain-pasal` with retry); added `src/components/AuthForms.tsx` and `src/components/AdminForms.tsx`.
+- **Module rollout:** Standardized headers, breadcrumbs, initial/empty/partial-data/error/offline/permission-denied states, and legal fact/analysis demarcation across all 18 routes under `app/`. Updated `CONTINUATION.md`.
+- **Validation:** PASS — Vitest 47/47 across 7 files; `npm.cmd run typecheck` clean. Production build, ESLint (unconfigured), and full assistive-technology review NOT RUN.
+
+## Previous checkpoint — full repeal lists, PDP implementing regulation, subjective demarcation
 
 - **PP 28/2024 repeal:** 31 instruments modeled as `MENCABUT` edges (`Pasal 1170 huruf a..z, aa..ee`), verified against the official PP 28/2024 PDF. 26 PP + 5 Perpres nodes added; all `DICABUT`.
 - **PMK 6/2026 repeal:** 21 instruments modeled as `MENCABUT` edges (`Pasal 84 huruf a..u`), verified against the official PMK 6/2026 PDF. 19 Permenkes + 2 Kepmenkes; the prior `Pasal 84 huruf h` (82/2013) and `huruf o` (4/2018) citations were confirmed correct.

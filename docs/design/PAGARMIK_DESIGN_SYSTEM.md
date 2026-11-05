@@ -1,6 +1,6 @@
 # PAGARMIK Design System
 
-Status: staged adoption. The RUANGPMIK-based navy/teal/orange identity, accessible action shade, framed research shell, grouped desktop navigation, mobile bottom navigation, plain-text regulation statuses, labelled search/filter controls, and redesigned home are implemented. High-traffic routes received targeted cleanup. Full page-by-page polish and assistive-technology review remain open.
+Status: implemented across all 18 application routes and shared components. The RUANGPMIK-based navy/teal/orange identity, accessible action shade, framed research shell, grouped desktop navigation, mobile bottom navigation, unified toast/confirmation feedback provider, submit loading/progress indicators, plain-text regulation statuses, labelled search/filter controls, and route-level `Breadcrumb`/`Alert`/`EmptyState`/`LegalBlock` patterns are active. Full assistive-technology screen-reader review remains open.
 
 ## Product principles
 

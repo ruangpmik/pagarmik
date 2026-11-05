@@ -1,10 +1,24 @@
+import { Fragment } from "react";
 import { answerQuestion } from "@/lib/rag/pipeline";
-import { ConfidenceBadge, Disclaimer } from "@/components/ui";
+import { TRUST_LABEL } from "@/lib/data/types";
+import {
+  Alert,
+  Breadcrumb,
+  ConfidenceBadge,
+  Disclaimer,
+  LegalBlock,
+} from "@/components/ui";
+import { SubmitButton } from "@/components/SubmitButton";
 import RememberVisit from "@/components/RememberVisit";
 
 export const metadata = { title: "PAGARMIK AI" };
 
-import { Fragment } from "react";
+const AI_EXAMPLES = [
+  "Apa dasar hukum kerahasiaan rekam medis dan siapa yang bertanggung jawab menjaganya?",
+  "Apakah PMIK boleh memberikan salinan rekam medis kepada keluarga pasien?",
+  "Apa kewajiban RME dan integrasi SATUSEHAT bagi rumah sakit?",
+  "Bagaimana UU PDP mengatur data kesehatan sebagai data spesifik?",
+];
 
 function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
   return text.split(/(\*\*.+?\*\*)/g).map((seg, j) =>
@@ -12,7 +26,7 @@ function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
       <strong key={`${keyPrefix}-b${j}`}>{seg.slice(2, -2)}</strong>
     ) : (
       <span key={`${keyPrefix}-t${j}`}>{seg}</span>
-    )
+    ),
   );
 }
 
@@ -22,74 +36,175 @@ function renderWithCitations(text: string): React.ReactNode[] {
     const m = p.match(/^\[([a-z0-9-]+):pasal-([\w-]+):(\d+)\]$/i);
     if (!m) return <Fragment key={`p${i}`}>{renderInline(p, `p${i}`)}</Fragment>;
     return (
-      <a key={`c${i}`} href={`/regulasi/${m[1]}?tab=pasal`} className="mx-0.5 rounded-md bg-pagar-50 px-1.5 py-0.5 text-xs font-bold text-pagar-700 underline" title={`Buka sumber: ${m[1]}`}>
+      <a
+        key={`c${i}`}
+        href={`/regulasi/${m[1]}?tab=pasal`}
+        className="mx-0.5 rounded-md bg-pagar-50 px-1.5 py-0.5 text-xs font-bold text-pagar-700 underline"
+        title={`Buka sumber: ${m[1]}`}
+      >
         [{m[1]}]
       </a>
     );
   });
 }
 
-export default async function AiPage({ searchParams }: { searchParams: Record<string, string | undefined> }) {
+export default async function AiPage({
+  searchParams,
+}: {
+  searchParams: Record<string, string | undefined>;
+}) {
   const q = (searchParams.q ?? "").trim();
   const ans = q ? await answerQuestion(q) : null;
 
   return (
-    <div className="mx-auto max-w-3xl">
-      <h1>PAGARMIK AI</h1>
-      {q ? <RememberVisit kind="chat" label={q.slice(0, 80)} href={`/ai?q=${encodeURIComponent(q)}`} /> : null}
-      <p className="mt-1 text-base leading-relaxed text-ink-900/80">Riset hukum untuk RMIK dan MIK dengan sitasi sumber yang dapat ditelusuri.</p>
+    <div className="mx-auto max-w-4xl">
+      <header className="page-header">
+        <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Tanya AI" }]} />
+        <h1>PAGARMIK AI</h1>
+        <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink-900/80">
+          Riset hukum untuk Perekam Medis dan Informasi Kesehatan (RMIK/MIK) berbasis sumber katalog yang dapat ditelusuri.
+        </p>
+      </header>
 
-      <form method="get" className="mt-4" role="search">
-        <label htmlFor="aiq" className="sr-only">Tanya PAGARMIK AI</label>
-        <textarea id="aiq" name="q" required minLength={3} rows={3} defaultValue={q}
+      {q ? (
+        <RememberVisit
+          kind="chat"
+          label={q.slice(0, 80)}
+          href={`/ai?q=${encodeURIComponent(q)}`}
+        />
+      ) : null}
+
+      <form method="get" className="section-card grid gap-2.5" role="search">
+        <label htmlFor="aiq" className="text-sm font-semibold text-pagar-800">
+          Pertanyaan hukum Anda <span style={{ color: "var(--danger)" }}>*</span>
+        </label>
+        <textarea
+          id="aiq"
+          name="q"
+          required
+          minLength={3}
+          rows={3}
+          defaultValue={q}
+          aria-describedby="ai-privacy-hint"
           placeholder="Contoh: Apakah PMIK boleh memberikan salinan rekam medis kepada keluarga pasien?"
-          className="w-full rounded-2xl border border-ink-100 px-4 py-3 text-base outline-none focus:border-pagar-500" />
-        <button className="mt-2 w-full rounded-2xl bg-pagar-700 px-5 py-3 text-sm font-bold text-white hover:bg-pagar-600">
-          Kirim pertanyaan
-        </button>
+          className="form-input py-2.5 text-base"
+        />
+        <p id="ai-privacy-hint" className="text-xs leading-relaxed text-ink-900/70">
+          Privasi: Jangan masukkan nama pasien, nomor rekam medis asli, atau data pribadi sensitif. Riwayat pertanyaan disimpan lokal di peramban ini.
+        </p>
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          <SubmitButton
+            loadingLabel="Menyusun jawaban..."
+            progressSteps={[
+              "Menelusuri sumber hukum primer di katalog...",
+              "Memverifikasi kecocokan sitasi pasal...",
+              "Menyusun jawaban berbasis bukti...",
+            ]}
+          >
+            Kirim pertanyaan
+          </SubmitButton>
+          {q && (
+            <a href="/ai" className="btn-secondary">
+              Bersihkan pertanyaan
+            </a>
+          )}
+        </div>
       </form>
 
       {ans && (
-        <article className="mt-5 rounded-2xl border border-ink-100 bg-white p-5" aria-live="polite">
-          <div className="flex flex-wrap items-center gap-3 border-b border-ink-100 pb-3">
-            <div>
-              <p className="font-semibold">Jawaban PAGARMIK AI</p>
-              <ConfidenceBadge level={ans.confidence} />
+        <article className="mt-6 section-card space-y-4" aria-live="polite">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink-100 pb-3">
+            <h2 className="text-lg font-semibold text-pagar-800">Jawaban PAGARMIK AI</h2>
+            <ConfidenceBadge level={ans.confidence} />
+          </div>
+
+          <LegalBlock kind="ANALISIS HUKUM" title="Sintesis berbasis dokumen katalog">
+            <div className="prose-pagar whitespace-pre-line text-[15px]">
+              {renderWithCitations(ans.answer)}
             </div>
-          </div>
-          <div className="prose-pagar mt-3 whitespace-pre-line text-[15px]">{renderWithCitations(ans.answer)}</div>
-          <h2 className="mt-5">Sumber yang digunakan</h2>
-          <ul className="mt-2 space-y-2">
-            {ans.citations.map((c) => (
-              <li key={c.chunkId} className="rounded-xl bg-ink-50/60 p-3 text-sm">
-                <a href={`/regulasi/${c.regulationSlug}?tab=pasal`} className="font-bold text-pagar-700 underline">
-                  {c.regulasiJudul}{c.pasalNomor ? ` — Pasal ${c.pasalNomor}` : ""}
-                </a>
-                <p className="mt-1 text-ink-900/75">{c.kutipan}…</p>
-                <p className="mt-1 text-xs text-ink-900/70">Sumber {c.chunkId} · tingkat kepercayaan {c.trustLevel}</p>
-              </li>
-            ))}
-          </ul>
+          </LegalBlock>
+
           {ans.invalidCitationsDropped.length > 0 && (
-            <p className="mt-2 text-sm text-amber-800" role="status">Catatan: {ans.invalidCitationsDropped.length} sitasi yang tidak terverifikasi tidak ditampilkan.</p>
+            <Alert variant="warning" title="Sitasi tidak terverifikasi disaring">
+              {ans.invalidCitationsDropped.length} rujukan yang tidak cocok dengan dokumen katalog telah dihapus otomatis demi menjaga akurasi sumber.
+            </Alert>
           )}
-          <div className="mt-4 flex gap-2 text-sm">
-            <a className="inline-flex min-h-11 items-center rounded-xl border border-ink-100 px-3 py-1.5 font-semibold text-pagar-700" href={`/analisis-kasus?kasus=${encodeURIComponent(q)}`}>Lanjutkan ke analisis kasus</a>
-            <a className="inline-flex min-h-11 items-center rounded-xl border border-ink-100 px-3 py-1.5 font-semibold text-pagar-700" href={`/legal-search?q=${encodeURIComponent(q)}`}>Cari sumber hukum</a>
+
+          <section aria-labelledby="sumber-ai-title">
+            <h3 id="sumber-ai-title" className="text-base font-semibold text-pagar-800">
+              Sumber hukum yang digunakan ({ans.citations.length})
+            </h3>
+            {ans.citations.length === 0 ? (
+              <p className="mt-2 text-sm text-ink-900/75">
+                Tidak ada kutipan pasal primer yang memenuhi ambang kecocokan untuk pertanyaan ini.
+              </p>
+            ) : (
+              <ul className="mt-2.5 space-y-2.5">
+                {ans.citations.map((c) => (
+                  <li
+                    key={c.chunkId}
+                    className="rounded-xl border border-ink-100 bg-ink-50/60 p-3.5 text-sm"
+                  >
+                    <a
+                      href={`/regulasi/${c.regulationSlug}?tab=pasal`}
+                      className="font-bold text-pagar-700 underline underline-offset-2"
+                    >
+                      {c.regulasiJudul}
+                      {c.pasalNomor ? ` — Pasal ${c.pasalNomor}` : ""}
+                    </a>
+                    <p className="mt-1 leading-relaxed text-ink-900/80">{c.kutipan}…</p>
+                    <p className="mt-1.5 text-xs text-ink-900/65">
+                      ID Kutipan: <span className="font-mono">{c.chunkId}</span> ·{" "}
+                      {TRUST_LABEL[c.trustLevel] ?? c.trustLevel}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+          <div className="flex flex-wrap gap-2 border-t border-ink-100 pt-4 text-sm">
+            <a
+              className="btn-secondary"
+              href={`/analisis-kasus?kasus=${encodeURIComponent(q)}`}
+            >
+              Lanjutkan ke analisis kasus
+            </a>
+            <a
+              className="btn-secondary"
+              href={`/legal-search?q=${encodeURIComponent(q)}`}
+            >
+              Cari sumber hukum terkait
+            </a>
           </div>
-          <div className="mt-4"><Disclaimer /></div>
+
+          <Disclaimer />
         </article>
       )}
 
       {!ans && (
-        <div className="mt-5 grid gap-2 text-sm">
-          {["Apa dasar hukum kerahasiaan rekam medis dan siapa yang bertanggung jawab menjaganya?",
-            "Apakah PMIK boleh memberikan salinan rekam medis kepada keluarga pasien?",
-            "Apa kewajiban RME dan integrasi SATUSEHAT bagi rumah sakit?",
-            "Bagaimana UU PDP mengatur data kesehatan sebagai data spesifik?"].map((s) => (
-            <a key={s} href={`/ai?q=${encodeURIComponent(s)}`} className="rounded-2xl border border-ink-100 bg-white p-3 underline-offset-4 hover:underline">“{s}”</a>
-          ))}
-        </div>
+        <section className="mt-6 section-card" aria-labelledby="contoh-ai-title">
+          <h2 id="contoh-ai-title" className="text-base font-semibold text-pagar-800">
+            Contoh pertanyaan riset hukum RMIK
+          </h2>
+          <p className="mt-1 text-sm text-ink-900/75">
+            Pilih salah satu pertanyaan di bawah ini untuk melihat bagaimana PAGARMIK AI menautkan sitasi pasal:
+          </p>
+          <div className="mt-3 grid gap-2 text-sm">
+            {AI_EXAMPLES.map((s) => (
+              <a
+                key={s}
+                href={`/ai?q=${encodeURIComponent(s)}`}
+                className="rounded-xl border border-ink-100 bg-ink-50/50 p-3 font-medium text-pagar-800 transition-colors hover:border-pagar-300 hover:bg-pagar-50"
+              >
+                “{s}”
+              </a>
+            ))}
+          </div>
+          <div className="mt-5">
+            <Disclaimer />
+          </div>
+        </section>
       )}
     </div>
   );

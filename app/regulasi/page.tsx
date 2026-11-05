@@ -1,9 +1,19 @@
-import { RegulationCard, SearchBar, StatusSwitcher } from "@/components/ui";
+import {
+  Breadcrumb,
+  EmptyState,
+  RegulationCard,
+  SearchBar,
+  StatusSwitcher,
+} from "@/components/ui";
 import { getStore } from "@/lib/data/store";
 
 export const metadata = { title: "Regulasi" };
 
-export default function RegulasiList({ searchParams }: { searchParams: Record<string, string | undefined> }) {
+export default function RegulasiList({
+  searchParams,
+}: {
+  searchParams: Record<string, string | undefined>;
+}) {
   const status = searchParams.status ?? "";
   const store = getStore();
   const all = store.regulations();
@@ -15,23 +25,53 @@ export default function RegulasiList({ searchParams }: { searchParams: Record<st
 
   return (
     <div>
-      <h1>Repository regulasi</h1>
-      <p className="mt-1 text-sm text-ink-900/60">
-        {all.length} regulasi terindeks · <span className="font-bold text-emerald-700">{berlaku} berlaku</span> ·{" "}
-        <span className="font-bold text-red-700">{dicabut} dicabut</span> · status dari metadata terverifikasi, bukan dari AI.
-      </p>
-      <div className="mt-4"><SearchBar /></div>
-      <div className="mt-3">
-        <StatusSwitcher base="/regulasi" current={status} counts={counts} />
+      <header className="page-header flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Regulasi" }]} />
+          <h1>Repository regulasi</h1>
+          <p className="mt-2 text-sm leading-relaxed text-ink-900/75">
+            {all.length} regulasi terindeks ·{" "}
+            <span className="font-semibold" style={{ color: "var(--success)" }}>
+              {berlaku} berlaku
+            </span>{" "}
+            ·{" "}
+            <span className="font-semibold" style={{ color: "var(--danger)" }}>
+              {dicabut} dicabut
+            </span>{" "}
+            · status ditentukan dari metadata terverifikasi, bukan oleh AI.
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <a href="/bandingkan" className="btn-secondary">
+            Bandingkan regulasi
+          </a>
+          <a href="/grafik" className="btn-secondary">
+            Peta hubungan
+          </a>
+        </div>
+      </header>
+
+      <div className="section-card">
+        <SearchBar id="regulasi-search-q" />
+        <div className="mt-3">
+          <StatusSwitcher base="/regulasi" current={status} counts={counts} />
+        </div>
       </div>
+
       {regs.length > 0 ? (
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {regs.map((r) => <RegulationCard key={r.slug} r={r} />)}
+          {regs.map((r) => (
+            <RegulationCard key={r.slug} r={r} />
+          ))}
         </div>
       ) : (
-        <div className="mt-4 rounded-2xl border border-dashed border-ink-100 bg-white p-8 text-center">
-          <p className="mt-2 text-sm font-bold">Tidak ada regulasi berstatus ini.</p>
-          <a href="/regulasi" className="mt-1 inline-block text-sm font-bold text-pagar-700 underline">Tampilkan semua →</a>
+        <div className="mt-5">
+          <EmptyState
+            title="Tidak ada regulasi dengan status ini"
+            description="Belum ada catatan regulasi pada filter status keberlakuan yang dipilih."
+            actionLabel="Tampilkan semua regulasi"
+            actionHref="/regulasi"
+          />
         </div>
       )}
     </div>

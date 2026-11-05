@@ -122,3 +122,18 @@ The route inventory and earlier audit include static source review and a browser
 - The design-taste screenshot inspector again exited while starting Chrome with a Crashpad pipe error. A final desktop screenshot, 18-route measurement after the new shell, complete keyboard flow, contrast-pair check, screen-reader review, authenticated admin review, and production build remain unverified.
 - The prior 108 route/viewport pass predates this redesign and must not be presented as verification of the new shell.
 
+## Follow-up — full-stack UI/UX consistency, feedback system, and 18-route standardization (4 November 2026)
+
+### Implemented
+
+- **Nested layout defect fixed:** `app/topik/layout.tsx` previously rendered a duplicate `<html lang="en"><body>` wrapper and default `'Next.js'` title metadata inside the root layout. Replaced with a clean fragment pass-through and added a regression test in `tests/ui-governance.test.ts`.
+- **Shared design primitives (`app/globals.css`, `src/components/ui.tsx`):** Added semantic status/feedback tokens (`--danger-bg`, `--danger-border`, `--warning-bg`, `--warning-border`, `--success-bg`, `--success-border`, `--info`, `--info-bg`, `--info-border`) and shared classes (`.page-header`, `.section-card`, `.form-input`, `.btn-primary`, `.btn-secondary`, `.btn-danger`). Added `Alert`, `EmptyState`, `Breadcrumb`, and `LegalBlock`; localized `ConfidenceBadge` to Indonesian; updated `SearchBar` to accept unique `id`, `defaultValue`, and `helperText`.
+- **Feedback, confirmation, and async progress system (`src/components/FeedbackProvider.tsx`, `src/components/SubmitButton.tsx`):** Mounted a single toast notification region (with deduplication, non-color icons, manual dismiss, and extended duration for errors/warnings) and an accessible modal confirmation dialog (`role="dialog"`, `aria-modal="true"`, Escape/focus handling). Connected `BookmarkButton`, `LibraryView`, and `AdminVerifyForm` to toast/confirmation feedback. Added `SubmitButton` with double-submit prevention (`disabled`, `aria-busy`) and honest multi-step progress indicators (`progressSteps`) on `/ai`, `/analisis-kasus`, and `/admin` ingest.
+- **18-route consistency rollout:** Applied `Breadcrumb`, `.page-header`, initial states, `EmptyState`, `Alert`, `LegalBlock`, and inline form validation (`AuthForms`, `AdminForms`) across all routes under `app/`. Added `/bandingkan` to `TopNav` and home navigation links.
+
+### Evidence
+
+- TypeScript typecheck (`npm.cmd run typecheck`): PASS.
+- Vitest (`npm.cmd test`): PASS — 45/45 tests across 7 test files (including 3 new UI governance regression checks).
+- Full assistive-technology screen-reader testing, authenticated `/admin` browser inspection, and production build remain NOT RUN.
+

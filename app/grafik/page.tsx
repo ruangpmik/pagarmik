@@ -1,5 +1,7 @@
 import { getStore } from "@/lib/data/store";
 import { buildFocusedRelationshipGraph, relationLabelForFocus } from "@/lib/data/relationship-graph";
+import { Breadcrumb } from "@/components/ui";
+import { SubmitButton } from "@/components/SubmitButton";
 
 type GraphPageProps = {
   searchParams: { regulasi?: string | string[] };
@@ -34,7 +36,8 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
 
   return (
     <div className="mx-auto max-w-6xl">
-      <header className="max-w-3xl">
+      <header className="page-header max-w-3xl">
+        <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Peta hubungan" }]} />
         <h1>Graf hubungan regulasi</h1>
         <p className="mt-2 text-base leading-relaxed text-ink-900/75">
           Pilih satu regulasi untuk melihat hubungan yang tercatat langsung dengannya.
@@ -58,12 +61,9 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
             ))}
           </select>
         </div>
-        <button
-          type="submit"
-          className="min-h-11 rounded-lg bg-pagar-700 px-5 py-2 text-sm font-bold text-white hover:bg-pagar-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
-        >
+        <SubmitButton loadingLabel="Memuat grafik...">
           Tampilkan grafik
-        </button>
+        </SubmitButton>
         {graph?.focus && (
           <a href="/grafik" className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-pagar-700 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]">
             Hapus pilihan

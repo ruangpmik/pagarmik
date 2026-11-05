@@ -10,10 +10,10 @@ export async function POST(req: NextRequest) {
   const name = String(form.get("name") ?? "").trim();
   const password = String(form.get("password") ?? "");
   if (!email.includes("@") || name.length < 2 || password.length < 8) {
-    return NextResponse.redirect(new URL("/daftar", req.url));
+    return NextResponse.redirect(new URL("/daftar?error=validation", req.url));
   }
   const users = readUsers();
-  if (users.some((u) => u.email === email)) return NextResponse.redirect(new URL("/masuk?error=1", req.url));
+  if (users.some((u) => u.email === email)) return NextResponse.redirect(new URL("/daftar?error=exists", req.url));
   const user = {
     id: `u-${Date.now()}`, email, name, role: "USER" as const,
     passwordHash: await hashPassword(password),

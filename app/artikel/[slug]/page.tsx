@@ -1,33 +1,78 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getStore } from "@/lib/data/store";
-import { Disclaimer } from "@/components/ui";
+import { Breadcrumb, Disclaimer, StatusBadge } from "@/components/ui";
 import { Markdown } from "@/components/Markdown";
 import BookmarkButton from "@/components/BookmarkButton";
 import RememberVisit from "@/components/RememberVisit";
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const a = getStore().article(params.slug);
+  if (!a) return { title: "Artikel tidak ditemukan" };
+  return {
+    title: a.judul,
+    description: a.ringkasan,
+  };
+}
 
 export default function ArticleDetail({ params }: { params: { slug: string } }) {
   const store = getStore();
   const a = store.article(params.slug);
   if (!a) notFound();
   return (
-    <article className="mx-auto max-w-3xl">
-      <a href="/artikel" className="text-sm font-bold text-pagar-700">← Knowledge Base</a>
+    <article className="mx-auto max-w-4xl">
       <RememberVisit kind="article" label={a.judul} href={`/artikel/${a.slug}`} />
-      <div className="mt-2 flex items-start justify-between gap-2">
-        <h1>{a.judul}</h1>
-        <BookmarkButton type="artikel" slug={a.slug} title={a.judul} />
+
+      <header className="page-header">
+        <Breadcrumb
+          items={[
+            { label: "Beranda", href: "/" },
+            { label: "Artikel", href: "/artikel" },
+            { label: a.judul },
+          ]}
+        />
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <h1>{a.judul}</h1>
+            <p className="mt-2 text-xs font-medium text-ink-900/70">
+              Terverifikasi PAGARMIK · {a.verifiedAt ?? "Belum tercatat"}
+            </p>
+          </div>
+          <BookmarkButton type="artikel" slug={a.slug} title={a.judul} />
+        </div>
+      </header>
+
+      <div className="section-card">
+        <p className="border-l-4 border-pagar-700 pl-3.5 text-[15px] font-medium leading-relaxed text-ink-900/85">
+          {a.ringkasan}
+        </p>
+        <div className="mt-4 border-t border-ink-100 pt-4">
+          <Markdown text={a.konten} />
+        </div>
       </div>
-      <p className="mt-2 rounded-xl bg-pagar-50 p-3 text-sm">Terverifikasi PAGARMIK · {a.verifiedAt ?? "Belum tercatat"}</p>
-      <p className="mt-3 border-l-4 border-pagar-500 pl-3 text-[15px] italic">{a.ringkasan}</p>
-      <div className="mt-2"><Markdown text={a.konten} /></div>
-      <h2 className="mt-6 font-semibold">Dasar Hukum</h2>
-      <ul className="mt-1 space-y-1 text-sm">
-        {a.dasarHukum.map((s) => {
-          const r = store.regulation(s);
-          return <li key={s}><span className="mr-1 text-sm text-ink-900/70">Dasar hukum:</span><a className="font-semibold text-pagar-700 underline" href={`/regulasi/${s}`}>{r?.judul ?? s}</a></li>;
-        })}
-      </ul>
-      <div className="mt-5"><Disclaimer /></div>
+
+      <section className="mt-6 section-card" aria-labelledby="dasar-hukum-title">
+        <h2 id="dasar-hukum-title" className="text-lg font-semibold text-pagar-800">
+          Dasar Hukum ({a.dasarHukum.length})
+        </h2>
+        <ul className="mt-3 divide-y divide-ink-100 text-sm">
+          {a.dasarHukum.map((s) => {
+            const r = store.regulation(s);
+            return (
+              <li key={s} className="flex flex-wrap items-center justify-between gap-2 py-2.5">
+                <a className="font-semibold text-pagar-700 underline underline-offset-2" href={`/regulasi/${s}`}>
+                  {r?.judul ?? s}
+                </a>
+                {r && <StatusBadge status={r.status} />}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      <div className="mt-6">
+        <Disclaimer />
+      </div>
     </article>
   );
 }

@@ -1,22 +1,53 @@
+import { Alert, Breadcrumb } from "@/components/ui";
+import { RegisterForm } from "@/components/AuthForms";
+
 export const metadata = { title: "Daftar" };
 
-export default function Daftar() {
+export default function Daftar({
+  searchParams,
+}: {
+  searchParams?: Record<string, string | undefined>;
+}) {
+  const err = searchParams?.error;
   return (
-    <div className="mx-auto max-w-sm">
-      <h1>Daftar</h1>
-      <form action="/api/auth/register" method="post" className="mt-4 grid gap-2">
-        <label className="text-sm font-bold">Nama<input name="name" required className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
-        <label className="text-sm font-bold">Email<input name="email" type="email" required className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
-        <label className="text-sm font-bold">Profesi
-          <select name="profesi" className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal">
-            <option>PMIK</option><option>Mahasiswa RMIK</option><option>Dosen RMIK</option>
-            <option>Manajemen RS</option><option>IT/SIMRS</option><option>Tim Legal RS</option><option>Lainnya</option>
-          </select>
-        </label>
-        <label className="text-sm font-bold">Institusi<input name="institusi" className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
-        <label className="text-sm font-bold">Kata sandi (min. 8)<input name="password" type="password" required minLength={8} className="mt-1 w-full rounded-xl border px-3 py-2.5 font-normal" /></label>
-        <button className="rounded-xl bg-pagar-700 px-4 py-2.5 font-bold text-white">Buat akun</button>
-      </form>
+    <div className="mx-auto max-w-md">
+      <header className="page-header">
+        <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Daftar" }]} />
+        <h1>Daftar</h1>
+        <p className="mt-2 text-sm leading-relaxed text-ink-900/75">
+          Buat akun pengguna untuk melengkapi profil profesi RMIK Anda.
+        </p>
+      </header>
+
+      {err === "exists" && (
+        <Alert
+          variant="error"
+          title="Email sudah terdaftar"
+          className="mb-4"
+          action={
+            <a href="/masuk" className="btn-secondary text-xs">
+              Masuk ke akun Anda
+            </a>
+          }
+        >
+          Alamat email tersebut sudah tercatat di sistem. Silakan masuk atau gunakan alamat email lain.
+        </Alert>
+      )}
+
+      {err === "validation" && (
+        <Alert variant="error" title="Data pendaftaran belum valid" className="mb-4">
+          Pastikan nama minimal 2 karakter, format email valid, dan kata sandi minimal 8 karakter.
+        </Alert>
+      )}
+
+      <RegisterForm />
+
+      <p className="mt-4 text-xs text-ink-900/70">
+        Sudah memiliki akun?{" "}
+        <a className="font-bold text-pagar-700 underline underline-offset-2" href="/masuk">
+          Masuk ke akun Anda →
+        </a>
+      </p>
     </div>
   );
 }

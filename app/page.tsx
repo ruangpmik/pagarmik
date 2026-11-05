@@ -15,6 +15,7 @@ const EXPLORE = [
     links: [
       { href: "/regulasi", label: "Semua regulasi", icon: "file" },
       { href: "/pasal", label: "Pasal dan ringkasan", icon: "list" },
+      { href: "/bandingkan", label: "Bandingkan regulasi", icon: "compare" },
       { href: "/grafik", label: "Peta hubungan regulasi", icon: "network" },
       { href: "/timeline", label: "Linimasa regulasi", icon: "clock" },
     ],
@@ -68,6 +69,7 @@ export default function Home() {
         <div className="home-search-panel flex min-w-0 flex-col justify-center">
           <h2 className="mb-4 text-lg font-semibold text-pagar-800">Cari sumber hukum</h2>
           <SearchBar
+            id="home-q"
             big
             showAiLink={false}
             label="Kata kunci, judul, nomor regulasi, atau pasal"

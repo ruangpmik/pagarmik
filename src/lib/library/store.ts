@@ -82,3 +82,8 @@ export function pushHistory(item: Omit<HistoryItem, "at">): void {
   list.unshift({ ...item, at: new Date().toISOString() });
   write(H_KEY, list.slice(0, MAX_H));
 }
+
+export function clearHistory(): HistoryItem[] {
+  write(H_KEY, []);
+  return [];
+}

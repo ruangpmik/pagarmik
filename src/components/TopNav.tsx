@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-type IconName = "home" | "search" | "file" | "list" | "network" | "clock" | "tag" | "book" | "scale" | "spark" | "user";
+type IconName = "home" | "search" | "file" | "list" | "compare" | "network" | "clock" | "tag" | "book" | "scale" | "spark" | "user";
 
 const GROUPS: { title: string; links: { href: string; label: string; icon: IconName }[] }[] = [
   {
@@ -18,6 +18,7 @@ const GROUPS: { title: string; links: { href: string; label: string; icon: IconN
     links: [
       { href: "/regulasi", label: "Regulasi", icon: "file" },
       { href: "/pasal", label: "Pasal", icon: "list" },
+      { href: "/bandingkan", label: "Bandingkan", icon: "compare" },
       { href: "/grafik", label: "Peta hubungan", icon: "network" },
       { href: "/timeline", label: "Linimasa", icon: "clock" },
     ],
@@ -55,6 +56,8 @@ export function NavIcon({ name, className = "h-[18px] w-[18px]" }: { name: IconN
       return <svg {...common}><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v5h5M9 12h6M9 16h6" /></svg>;
     case "list":
       return <svg {...common}><path d="M8 6h12M8 12h12M8 18h12" /><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01" /></svg>;
+    case "compare":
+      return <svg {...common}><rect x="3" y="4" width="7" height="16" rx="1" /><rect x="14" y="4" width="7" height="16" rx="1" /></svg>;
     case "network":
       return <svg {...common}><circle cx="12" cy="5" r="2.5" /><circle cx="5" cy="18" r="2.5" /><circle cx="19" cy="18" r="2.5" /><path d="m10.8 7.2-4.5 8.6m6.9-8.6 4.5 8.6M7.5 18h9" /></svg>;
     case "clock":
@@ -82,7 +85,7 @@ export default function TopNav() {
       <a href="/" className="flex items-center gap-3 rounded-lg focus-visible:outline" aria-label="PAGARMIK beranda">
         <Image src="/icon.png" alt="" width={42} height={42} priority />
         <span className="min-w-0 leading-tight">
-          <span className="block text-base font-extrabold tracking-tight text-pagar-800">PAGARMIK</span>
+          <span className="block text-base font-bold tracking-tight text-pagar-800">PAGARMIK</span>
           <span className="mt-0.5 block text-xs font-semibold text-ink-900/70">by RUANGPMIK</span>
         </span>
       </a>

@@ -7,8 +7,18 @@ import { writeFileSync, readFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 
 export async function POST(req: NextRequest) {
+  const wantsHtml = req.headers.get("accept")?.includes("text/html");
+  const fail = (message: string, status: number, extra?: Record<string, unknown>) => {
+    if (wantsHtml) {
+      const url = new URL("/admin", req.url);
+      url.searchParams.set("ingestError", message);
+      return NextResponse.redirect(url, { status: 303 });
+    }
+    return NextResponse.json({ error: message, ...(extra ?? {}) }, { status });
+  };
+
   const user = await readSession(cookies().get("pagarmik_session")?.value);
-  if (!can(user, "EDITOR")) return NextResponse.json({ error: "Butuh peran EDITOR/ADMIN." }, { status: 403 });
+  if (!can(user, "EDITOR")) return fail("Butuh peran EDITOR/ADMIN.", 403);
 
   const form = await req.formData();
   let fullText = String(form.get("fullText") ?? "");
@@ -16,19 +26,19 @@ export async function POST(req: NextRequest) {
   const pdf = form.get("pdf");
   if (pdf instanceof File && pdf.size > 0) {
     const err = validateUpload(pdf);
-    if (err) return NextResponse.json({ error: err }, { status: 400 });
+    if (err) return fail(err, 400);
     // Ekstraksi teks PDF (server-only). Catatan: hasil mentah → cleaning → pasal split.
     const { default: pdfParse } = await import("pdf-parse");
     const buf = Buffer.from(await pdf.arrayBuffer());
     // Magic-byte check: PDF asli diawali "%PDF". Tolak file samaran (mis. .exe ganti ekstensi).
     if (buf.length < 5 || buf.subarray(0, 4).toString("latin1") !== "%PDF") {
-      return NextResponse.json({ error: "Berkas bukan PDF yang valid." }, { status: 400 });
+      return fail("Berkas bukan PDF yang valid.", 400);
     }
     try {
       const parsed = await pdfParse(buf);
       fullText = parsed.text || fullText;
     } catch {
-      return NextResponse.json({ error: "Gagal mengekstrak PDF. Tempel full text manual." }, { status: 422 });
+      return fail("Gagal mengekstrak PDF. Tempel full text manual.", 422);
     }
   }
 
@@ -40,7 +50,7 @@ export async function POST(req: NextRequest) {
     sumberResmi: form.get("sumberResmi") ?? "", fullText,
   });
   if (!parsed.success) {
-    return NextResponse.json({ error: "Metadata tidak valid.", issues: parsed.error.flatten() }, { status: 400 });
+    return fail("Metadata tidak valid.", 400, { issues: parsed.error.flatten() });
   }
 
   const { fullText: text, ...meta } = parsed.data;
@@ -73,7 +83,6 @@ export async function POST(req: NextRequest) {
   const { resetStore } = await import("@/lib/data/store");
   resetStore();
 
-  const wantsHtml = req.headers.get("accept")?.includes("text/html");
   if (wantsHtml) {
     // Submit form browser → kembali ke /admin dengan banner hasil.
     const url = new URL("/admin", req.url);

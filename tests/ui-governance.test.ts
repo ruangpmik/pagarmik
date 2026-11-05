@@ -66,4 +66,58 @@ describe("PAGARMIK UI design contract", () => {
     expect(statSync(join(root, "app/icon.png")).isFile()).toBe(true);
     expect(readFileSync(join(root, "app/layout.tsx"), "utf8")).toContain('src="/icon.png"');
   });
+
+  it("prevents nested html/body tags in sub-route layouts", () => {
+    for (const path of sourceFiles("app").filter((file) => /layout\.tsx$/.test(file))) {
+      const rel = relative(root, path).replace(/\\/g, "/");
+      if (rel === "app/layout.tsx") continue;
+      const content = readFileSync(path, "utf8");
+      expect(content, rel).not.toMatch(/<(?:html|body)\b/i);
+    }
+  });
+
+  it("mounts the unified FeedbackProvider, toast deduplication, and accessible confirmation dialog", () => {
+    const layout = readFileSync(join(root, "app/layout.tsx"), "utf8");
+    const feedback = readFileSync(join(root, "src/components/FeedbackProvider.tsx"), "utf8");
+    const submitBtn = readFileSync(join(root, "src/components/SubmitButton.tsx"), "utf8");
+
+    expect(layout).toContain("<FeedbackProvider>");
+    expect(feedback).toContain("dedupeKey");
+    expect(feedback).toContain('role="dialog"');
+    expect(feedback).toContain('aria-modal="true"');
+    expect(submitBtn).toContain("aria-busy={submitting}");
+    expect(submitBtn).toContain("disabled={disabled || submitting}");
+  });
+
+  it("provides consistent Breadcrumb navigation across all non-home page routes", () => {
+    for (const path of sourceFiles("app").filter((file) => /page\.tsx$/.test(file))) {
+      const rel = relative(root, path).replace(/\\/g, "/");
+      if (rel === "app/page.tsx") continue;
+      const page = readFileSync(path, "utf8");
+      expect(page, rel).toContain("Breadcrumb");
+    }
+  });
+
+  it("avoids font-extrabold unsupported by loaded IBM Plex Sans weights", () => {
+    expect(source).not.toMatch(/\bfont-extrabold\b/);
+  });
+
+  it("provides App Router loading, error-recovery, not-found, offline, and retry states", () => {
+    const loading = readFileSync(join(root, "app/loading.tsx"), "utf8");
+    const errorBoundary = readFileSync(join(root, "app/error.tsx"), "utf8");
+    const notFound = readFileSync(join(root, "app/not-found.tsx"), "utf8");
+    const feedback = readFileSync(join(root, "src/components/FeedbackProvider.tsx"), "utf8");
+    const comparePanel = readFileSync(join(root, "src/components/CompareAiPanel.tsx"), "utf8");
+    const explainBtn = readFileSync(join(root, "src/components/ExplainPasalButton.tsx"), "utf8");
+
+    expect(loading).toContain('aria-busy="true"');
+    expect(errorBoundary).toContain("reset()");
+    expect(notFound).toContain("<EmptyState");
+    expect(feedback).toContain('window.addEventListener("offline"');
+    expect(feedback).toContain('event.key === "Tab"');
+    expect(comparePanel).toContain("/api/ai/compare");
+    expect(comparePanel).toContain("Coba lagi");
+    expect(explainBtn).toContain("/api/ai/explain-pasal");
+    expect(explainBtn).toContain("Coba lagi");
+  });
 });

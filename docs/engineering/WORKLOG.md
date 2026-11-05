@@ -177,3 +177,17 @@ Time for the earlier reconnaissance/implementation exchange was not recorded in 
 - **Validation:** PASS — Vitest 42/42 across 7 files; `npm run typecheck` clean; seed JSON parses. Browser runtime and production build NOT RUN this step.
 - **State:** 94 regulations, 99 relations → 82 `VERIFIED`, 17 `LEGAL_REVIEW_REQUIRED`, 0 without evidence. Types: `MENCABUT` 66, `TURUNAN` 8, `MELAKSANAKAN` 5, `MENGUBAH` 2, `MENGUJI` 1, `BERIRISAN` 15, `MEMPERKUAT` 2.
 - **Open:** `verificationStatus` "LEGAL_REVIEW_REQUIRED" requires an actual human legal review to become publishable; the reviewer identity is still internal. The seed file was re-serialized (uniform 2-space JSON) during the bulk insert, so its formatting no longer matches the original hand-authored layout.
+
+## 2026-11-04 — Full-stack UI/UX consistency, feedback system, and 18-route standardization
+
+- **Task:** Audit and standardize UI/UX across all PAGARMIK modules, shared components, feedback/notification flows, and form/loading states while preserving all existing business logic, API contracts, legal registry data, and security controls.
+- **Risk:** E1 controlled local UI development. No database, migration, dependency, production setting, external service, or legal registry record was modified.
+- **Changes:**
+  1. Fixed nested `<html lang="en"><body>` boilerplate defect in `app/topik/layout.tsx` and removed raw emoji from `app/topik/page.tsx`.
+  2. Extended `app/globals.css` with semantic feedback tokens (`--danger-bg`, `--warning-bg`, `--success-bg`, `--info-bg` and borders) and shared primitive classes (`.page-header`, `.section-card`, `.form-input`, `.btn-primary`, `.btn-secondary`, `.btn-danger`, `.pagar-spinner`, `.pagar-progress-bar`).
+  3. Created `src/components/FeedbackProvider.tsx` (unified toast notifications with deduplication and accessible confirmation dialog) and `src/components/SubmitButton.tsx` (button loading state, double-submit prevention, and multi-step progress indicator).
+  4. Expanded `src/components/ui.tsx` with `Alert`, `EmptyState`, `Breadcrumb`, `LegalBlock`, Indonesian `ConfidenceBadge`, and `SearchBar` `id`/`defaultValue` support; updated `BookmarkButton.tsx`, `LibraryView.tsx`, and `TopNav.tsx` (added `/bandingkan` link).
+  5. Created `src/components/AuthForms.tsx` and `src/components/AdminForms.tsx` for inline form validation, PDF file-size/type inspection, and confirmation dialog before changing regulation status to `DICABUT`.
+  6. Rolled out consistent headers, breadcrumbs, initial/empty/error/permission-denied states, and `LegalBlock` demarcation across all 18 routes under `app/`. Saved `CONTINUATION.md` and added 3 regression tests in `tests/ui-governance.test.ts`.
+  7. Continuation pass (2026-11-05): Reconciled `.git` presence (`main` at `290cba2`), normalized remaining `font-extrabold` in `TopNav.tsx` to `font-bold`, added App Router lifecycle boundaries (`app/loading.tsx`, `app/error.tsx`, `app/not-found.tsx`), added browser `online`/`offline` state banner and modal focus trapping in `FeedbackProvider.tsx`, added `CompareAiPanel.tsx` (`/api/ai/compare` with retry) and `ExplainPasalButton.tsx` (`/api/ai/explain-pasal` with retry), added explicit partial-data state banner on `/regulasi/[slug]`, and added HTML form error redirects on `POST /api/admin/ingest` (`?ingestError`) and `POST /api/auth/register` (`?error=exists|validation`).
+- **Validation:** PASS — `npm.cmd run typecheck` clean; PASS — Vitest 47/47 across 7 files. Production build and full assistive-technology review NOT RUN.
