@@ -4,6 +4,7 @@ import "./globals.css";
 import BottomNav from "@/components/BottomNav";
 import TopNav from "@/components/TopNav";
 import FeedbackProvider from "@/components/FeedbackProvider";
+import { DONATE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { default: "PAGARMIK by RUANGPMIK — Menjaga Batas. Melindungi Profesi.", template: "%s | PAGARMIK" },
@@ -92,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       PAGARMIK adalah platform informasi dan edukasi hukum. Informasi dari sistem AI bukan pendapat hukum profesional dan tidak menggantikan konsultasi dengan advokat atau ahli hukum yang kompeten.
                     </p>
                     <p className="mt-3 text-xs text-ink-900/70 print:hidden">
-                      © 2026 PAGARMIK · <a className="underline underline-offset-2" href="/sitemap.xml">Sitemap</a> · <a className="underline underline-offset-2" href="/robots.txt">Robots</a>
+                      © 2026 PAGARMIK · <a className="underline underline-offset-2" href="/tentang">Tentang</a> · <a className="underline underline-offset-2" href="/masukan">Masukan</a> · <a className="underline underline-offset-2" href={DONATE_URL} target="_blank" rel="noopener noreferrer">Traktir Kopi</a> · <a className="underline underline-offset-2" href="/sitemap.xml">Sitemap</a> · <a className="underline underline-offset-2" href="/robots.txt">Robots</a>
                     </p>
                   </div>
                 </footer>
