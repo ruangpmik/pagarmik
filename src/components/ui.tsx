@@ -1,5 +1,13 @@
 import type { ReactNode } from "react";
 import { STATUS_LABEL, type Regulation } from "@/lib/data/types";
+import {
+  MATTER_PRIORITY_LABEL,
+  MATTER_PRIORITY_TONE,
+  MATTER_STATUS_LABEL,
+  MATTER_STATUS_TONE,
+  type MatterPriority,
+  type MatterStatus,
+} from "@/lib/matters/labels";
 import { SubmitButton } from "@/components/SubmitButton";
 
 const STATUS_PALETTE: Record<string, { fg: string; bg: string; border: string }> = {
@@ -19,6 +27,30 @@ export function StatusBadge({ status }: { status: Regulation["status"] }) {
     >
       <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
       <span>{STATUS_LABEL[status]}</span>
+    </span>
+  );
+}
+
+export function MatterStatusBadge({ status }: { status: MatterStatus }) {
+  const t = MATTER_STATUS_TONE[status];
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] font-semibold leading-none ${t.fg} ${t.bg} ${t.border}`}
+    >
+      <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+      <span>{MATTER_STATUS_LABEL[status]}</span>
+    </span>
+  );
+}
+
+export function MatterPriorityBadge({ priority }: { priority: MatterPriority }) {
+  const t = MATTER_PRIORITY_TONE[priority];
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] font-semibold leading-none ${t.fg} ${t.bg} ${t.border}`}
+    >
+      <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
+      <span>Prioritas {MATTER_PRIORITY_LABEL[priority]}</span>
     </span>
   );
 }

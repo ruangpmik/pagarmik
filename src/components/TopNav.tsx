@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-type IconName = "home" | "search" | "file" | "list" | "compare" | "network" | "clock" | "tag" | "book" | "scale" | "spark" | "user";
+type IconName = "home" | "search" | "file" | "list" | "compare" | "network" | "clock" | "tag" | "book" | "scale" | "spark" | "user" | "shield";
 
 const GROUPS: { title: string; desc: string; links: { href: string; label: string; icon: IconName }[] }[] = [
   {
@@ -33,6 +33,14 @@ const GROUPS: { title: string; desc: string; links: { href: string; label: strin
       { href: "/artikel", label: "Artikel", icon: "book" },
       { href: "/analisis-kasus", label: "Analisis kasus", icon: "scale" },
       { href: "/ai", label: "Tanya AI", icon: "spark" },
+    ],
+  },
+  {
+    title: "Operasional",
+    desc: "Intake dan pengelolaan kepatuhan",
+    links: [
+      { href: "/kepatuhan", label: "Pusat Kepatuhan", icon: "shield" },
+      { href: "/kepatuhan/intake", label: "Intake Baru", icon: "list" },
     ],
   },
 ];
@@ -75,6 +83,8 @@ export function NavIcon({ name, className = "h-[18px] w-[18px]" }: { name: IconN
       return <svg {...common}><path d="m12 3 1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z" /><path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z" /></svg>;
     case "user":
       return <svg {...common}><circle cx="12" cy="8" r="3.5" /><path d="M5 21v-1.5a7 7 0 0 1 14 0V21z" /></svg>;
+    case "shield":
+      return <svg {...common}><path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6z" /><path d="m9 12 2 2 4-4" /></svg>;
   }
 }
 
