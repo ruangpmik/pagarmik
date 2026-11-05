@@ -8,8 +8,15 @@ export type MatterTipe = "RMIK" | "PDP" | "RME" | "KEBIJAKAN_INTERNAL" | "LAIN";
 export interface MatterAuditEvent {
   at: string;
   actor: string;
-  action: "CREATE" | "UPDATE_STATUS";
+  action: "CREATE" | "UPDATE_STATUS" | "ADD_NOTE";
   detail: string;
+}
+
+export interface MatterNote {
+  id: string;
+  teks: string;
+  actor: string;
+  at: string;
 }
 
 export interface Matter {
@@ -26,6 +33,7 @@ export interface Matter {
   createdAt: string;
   updatedAt: string;
   audit: MatterAuditEvent[];
+  catatan: MatterNote[];
 }
 
 export const MATTER_STATUS_LABEL: Record<MatterStatus, string> = {

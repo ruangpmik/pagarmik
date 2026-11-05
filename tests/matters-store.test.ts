@@ -45,4 +45,24 @@ describe("MatterStore", () => {
     testDir = mkdtempSync(join(tmpdir(), "pagarmik-matter-"));
     expect(new MatterStore(join(testDir, "missing.json")).matters()).toEqual([]);
   });
+
+  it("appends a note and records an ADD_NOTE audit event", () => {
+    testDir = mkdtempSync(join(tmpdir(), "pagarmik-matter-"));
+    const store = new MatterStore(join(testDir, "matters.json"));
+
+    const created = store.create({
+      judul: "Materi catatan",
+      deskripsi: "Skenario untuk menguji pencatatan tindak lanjut.",
+      tipe: "PDP",
+      prioritas: "SEDANG",
+      ownedBy: "user@example.test",
+      ownerName: "Wartini",
+    });
+
+    const updated = store.addNote(created.id, "Sudah dikonsultasikan ke DPO.", "Wartini <user@example.test>");
+    expect(updated?.catatan).toHaveLength(1);
+    expect(updated?.catatan[0].teks).toBe("Sudah dikonsultasikan ke DPO.");
+    expect(updated?.audit).toHaveLength(2);
+    expect(updated?.audit[1].action).toBe("ADD_NOTE");
+  });
 });

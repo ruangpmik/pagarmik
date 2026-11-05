@@ -71,6 +71,8 @@ export default async function MatterDetailPage({
   const q = (searchParams.q ?? "").trim();
   const ans = q ? await answerQuestion(q) : null;
   const statusError = searchParams.error === "status";
+  const noteError = searchParams.error === "note";
+  const catatan = matter.catatan ?? [];
 
   return (
     <div className="mx-auto max-w-4xl space-y-6">
@@ -86,6 +88,12 @@ export default async function MatterDetailPage({
       {statusError && (
         <Alert variant="error" title="Status tidak valid">
           Pilih salah satu status: Baru, Tindak lanjut, atau Selesai.
+        </Alert>
+      )}
+
+      {noteError && (
+        <Alert variant="error" title="Catatan tidak valid">
+          Catatan harus 1–1000 karakter.
         </Alert>
       )}
 
@@ -150,6 +158,43 @@ export default async function MatterDetailPage({
           </div>
           <SubmitButton loadingLabel="Menyimpan...">Simpan Status</SubmitButton>
         </form>
+      </section>
+
+      <section className="section-card space-y-4" aria-labelledby="catatan-title">
+        <div className="border-b border-slate-200 pb-3">
+          <h2 id="catatan-title" className="text-base font-bold text-slate-900">Catatan &amp; Tindak Lanjut</h2>
+          <p className="mt-1 text-sm text-slate-600">Cantumkan temuan, rekomendasi, atau langkah yang diambil. Setiap catatan tercatat di jejak audit.</p>
+        </div>
+
+        <form action={`/api/matters/${matter.id}`} method="post" className="space-y-2.5">
+          <input type="hidden" name="_action" value="note" />
+          <label htmlFor="note" className="sr-only">Tambah catatan</label>
+          <textarea
+            id="note"
+            name="note"
+            rows={2}
+            required
+            maxLength={1000}
+            placeholder="Tulis temuan atau tindak lanjut..."
+            className="form-input text-sm leading-relaxed"
+          />
+          <SubmitButton loadingLabel="Menyimpan...">Tambah Catatan</SubmitButton>
+        </form>
+
+        {catatan.length > 0 ? (
+          <ol className="space-y-3 border-t border-slate-200 pt-3">
+            {[...catatan].reverse().map((n) => (
+              <li key={n.id} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <p className="whitespace-pre-line text-sm leading-relaxed text-slate-800">{n.teks}</p>
+                <p className="mt-1.5 text-xs text-slate-500">
+                  {new Date(n.at).toLocaleString("id-ID")} · {n.actor}
+                </p>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <p className="border-t border-slate-200 pt-3 text-sm text-slate-500">Belum ada catatan.</p>
+        )}
       </section>
 
       <section className="section-card space-y-4" aria-labelledby="riset-title">

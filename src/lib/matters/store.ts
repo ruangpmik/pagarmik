@@ -5,7 +5,7 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from "fs";
 import { randomUUID } from "crypto";
 import { dirname, join } from "path";
-import { MATTER_STATUS_LABEL, type Matter, type MatterPriority, type MatterStatus, type MatterTipe } from "./labels";
+import { MATTER_STATUS_LABEL, type Matter, type MatterNote, type MatterPriority, type MatterStatus, type MatterTipe } from "./labels";
 
 export * from "./labels";
 
@@ -77,6 +77,7 @@ export class MatterStore {
       createdAt: now,
       updatedAt: now,
       audit: [{ at: now, actor, action: "CREATE", detail: "Intake materi kepatuhan dibuat" }],
+      catatan: [],
     };
     this.write([...this.matters(), matter]);
     return matter;
@@ -101,6 +102,24 @@ export class MatterStore {
           detail: `${MATTER_STATUS_LABEL[prev.status]} → ${MATTER_STATUS_LABEL[status]}`,
         },
       ],
+    };
+    all[idx] = next;
+    this.write(all);
+    return next;
+  }
+
+  addNote(id: string, teks: string, actor: string): Matter | null {
+    const all = this.matters();
+    const idx = all.findIndex((m) => m.id === id);
+    if (idx < 0) return null;
+    const prev = all[idx];
+    const note: MatterNote = { id: randomUUID().slice(0, 8), teks, actor, at: new Date().toISOString() };
+    const now = new Date().toISOString();
+    const next: Matter = {
+      ...prev,
+      catatan: [...prev.catatan, note],
+      updatedAt: now,
+      audit: [...prev.audit, { at: now, actor, action: "ADD_NOTE", detail: "Catatan/tindak lanjut ditambahkan" }],
     };
     all[idx] = next;
     this.write(all);

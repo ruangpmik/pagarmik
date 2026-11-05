@@ -16,11 +16,21 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
 
   const form = await req.formData().catch(() => null);
+  const actor = `${user.name} <${user.email}>`;
+
+  if (String(form?.get("_action") ?? "") === "note") {
+    const teks = String(form?.get("note") ?? "").trim();
+    if (teks.length < 1 || teks.length > 1000) {
+      return NextResponse.redirect(new URL(`/kepatuhan/${matter.id}?error=note`, req.url));
+    }
+    store.addNote(matter.id, teks, actor);
+    return NextResponse.redirect(new URL(`/kepatuhan/${matter.id}`, req.url));
+  }
+
   const status = String(form?.get("status") ?? "") as MatterStatus;
   if (!STATUS.includes(status)) {
     return NextResponse.redirect(new URL(`/kepatuhan/${matter.id}?error=status`, req.url));
   }
-
-  store.updateStatus(matter.id, status, `${user.name} <${user.email}>`);
+  store.updateStatus(matter.id, status, actor);
   return NextResponse.redirect(new URL(`/kepatuhan/${matter.id}`, req.url));
 }
