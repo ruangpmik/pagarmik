@@ -134,8 +134,7 @@ export default function LibraryView() {
                 <button
                   type="button"
                   onClick={() => handleRemoveBookmark(bookmark)}
-                  className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-md border border-ink-100 px-2.5 text-xs font-semibold hover:bg-pagar-50 focus-visible:outline"
-                  style={{ color: "var(--danger)" }}
+                  className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-md border border-ink-100 px-2.5 text-xs font-semibold text-status-danger hover:bg-pagar-50 focus-visible:outline"
                   aria-label={"Hapus bookmark " + bookmark.title}
                 >
                   Hapus

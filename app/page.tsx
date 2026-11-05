@@ -59,15 +59,23 @@ export default function Home() {
 
       <section className="grid gap-x-8 gap-y-6 border-b border-ink-100 pb-8 xl:grid-cols-[minmax(0,1fr)_minmax(360px,0.9fr)] xl:items-center" aria-labelledby="home-title">
         <div className="min-w-0">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-pagar-700">Menjaga Batas · Melindungi Profesi</p>
-          <h1 id="home-title" className="mt-3 max-w-[20ch]">Rujukan hukum RMIK</h1>
-          <p className="mt-3 max-w-[58ch] text-base leading-relaxed text-ink-900/80">
-            Telusuri aturan terkait rekam medis dan informasi kesehatan, lalu periksa status serta sumbernya.
+          <div className="inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-800">
+            <span className="h-2 w-2 rounded-full bg-teal-500 animate-pulse" />
+            <span>PAGARMIK Legal Intelligence · RUANGPMIK</span>
+          </div>
+          <h1 id="home-title" className="mt-4 max-w-[20ch]">Rujukan hukum RMIK</h1>
+          <p className="mt-3 max-w-[58ch] text-base leading-relaxed text-slate-600">
+            Platform navigasi regulasi, analisis kepatuhan rekam medis, dan sistem rujukan pasal terverifikasi untuk tenaga kesehatan dan Perekam Medis Informasi Kesehatan.
           </p>
         </div>
 
-        <div className="home-search-panel flex min-w-0 flex-col justify-center">
-          <h2 className="mb-4 text-lg font-semibold text-pagar-800">Cari sumber hukum</h2>
+        <div className="home-search-panel flex min-w-0 flex-col justify-center border border-slate-200">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-base font-bold text-slate-900">Cari sumber hukum</h2>
+            <span className="text-[11px] font-mono font-medium text-teal-700 bg-teal-50 border border-teal-200 px-2 py-0.5 rounded">
+              Pencarian Cepat
+            </span>
+          </div>
           <SearchBar
             id="home-q"
             big
@@ -76,16 +84,16 @@ export default function Home() {
             placeholder="Contoh: Permenkes 24/2022 atau rahasia rekam medis"
             submitLabel="Cari"
           />
-          <p className="mt-3 text-sm leading-relaxed text-ink-900/75">
-            Pencarian membuka dokumen katalog; detail regulasi memuat status dan tautan sumber yang tercatat.
+          <p className="mt-3 text-xs leading-relaxed text-slate-500">
+            Membuka katalog pasal, status keberlakuan resmi, relasi hukum (mencabut/turunan), dan dokumen sumber.
           </p>
         </div>
 
-        <dl className="grid grid-cols-3 divide-x divide-ink-100 border-y border-ink-100 py-3 xl:col-span-2">
+        <dl className="grid grid-cols-3 divide-x divide-slate-200 border-y border-slate-200 py-3 xl:col-span-2 bg-slate-50/50 rounded-lg">
           {counts.map((item) => (
-            <div key={item.label} className="min-w-0 px-3 first:pl-0 sm:px-5">
-              <dt className="text-sm text-ink-900/75">{item.label}</dt>
-              <dd className="mt-0.5 text-2xl font-semibold tabular-nums text-pagar-800">{item.value}</dd>
+            <div key={item.label} className="min-w-0 px-3 first:pl-3 sm:px-5">
+              <dt className="text-xs font-medium uppercase tracking-wider text-slate-500">{item.label}</dt>
+              <dd className="mt-1 text-2xl font-mono font-bold tabular-nums text-slate-900">{item.value}</dd>
             </div>
           ))}
         </dl>

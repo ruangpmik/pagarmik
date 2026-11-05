@@ -5,6 +5,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        navy: { 950: "#071a33", 900: "#0a2a4a", 800: "#0e3560", 700: "#14467e" },
+        pmik: { teal: "#0e9f6e", orange: "#f97316" },
         pagar: {
           50: "rgb(var(--color-pagar-50) / <alpha-value>)",
           100: "rgb(var(--color-pagar-100) / <alpha-value>)",
@@ -28,11 +30,25 @@ const config: Config = {
           400: "rgb(var(--color-gold-400) / <alpha-value>)",
           500: "rgb(var(--color-gold-500) / <alpha-value>)",
         },
+        status: {
+          danger: "var(--danger)",
+          "danger-bg": "var(--danger-bg)",
+          "danger-border": "var(--danger-border)",
+          warning: "var(--warning)",
+          "warning-bg": "var(--warning-bg)",
+          "warning-border": "var(--warning-border)",
+          success: "var(--success)",
+          "success-bg": "var(--success-bg)",
+          "success-border": "var(--success-border)",
+          info: "var(--info)",
+          "info-bg": "var(--info-bg)",
+          "info-border": "var(--info-border)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "IBM Plex Sans", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
-        serif: ["Georgia", "Cambria", "Times New Roman", "serif"],
+        serif: ["Charter", "Bitstream Charter", "Sitka Text", "Cambria", "Georgia", "Times New Roman", "serif"],
       },
     },
   },

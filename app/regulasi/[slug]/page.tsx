@@ -15,6 +15,8 @@ import {
 import { InlineMarkdown } from "@/components/Markdown";
 import BookmarkButton from "@/components/BookmarkButton";
 import ExplainPasalButton from "@/components/ExplainPasalButton";
+import CopyCitationButton from "@/components/CopyCitationButton";
+import PrintButton from "@/components/PrintButton";
 import RememberVisit from "@/components/RememberVisit";
 import { answerQuestion } from "@/lib/rag/pipeline";
 
@@ -122,6 +124,7 @@ export default async function RegulationDetail({
             </div>
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            <PrintButton label="Cetak / PDF" />
             <BookmarkButton type="regulasi" slug={reg.slug} title={reg.judul} />
             <a
               href={`/bandingkan?a=${encodeURIComponent(reg.slug)}`}
@@ -261,8 +264,26 @@ export default async function RegulationDetail({
 
         {tab === "pasal" && (
           <div className="grid gap-4">
+            {pasals.length > 2 && (
+              <nav
+                aria-label="Lompat cepat ke pasal"
+                className="print:hidden sticky top-14 z-20 flex flex-wrap items-center gap-1.5 rounded-lg border border-slate-200 bg-white p-3"
+              >
+                <span className="mr-1 text-xs font-semibold text-pagar-800">Lompat ke:</span>
+                {pasals.map((p) => (
+                  <a
+                    key={p.nomor}
+                    href={`#pasal-${p.nomor}`}
+                    className="inline-flex items-center rounded border border-ink-100 bg-ink-50 px-2 py-0.5 text-xs font-medium text-ink-900/80 transition-colors hover:border-pagar-400 hover:bg-pagar-50 hover:text-pagar-800 focus-visible:outline"
+                  >
+                    Pasal {p.nomor}
+                  </a>
+                ))}
+              </nav>
+            )}
+
             {pasals.map((p) => (
-              <article key={p.nomor} className="section-card space-y-3">
+              <article key={p.nomor} id={`pasal-${p.nomor}`} className="section-card scroll-mt-28 space-y-3.5">
                 <div className="flex flex-wrap items-start justify-between gap-2 border-b border-ink-100 pb-3">
                   <div className="flex flex-wrap items-center gap-2">
                     <h2 className="text-lg font-semibold text-pagar-800">Pasal {p.nomor}</h2>
@@ -279,11 +300,17 @@ export default async function RegulationDetail({
                       </span>
                     )}
                   </div>
-                  <BookmarkButton type="pasal" slug={reg.slug} pasal={p.nomor} title={reg.judul} />
+                  <div className="flex flex-wrap items-center gap-2">
+                    <CopyCitationButton
+                      citation={`${reg.judul}, Pasal ${p.nomor}:\n"${p.teksAsli}"`}
+                      label="Salin kutipan"
+                    />
+                    <BookmarkButton type="pasal" slug={reg.slug} pasal={p.nomor} title={reg.judul} />
+                  </div>
                 </div>
 
                 <LegalBlock kind="FAKTA HUKUM" title="Bunyi / Ringkasan Ketentuan">
-                  <p className="font-serif text-[15px] leading-relaxed">{p.teksAsli}</p>
+                  <p className="legal-text">{p.teksAsli}</p>
                 </LegalBlock>
 
                 <div className="grid gap-3 md:grid-cols-2">
@@ -301,11 +328,13 @@ export default async function RegulationDetail({
                   </LegalBlock>
                 )}
 
-                <ExplainPasalButton
-                  slug={reg.slug}
-                  pasal={p.nomor}
-                  regulasiJudul={reg.judul}
-                />
+                <div className="print:hidden">
+                  <ExplainPasalButton
+                    slug={reg.slug}
+                    pasal={p.nomor}
+                    regulasiJudul={reg.judul}
+                  />
+                </div>
               </article>
             ))}
             {pasals.length === 0 && (

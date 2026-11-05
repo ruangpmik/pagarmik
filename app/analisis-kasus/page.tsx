@@ -8,6 +8,7 @@ import {
 import { InlineMarkdown } from "@/components/Markdown";
 import { SubmitButton } from "@/components/SubmitButton";
 import RememberVisit from "@/components/RememberVisit";
+import PrintButton from "@/components/PrintButton";
 
 export const metadata = { title: "Analisis Kasus" };
 
@@ -61,7 +62,7 @@ export default async function CasePage({
 
       <form method="get" className="section-card grid gap-2.5">
         <label htmlFor="kasus" className="text-sm font-semibold text-pagar-800">
-          Skenario kasus (minimal 10 karakter) <span style={{ color: "var(--danger)" }}>*</span>
+          Skenario kasus (minimal 10 karakter) <span className="text-status-danger">*</span>
         </label>
         <textarea
           id="kasus"
@@ -100,7 +101,12 @@ export default async function CasePage({
         <article className="mt-6 section-card space-y-4" aria-live="polite">
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-ink-100 pb-3">
             <h2 className="text-lg font-semibold text-pagar-800">Hasil Telaah Skenario</h2>
-            <ConfidenceBadge level={res.confidence} />
+            <div className="flex flex-wrap items-center gap-2">
+              <ConfidenceBadge level={res.confidence} />
+              <div className="print:hidden">
+                <PrintButton label="Cetak Lembar Telaah" />
+              </div>
+            </div>
           </div>
 
           <div className="grid gap-3">

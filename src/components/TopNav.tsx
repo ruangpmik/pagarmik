@@ -81,16 +81,25 @@ export default function TopNav() {
     pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
-    <aside className="app-sidebar" aria-label="Navigasi PAGARMIK">
-      <a href="/" className="flex items-center gap-3 rounded-lg focus-visible:outline" aria-label="PAGARMIK beranda">
-        <Image src="/icon.png" alt="" width={42} height={42} priority />
-        <span className="min-w-0 leading-tight">
-          <span className="block text-base font-bold tracking-tight text-pagar-800">PAGARMIK</span>
-          <span className="mt-0.5 block text-xs font-semibold text-ink-900/70">by RUANGPMIK</span>
-        </span>
+    <aside className="app-sidebar print:hidden" aria-label="Navigasi PAGARMIK">
+      <a href="/" className="flex items-center gap-3 rounded-xl p-1.5 focus-visible:outline hover:bg-slate-200/50 transition-colors" aria-label="PAGARMIK beranda">
+        <div className="w-10 h-10 rounded-xl overflow-hidden ring-1 ring-slate-900/10 bg-white flex items-center justify-center p-1">
+          <Image src="/icon.png" alt="PAGARMIK Logo" width={36} height={36} priority className="object-contain" />
+        </div>
+        <div className="min-w-0 leading-tight">
+          <div className="flex items-center space-x-1.5">
+            <span className="font-bold tracking-tight text-base text-slate-900">
+              PAGAR<span className="text-teal-600">MIK</span>
+            </span>
+            <span className="px-1.5 py-0.2 text-[9px] font-bold rounded-full bg-pmik-orange text-navy-950">
+              RUANGPMIK
+            </span>
+          </div>
+          <span className="block text-[11px] font-medium text-slate-500 mt-0.5">Legal Intelligence</span>
+        </div>
       </a>
 
-      <nav className="mt-8 min-h-0 flex-1 space-y-6 overflow-y-auto pb-4" aria-label="Navigasi utama">
+      <nav className="mt-6 min-h-0 flex-1 space-y-6 overflow-y-auto pb-4" aria-label="Navigasi utama">
         {GROUPS.map((group) => (
           <div key={group.title}>
             <h2 className="mb-2 px-3 text-xs font-semibold text-ink-900/65">{group.title}</h2>

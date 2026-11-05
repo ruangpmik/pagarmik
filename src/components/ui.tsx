@@ -3,22 +3,21 @@ import { STATUS_LABEL, type Regulation } from "@/lib/data/types";
 import { SubmitButton } from "@/components/SubmitButton";
 
 const STATUS_PALETTE: Record<string, { fg: string; bg: string; border: string }> = {
-  BERLAKU: { fg: "var(--success)", bg: "var(--success-bg)", border: "var(--success-border)" },
-  BELUM_BERLAKU: { fg: "var(--text-muted)", bg: "#eef1f4", border: "var(--control-border)" },
-  BERLAKU_DENGAN_CATATAN: { fg: "var(--warning)", bg: "var(--warning-bg)", border: "var(--warning-border)" },
-  PERUBAHAN: { fg: "var(--brand-navy)", bg: "var(--info-bg)", border: "var(--info-border)" },
-  DICABUT: { fg: "var(--danger)", bg: "var(--danger-bg)", border: "var(--danger-border)" },
-  BELUM_DIVERIFIKASI: { fg: "var(--text-muted)", bg: "#eef1f4", border: "var(--control-border)" },
+  BERLAKU: { fg: "text-emerald-700", bg: "bg-emerald-50", border: "border-emerald-300" },
+  BELUM_BERLAKU: { fg: "text-slate-600", bg: "bg-slate-100", border: "border-slate-300" },
+  BERLAKU_DENGAN_CATATAN: { fg: "text-amber-800", bg: "bg-amber-50", border: "border-amber-300" },
+  PERUBAHAN: { fg: "text-sky-800", bg: "bg-sky-50", border: "border-sky-300" },
+  DICABUT: { fg: "text-rose-700", bg: "bg-rose-50", border: "border-rose-300" },
+  BELUM_DIVERIFIKASI: { fg: "text-slate-600", bg: "bg-slate-100", border: "border-slate-300" },
 };
 
 export function StatusBadge({ status }: { status: Regulation["status"] }) {
   const p = STATUS_PALETTE[status] ?? STATUS_PALETTE.BELUM_DIVERIFIKASI;
   return (
     <span
-      className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] font-semibold leading-none"
-      style={{ color: p.fg, backgroundColor: p.bg, borderColor: p.border }}
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[12px] font-semibold leading-none ${p.fg} ${p.bg} ${p.border}`}
     >
-      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: p.fg }} aria-hidden="true" />
+      <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
       <span>{STATUS_LABEL[status]}</span>
     </span>
   );
@@ -29,21 +28,21 @@ const CONFIDENCE_PALETTE: Record<
   { fg: string; bg: string; border: string; label: string }
 > = {
   HIGH: {
-    fg: "var(--success)",
-    bg: "var(--success-bg)",
-    border: "var(--success-border)",
+    fg: "text-status-success",
+    bg: "bg-status-success-bg",
+    border: "border-status-success-border",
     label: "Tinggi (sumber primer cocok)",
   },
   MEDIUM: {
-    fg: "var(--warning)",
-    bg: "var(--warning-bg)",
-    border: "var(--warning-border)",
+    fg: "text-status-warning",
+    bg: "bg-status-warning-bg",
+    border: "border-status-warning-border",
     label: "Sedang (rujukan terbatas)",
   },
   LOW: {
-    fg: "var(--text-muted)",
-    bg: "#eef1f4",
-    border: "var(--control-border)",
+    fg: "text-ink-900/60",
+    bg: "bg-ink-100/50",
+    border: "border-ink-100",
     label: "Rendah (perlu verifikasi manual)",
   },
 };
@@ -52,10 +51,9 @@ export function ConfidenceBadge({ level }: { level: "HIGH" | "MEDIUM" | "LOW" })
   const p = CONFIDENCE_PALETTE[level] ?? CONFIDENCE_PALETTE.LOW;
   return (
     <span
-      className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold leading-none"
-      style={{ color: p.fg, backgroundColor: p.bg, borderColor: p.border }}
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold leading-none ${p.fg} ${p.bg} ${p.border}`}
     >
-      <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: p.fg }} aria-hidden="true" />
+      <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
       <span>Tingkat keyakinan: {p.label}</span>
     </span>
   );
@@ -65,17 +63,11 @@ export function Disclaimer() {
   return (
     <aside
       aria-label="Pernyataan batas informasi hukum"
-      className="flex items-start gap-2.5 rounded-xl border p-3.5 text-xs leading-relaxed"
-      style={{
-        borderColor: "var(--warning-border)",
-        backgroundColor: "var(--warning-bg)",
-        color: "var(--text-primary)",
-      }}
+      className="flex items-start gap-2.5 rounded-xl border border-status-warning-border bg-status-warning-bg p-3.5 text-xs leading-relaxed text-ink-900"
     >
       <svg
         viewBox="0 0 24 24"
-        className="mt-0.5 h-4 w-4 shrink-0"
-        style={{ color: "var(--warning)" }}
+        className="mt-0.5 h-4 w-4 shrink-0 text-status-warning"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
@@ -85,7 +77,7 @@ export function Disclaimer() {
         <path d="M12 8v4.5M12 16h.01" />
       </svg>
       <p>
-        <strong className="font-semibold" style={{ color: "var(--warning)" }}>
+        <strong className="font-semibold text-status-warning">
           Catatan edukasi hukum:
         </strong>{" "}
         Informasi pada PAGARMIK merupakan rujukan edukatif dan bukan pengganti pendapat hukum profesional. Selalu periksa naskah resmi pada JDIH instansi terkait.
@@ -98,10 +90,10 @@ const ALERT_PALETTE: Record<
   "info" | "success" | "warning" | "error",
   { fg: string; bg: string; border: string }
 > = {
-  info: { fg: "var(--info)", bg: "var(--info-bg)", border: "var(--info-border)" },
-  success: { fg: "var(--success)", bg: "var(--success-bg)", border: "var(--success-border)" },
-  warning: { fg: "var(--warning)", bg: "var(--warning-bg)", border: "var(--warning-border)" },
-  error: { fg: "var(--danger)", bg: "var(--danger-bg)", border: "var(--danger-border)" },
+  info: { fg: "text-status-info", bg: "bg-status-info-bg", border: "border-status-info-border" },
+  success: { fg: "text-status-success", bg: "bg-status-success-bg", border: "border-status-success-border" },
+  warning: { fg: "text-status-warning", bg: "bg-status-warning-bg", border: "border-status-warning-border" },
+  error: { fg: "text-status-danger", bg: "bg-status-danger-bg", border: "border-status-danger-border" },
 };
 
 export function Alert({
@@ -122,14 +114,9 @@ export function Alert({
   return (
     <div
       role={role}
-      className={`flex items-start gap-3 rounded-xl border p-4 text-sm leading-relaxed ${className}`.trim()}
-      style={{
-        color: "var(--text-primary)",
-        backgroundColor: p.bg,
-        borderColor: p.border,
-      }}
+      className={`flex items-start gap-3 rounded-xl border p-4 text-sm leading-relaxed text-ink-900 ${p.bg} ${p.border} ${className}`.trim()}
     >
-      <span className="mt-0.5 shrink-0" style={{ color: p.fg }} aria-hidden="true">
+      <span className={`mt-0.5 shrink-0 ${p.fg}`} aria-hidden="true">
         {variant === "success" ? (
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="9" />
@@ -154,7 +141,7 @@ export function Alert({
       </span>
       <div className="min-w-0 flex-1">
         {title && (
-          <p className="font-semibold" style={{ color: p.fg }}>
+          <p className={`font-semibold ${p.fg}`}>
             {title}
           </p>
         )}
@@ -231,25 +218,24 @@ export function LegalBlock({
 }) {
   const tone =
     kind === "FAKTA HUKUM"
-      ? { fg: "var(--brand-navy)", bg: "var(--info-bg)", border: "var(--info-border)" }
+      ? { fg: "text-sky-800", bg: "bg-sky-50", border: "border-sky-200", accent: "border-l-sky-600" }
       : kind === "RISIKO KEPATUHAN"
-        ? { fg: "var(--warning)", bg: "var(--warning-bg)", border: "var(--warning-border)" }
+        ? { fg: "text-rose-800", bg: "bg-rose-50", border: "border-rose-200", accent: "border-l-rose-500" }
         : kind === "REKOMENDASI KEPATUHAN"
-          ? { fg: "var(--success)", bg: "var(--success-bg)", border: "var(--success-border)" }
-          : { fg: "var(--accent-teal)", bg: "var(--surface-raised)", border: "var(--border)" };
+          ? { fg: "text-teal-800", bg: "bg-teal-50", border: "border-teal-200", accent: "border-l-teal-600" }
+          : { fg: "text-purple-800", bg: "bg-purple-50", border: "border-purple-200", accent: "border-l-purple-600" };
 
   return (
-    <div className="rounded-xl border border-ink-100 bg-white p-4">
+    <div className={`legal-block rounded-xl border border-slate-200 border-l-4 ${tone.accent} bg-white p-4 shadow-xs`}>
       <div className="flex flex-wrap items-center gap-2">
         <span
-          className="inline-flex items-center rounded border px-2 py-0.5 text-[11px] font-bold tracking-wide"
-          style={{ color: tone.fg, backgroundColor: tone.bg, borderColor: tone.border }}
+          className={`inline-flex items-center rounded-md border px-2 py-0.5 text-[11px] font-bold tracking-wide ${tone.fg} ${tone.bg} ${tone.border}`}
         >
           {kind}
         </span>
-        {title && <h3 className="text-sm font-semibold text-pagar-800">{title}</h3>}
+        {title && <h3 className="text-sm font-bold text-slate-800">{title}</h3>}
       </div>
-      <div className="mt-2 text-sm leading-relaxed text-ink-900/85">{children}</div>
+      <div className="mt-2 text-sm leading-relaxed text-slate-700">{children}</div>
     </div>
   );
 }
@@ -258,20 +244,20 @@ export function RegulationCard({ r }: { r: Regulation }) {
   return (
     <a
       href={`/regulasi/${r.slug}`}
-      className="flex flex-col justify-between rounded-xl border border-ink-100 bg-white p-5 transition-colors hover:border-pagar-300 hover:bg-pagar-50"
+      className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 transition-all duration-150 hover:border-teal-500 hover:bg-teal-50/20"
     >
       <div>
         <div className="flex flex-wrap items-center gap-2">
           <StatusBadge status={r.status} />
-          <span className="text-xs font-medium text-ink-900/70">
-            {r.jenis} No. {r.nomor} Tahun {r.tahun}
+          <span className="font-mono text-xs font-semibold text-slate-500">
+            {r.jenis} No. {r.nomor}/{r.tahun}
           </span>
         </div>
-        <h3 className="mt-3 font-semibold leading-snug text-pagar-800">{r.judul}</h3>
-        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-ink-900/75">{r.ringkasan}</p>
+        <h3 className="mt-3 font-semibold leading-snug text-slate-900 hover:text-teal-700">{r.judul}</h3>
+        <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-slate-600">{r.ringkasan}</p>
       </div>
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-ink-100 pt-3 text-xs text-ink-900/65">
-        <span>{r.instansi}</span>
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-3 text-xs text-slate-500">
+        <span className="font-medium text-slate-700">{r.instansi}</span>
         <span>Terverifikasi: {r.verifiedAt ?? "Belum tercatat"}</span>
       </div>
     </a>

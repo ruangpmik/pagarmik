@@ -31,11 +31,11 @@ export default function RegulasiList({
           <h1>Repository regulasi</h1>
           <p className="mt-2 text-sm leading-relaxed text-ink-900/75">
             {all.length} regulasi terindeks ·{" "}
-            <span className="font-semibold" style={{ color: "var(--success)" }}>
+            <span className="font-semibold text-status-success">
               {berlaku} berlaku
             </span>{" "}
             ·{" "}
-            <span className="font-semibold" style={{ color: "var(--danger)" }}>
+            <span className="font-semibold text-status-danger">
               {dicabut} dicabut
             </span>{" "}
             · status ditentukan dari metadata terverifikasi, bukan oleh AI.

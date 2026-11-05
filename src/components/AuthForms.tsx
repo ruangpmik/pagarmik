@@ -40,7 +40,7 @@ export function LoginForm({ nextUrl }: { nextUrl: string }) {
 
       <div className="grid gap-1">
         <label htmlFor="login-email" className="text-sm font-semibold text-pagar-800">
-          Email <span style={{ color: "var(--danger)" }}>*</span>
+          Email <span className="text-status-danger">*</span>
         </label>
         <input
           id="login-email"
@@ -55,7 +55,7 @@ export function LoginForm({ nextUrl }: { nextUrl: string }) {
           onChange={() => errors.email && setErrors((prev) => ({ ...prev, email: undefined }))}
         />
         {errors.email && (
-          <p id="login-email-error" role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p id="login-email-error" role="alert" className="text-xs font-semibold text-status-danger">
             Kesalahan validasi: {errors.email}
           </p>
         )}
@@ -63,7 +63,7 @@ export function LoginForm({ nextUrl }: { nextUrl: string }) {
 
       <div className="grid gap-1">
         <label htmlFor="login-password" className="text-sm font-semibold text-pagar-800">
-          Kata sandi <span style={{ color: "var(--danger)" }}>*</span>
+          Kata sandi <span className="text-status-danger">*</span>
         </label>
         <input
           id="login-password"
@@ -77,7 +77,7 @@ export function LoginForm({ nextUrl }: { nextUrl: string }) {
           onChange={() => errors.password && setErrors((prev) => ({ ...prev, password: undefined }))}
         />
         {errors.password && (
-          <p id="login-password-error" role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p id="login-password-error" role="alert" className="text-xs font-semibold text-status-danger">
             Kesalahan validasi: {errors.password}
           </p>
         )}
@@ -133,7 +133,7 @@ export function RegisterForm() {
     >
       <div className="grid gap-1">
         <label htmlFor="reg-name" className="text-sm font-semibold text-pagar-800">
-          Nama lengkap <span style={{ color: "var(--danger)" }}>*</span>
+          Nama lengkap <span className="text-status-danger">*</span>
         </label>
         <input
           id="reg-name"
@@ -147,7 +147,7 @@ export function RegisterForm() {
           onChange={() => errors.name && setErrors((prev) => ({ ...prev, name: undefined }))}
         />
         {errors.name && (
-          <p id="reg-name-error" role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p id="reg-name-error" role="alert" className="text-xs font-semibold text-status-danger">
             Kesalahan validasi: {errors.name}
           </p>
         )}
@@ -155,7 +155,7 @@ export function RegisterForm() {
 
       <div className="grid gap-1">
         <label htmlFor="reg-email" className="text-sm font-semibold text-pagar-800">
-          Email <span style={{ color: "var(--danger)" }}>*</span>
+          Email <span className="text-status-danger">*</span>
         </label>
         <input
           id="reg-email"
@@ -170,7 +170,7 @@ export function RegisterForm() {
           onChange={() => errors.email && setErrors((prev) => ({ ...prev, email: undefined }))}
         />
         {errors.email && (
-          <p id="reg-email-error" role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p id="reg-email-error" role="alert" className="text-xs font-semibold text-status-danger">
             Kesalahan validasi: {errors.email}
           </p>
         )}
@@ -205,7 +205,7 @@ export function RegisterForm() {
 
       <div className="grid gap-1">
         <label htmlFor="reg-password" className="text-sm font-semibold text-pagar-800">
-          Kata sandi (minimal 8 karakter) <span style={{ color: "var(--danger)" }}>*</span>
+          Kata sandi (minimal 8 karakter) <span className="text-status-danger">*</span>
         </label>
         <input
           id="reg-password"
@@ -223,7 +223,7 @@ export function RegisterForm() {
           Gunakan minimal 8 karakter untuk keamanan akun Anda.
         </p>
         {errors.password && (
-          <p id="reg-password-error" role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p id="reg-password-error" role="alert" className="text-xs font-semibold text-status-danger">
             Kesalahan validasi: {errors.password}
           </p>
         )}

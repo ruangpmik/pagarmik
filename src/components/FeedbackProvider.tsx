@@ -43,27 +43,27 @@ const FeedbackContext = createContext<FeedbackContextValue | null>(null);
 
 const TOAST_STYLE: Record<ToastVariant, { fg: string; bg: string; border: string; label: string }> = {
   success: {
-    fg: "var(--success)",
-    bg: "var(--success-bg)",
-    border: "var(--success-border)",
+    fg: "text-status-success",
+    bg: "bg-status-success-bg",
+    border: "border-status-success-border",
     label: "Berhasil",
   },
   error: {
-    fg: "var(--danger)",
-    bg: "var(--danger-bg)",
-    border: "var(--danger-border)",
+    fg: "text-status-danger",
+    bg: "bg-status-danger-bg",
+    border: "border-status-danger-border",
     label: "Kesalahan",
   },
   warning: {
-    fg: "var(--warning)",
-    bg: "var(--warning-bg)",
-    border: "var(--warning-border)",
+    fg: "text-status-warning",
+    bg: "bg-status-warning-bg",
+    border: "border-status-warning-border",
     label: "Perhatian",
   },
   info: {
-    fg: "var(--info)",
-    bg: "var(--info-bg)",
-    border: "var(--info-border)",
+    fg: "text-status-info",
+    bg: "bg-status-info-bg",
+    border: "border-status-info-border",
     label: "Informasi",
   },
 };
@@ -266,12 +266,7 @@ export default function FeedbackProvider({ children }: { children: ReactNode }) 
       {isOffline && (
         <div
           role="alert"
-          className="border-b px-4 py-2 text-center text-xs font-semibold"
-          style={{
-            backgroundColor: "var(--warning-bg)",
-            borderColor: "var(--warning-border)",
-            color: "var(--warning)",
-          }}
+          className="border-b border-status-warning-border bg-status-warning-bg px-4 py-2 text-center text-xs font-semibold text-status-warning"
         >
           Status jaringan luring (offline): Pencarian server dan AI tidak dapat diakses hingga koneksi kembali aktif.
         </div>
@@ -290,18 +285,13 @@ export default function FeedbackProvider({ children }: { children: ReactNode }) 
             <div
               key={item.id}
               role={item.type === "error" || item.type === "warning" ? "alert" : "status"}
-              className="pointer-events-auto flex w-full items-start gap-3 rounded-lg border p-3.5 text-sm"
-              style={{
-                backgroundColor: style.bg,
-                borderColor: style.border,
-                color: "var(--text-primary)",
-              }}
+              className={`pointer-events-auto flex w-full items-start gap-3 rounded-lg border p-3.5 text-sm text-ink-900 ${style.bg} ${style.border}`}
             >
-              <span style={{ color: style.fg }} className="mt-0.5">
+              <span className={`mt-0.5 ${style.fg}`}>
                 <FeedbackIcon type={item.type} />
               </span>
               <div className="min-w-0 flex-1">
-                <p className="font-semibold" style={{ color: style.fg }}>
+                <p className={`font-semibold ${style.fg}`}>
                   {item.title ?? style.label}
                 </p>
                 <p className="mt-0.5 leading-relaxed text-ink-900/90">{item.message}</p>

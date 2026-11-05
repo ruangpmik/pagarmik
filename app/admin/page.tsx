@@ -137,12 +137,7 @@ function AdminBody({
           </p>
           <p
             id="ingest-privacy"
-            className="mt-1.5 rounded-lg border px-3 py-2 text-xs font-semibold"
-            style={{
-              color: "var(--warning)",
-              backgroundColor: "var(--warning-bg)",
-              borderColor: "var(--warning-border)",
-            }}
+            className="mt-1.5 rounded-lg border border-status-warning-border bg-status-warning-bg px-3 py-2 text-xs font-semibold text-status-warning"
           >
             Peringatan privasi: Unggah hanya dokumen regulasi publik resmi. Dilarang mengunggah rekam medis atau data pasien.
           </p>

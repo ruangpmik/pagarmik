@@ -2,6 +2,7 @@ import { getStore } from "@/lib/data/store";
 import { Alert, Breadcrumb, Disclaimer, StatusBadge } from "@/components/ui";
 import { SubmitButton } from "@/components/SubmitButton";
 import CompareAiPanel from "@/components/CompareAiPanel";
+import PrintButton from "@/components/PrintButton";
 
 export const metadata = { title: "Bandingkan regulasi" };
 
@@ -76,10 +77,19 @@ export default function Compare({
     <div className="mx-auto max-w-5xl">
       <header className="page-header">
         <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Bandingkan regulasi" }]} />
-        <h1>Bandingkan regulasi</h1>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink-900/80">
-          Sandingkan dua instrumen hukum secara berdampingan untuk memeriksa perbedaan status keberlakuan, ruang lingkup, dan cakupan pasal.
-        </p>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <h1>Bandingkan regulasi</h1>
+            <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink-900/80">
+              Sandingkan dua instrumen hukum secara berdampingan untuk memeriksa perbedaan status keberlakuan, ruang lingkup, dan cakupan pasal.
+            </p>
+          </div>
+          {a && b && (
+            <div className="print:hidden">
+              <PrintButton label="Cetak Perbandingan" />
+            </div>
+          )}
+        </div>
       </header>
 
       <form
@@ -159,43 +169,44 @@ export default function Compare({
               </tr>
             </thead>
             <tbody className="divide-y divide-ink-100">
-              {rows.map(([k, va, vb]) => (
-                <tr key={k} className="align-top">
-                  <th scope="row" className="p-3.5 text-left font-semibold text-pagar-800">
-                    {k}
-                  </th>
-                  <td className="p-3.5 leading-relaxed">
-                    {k === "Status keberlakuan" ? (
-                      <StatusBadge status={va as typeof a.status} />
-                    ) : (
-                      va
-                    )}
-                  </td>
-                  <td className="p-3.5 leading-relaxed">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span>
-                        {k === "Status keberlakuan" ? (
-                          <StatusBadge status={vb as typeof b.status} />
-                        ) : (
-                          vb
-                        )}
-                      </span>
-                      {va !== vb && (
-                        <span
-                          className="rounded border px-1.5 py-0.5 text-[11px] font-semibold"
-                          style={{
-                            color: "var(--warning)",
-                            backgroundColor: "var(--warning-bg)",
-                            borderColor: "var(--warning-border)",
-                          }}
-                        >
-                          Berbeda
-                        </span>
+              {rows.map(([k, va, vb]) => {
+                const isDifferent = va !== vb;
+                return (
+                  <tr
+                    key={k}
+                    className={`align-top transition-colors ${
+                      isDifferent ? "bg-amber-50/40" : "hover:bg-ink-50/30"
+                    }`}
+                  >
+                    <th scope="row" className="p-3.5 text-left font-semibold text-pagar-800">
+                      {k}
+                    </th>
+                    <td className="p-3.5 leading-relaxed">
+                      {k === "Status keberlakuan" ? (
+                        <StatusBadge status={va as typeof a.status} />
+                      ) : (
+                        va
                       )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                    <td className="p-3.5 leading-relaxed">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span>
+                          {k === "Status keberlakuan" ? (
+                            <StatusBadge status={vb as typeof b.status} />
+                          ) : (
+                            vb
+                          )}
+                        </span>
+                        {isDifferent && (
+                          <span className="rounded border border-status-warning-border bg-status-warning-bg px-1.5 py-0.5 text-[11px] font-semibold text-status-warning">
+                            Berbeda
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

@@ -81,7 +81,7 @@ export function AdminIngestForm() {
       <div className="grid gap-3 md:grid-cols-2">
         <div className="grid gap-1">
           <label htmlFor="ingest-slug" className="font-semibold text-pagar-800">
-            Slug unik <span style={{ color: "var(--danger)" }}>*</span>
+            Slug unik <span className="text-status-danger">*</span>
           </label>
           <input
             id="ingest-slug"
@@ -92,7 +92,7 @@ export function AdminIngestForm() {
             className="form-input"
           />
           {errors.slug && (
-            <p role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+            <p role="alert" className="text-xs font-semibold text-status-danger">
               {errors.slug}
             </p>
           )}
@@ -100,14 +100,14 @@ export function AdminIngestForm() {
 
         <div className="grid gap-1">
           <label htmlFor="ingest-judul" className="font-semibold text-pagar-800">
-            Judul regulasi <span style={{ color: "var(--danger)" }}>*</span>
+            Judul regulasi <span className="text-status-danger">*</span>
           </label>
           <input id="ingest-judul" name="judul" required className="form-input" />
         </div>
 
         <div className="grid gap-1">
           <label htmlFor="ingest-nomor" className="font-semibold text-pagar-800">
-            Nomor <span style={{ color: "var(--danger)" }}>*</span>
+            Nomor <span className="text-status-danger">*</span>
           </label>
           <input
             id="ingest-nomor"
@@ -120,7 +120,7 @@ export function AdminIngestForm() {
 
         <div className="grid gap-1">
           <label htmlFor="ingest-tahun" className="font-semibold text-pagar-800">
-            Tahun <span style={{ color: "var(--danger)" }}>*</span>
+            Tahun <span className="text-status-danger">*</span>
           </label>
           <input
             id="ingest-tahun"
@@ -134,7 +134,7 @@ export function AdminIngestForm() {
 
         <div className="grid gap-1">
           <label htmlFor="ingest-jenis" className="font-semibold text-pagar-800">
-            Jenis regulasi <span style={{ color: "var(--danger)" }}>*</span>
+            Jenis regulasi <span className="text-status-danger">*</span>
           </label>
           <input
             id="ingest-jenis"
@@ -147,7 +147,7 @@ export function AdminIngestForm() {
 
         <div className="grid gap-1">
           <label htmlFor="ingest-instansi" className="font-semibold text-pagar-800">
-            Instansi penerbit <span style={{ color: "var(--danger)" }}>*</span>
+            Instansi penerbit <span className="text-status-danger">*</span>
           </label>
           <input id="ingest-instansi" name="instansi" required className="form-input" />
         </div>
@@ -180,7 +180,7 @@ export function AdminIngestForm() {
 
       <div className="grid gap-1">
         <label htmlFor="ingest-ringkasan" className="font-semibold text-pagar-800">
-          Ringkasan (minimal 20 karakter) <span style={{ color: "var(--danger)" }}>*</span>
+          Ringkasan (minimal 20 karakter) <span className="text-status-danger">*</span>
         </label>
         <textarea
           id="ingest-ringkasan"
@@ -192,7 +192,7 @@ export function AdminIngestForm() {
           className="form-input"
         />
         {errors.ringkasan && (
-          <p role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p role="alert" className="text-xs font-semibold text-status-danger">
             {errors.ringkasan}
           </p>
         )}
@@ -219,12 +219,12 @@ export function AdminIngestForm() {
           className="min-h-11 text-sm"
         />
         {fileInfo && (
-          <p className="text-xs font-semibold" style={{ color: "var(--success)" }} role="status">
+          <p className="text-xs font-semibold text-status-success" role="status">
             {fileInfo}
           </p>
         )}
         {errors.pdf && (
-          <p role="alert" className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
+          <p role="alert" className="text-xs font-semibold text-status-danger">
             {errors.pdf}
           </p>
         )}
@@ -324,7 +324,7 @@ export function AdminVerifyForm({
         </label>
       </div>
       <label className="grid gap-1 text-xs font-semibold text-pagar-800">
-        Catatan audit verifikasi (min. 5 karakter) <span style={{ color: "var(--danger)" }}>*</span>
+        Catatan audit verifikasi (min. 5 karakter) <span className="text-status-danger">*</span>
         <textarea
           name="catatan"
           required

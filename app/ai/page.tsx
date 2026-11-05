@@ -76,7 +76,7 @@ export default async function AiPage({
 
       <form method="get" className="section-card grid gap-2.5" role="search">
         <label htmlFor="aiq" className="text-sm font-semibold text-pagar-800">
-          Pertanyaan hukum Anda <span style={{ color: "var(--danger)" }}>*</span>
+          Pertanyaan hukum Anda <span className="text-status-danger">*</span>
         </label>
         <textarea
           id="aiq"
