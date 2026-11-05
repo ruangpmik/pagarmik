@@ -5,9 +5,10 @@ import { usePathname } from "next/navigation";
 
 type IconName = "home" | "search" | "file" | "list" | "compare" | "network" | "clock" | "tag" | "book" | "scale" | "spark" | "user";
 
-const GROUPS: { title: string; links: { href: string; label: string; icon: IconName }[] }[] = [
+const GROUPS: { title: string; desc: string; links: { href: string; label: string; icon: IconName }[] }[] = [
   {
     title: "Mulai",
+    desc: "Beranda dan pencarian",
     links: [
       { href: "/", label: "Beranda", icon: "home" },
       { href: "/legal-search", label: "Pencarian hukum", icon: "search" },
@@ -15,6 +16,7 @@ const GROUPS: { title: string; links: { href: string; label: string; icon: IconN
   },
   {
     title: "Rujukan hukum",
+    desc: "Katalog, pasal, dan relasi",
     links: [
       { href: "/regulasi", label: "Regulasi", icon: "file" },
       { href: "/pasal", label: "Pasal", icon: "list" },
@@ -25,6 +27,7 @@ const GROUPS: { title: string; links: { href: string; label: string; icon: IconN
   },
   {
     title: "Pengetahuan",
+    desc: "Topik, artikel, dan AI riset",
     links: [
       { href: "/topik", label: "Topik", icon: "tag" },
       { href: "/artikel", label: "Artikel", icon: "book" },
@@ -82,9 +85,9 @@ export default function TopNav() {
 
   return (
     <aside className="app-sidebar print:hidden" aria-label="Navigasi PAGARMIK">
-      <a href="/" className="flex items-center gap-3 rounded-xl p-1.5 focus-visible:outline hover:bg-slate-200/50 transition-colors" aria-label="PAGARMIK beranda">
-        <div className="w-10 h-10 rounded-xl overflow-hidden ring-1 ring-slate-900/10 bg-white flex items-center justify-center p-1">
-          <Image src="/icon.png" alt="PAGARMIK Logo" width={36} height={36} priority className="object-contain" />
+      <a href="/" className="flex items-center gap-3 rounded-xl p-2 focus-visible:outline hover:bg-slate-200/50 transition-colors" aria-label="PAGARMIK beranda">
+        <div className="w-10 h-10 rounded-xl overflow-hidden ring-1 ring-slate-900/10 bg-white flex items-center justify-center p-1.5 shrink-0">
+          <Image src="/icon.png" alt="PAGARMIK Logo" width={32} height={32} priority className="object-contain" />
         </div>
         <div className="min-w-0 leading-tight">
           <div className="flex items-center space-x-1.5">
@@ -99,10 +102,11 @@ export default function TopNav() {
         </div>
       </a>
 
-      <nav className="mt-6 min-h-0 flex-1 space-y-6 overflow-y-auto pb-4" aria-label="Navigasi utama">
+      <nav className="mt-6 min-h-0 flex-1 space-y-6 overflow-y-auto pb-4 pr-1" aria-label="Navigasi utama">
         {GROUPS.map((group) => (
           <div key={group.title}>
-            <h2 className="mb-2 px-3 text-xs font-semibold text-ink-900/65">{group.title}</h2>
+            <h2 className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-400">{group.title}</h2>
+            <p className="mb-2 px-3 text-[10px] font-medium leading-snug text-slate-400">{group.desc}</p>
             <ul className="space-y-1">
               {group.links.map((link) => {
                 const active = isActive(link.href);
@@ -112,14 +116,14 @@ export default function TopNav() {
                       href={link.href}
                       aria-current={active ? "page" : undefined}
                       className={[
-                        "flex min-h-10 items-center gap-3 rounded-lg px-3 text-sm font-medium transition-colors focus-visible:outline",
+                        "flex min-h-10 items-center gap-3 rounded-lg px-3 text-xs font-semibold transition-colors focus-visible:outline",
                         active
-                          ? "bg-[var(--nav-active)] text-pagar-800"
-                          : "text-ink-900/75 hover:bg-white/70 hover:text-pagar-800",
+                          ? "bg-slate-200 text-teal-800"
+                          : "text-slate-600 hover:bg-white/80 hover:text-slate-900",
                       ].join(" ")}
                     >
-                      <NavIcon name={link.icon} className="h-4 w-4 shrink-0" />
-                      <span>{link.label}</span>
+                      <NavIcon name={link.icon} className={`h-4 w-4 shrink-0 ${active ? "text-teal-700" : "text-slate-400"}`} />
+                      <span className="flex-1 truncate">{link.label}</span>
                     </a>
                   </li>
                 );
@@ -129,20 +133,24 @@ export default function TopNav() {
         ))}
       </nav>
 
-      <a
-        href="/profil"
-        aria-current={isActive("/profil") ? "page" : undefined}
-        className={[
-          "flex min-h-10 items-center gap-3 rounded-lg px-3 text-sm font-medium transition-colors focus-visible:outline",
-          isActive("/profil")
-            ? "bg-[var(--nav-active)] text-pagar-800"
-            : "text-ink-900/75 hover:bg-white/70 hover:text-pagar-800",
-        ].join(" ")}
-      >
-        <NavIcon name="user" className="h-4 w-4 shrink-0" />
-        Profil
-      </a>
-      <p className="mt-3 px-3 text-xs text-ink-900/65">Menjaga Batas. Melindungi Profesi.</p>
+      <div className="pt-2 border-t border-slate-200">
+        <a
+          href="/profil"
+          aria-current={isActive("/profil") ? "page" : undefined}
+          className={[
+            "flex min-h-10 items-center gap-3 rounded-lg px-3 text-xs font-semibold transition-colors focus-visible:outline",
+            isActive("/profil")
+              ? "bg-slate-200 text-teal-800"
+              : "text-slate-600 hover:bg-white/80 hover:text-slate-900",
+          ].join(" ")}
+        >
+          <NavIcon name="user" className="h-4 w-4 shrink-0 text-slate-400" />
+          <span>Profil & Simpanan</span>
+        </a>
+        <p className="mt-2.5 px-3 text-[10px] font-medium text-slate-400">
+          Menjaga Batas · Melindungi Profesi
+        </p>
+      </div>
     </aside>
   );
 }

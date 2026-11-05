@@ -35,23 +35,23 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
     : height / 2;
 
   return (
-    <div className="mx-auto max-w-6xl">
-      <header className="page-header max-w-3xl">
+    <div className="mx-auto max-w-6xl space-y-6">
+      <header className="page-header border-b border-slate-200 pb-5">
         <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Peta hubungan" }]} />
-        <h1>Graf hubungan regulasi</h1>
-        <p className="mt-2 text-base leading-relaxed text-ink-900/75">
-          Pilih satu regulasi untuk melihat hubungan yang tercatat langsung dengannya.
+        <h1>Peta Hubungan Regulasi</h1>
+        <p className="mt-2 text-sm leading-relaxed text-slate-600">
+          Visualisasi graf keterkaitan antarperaturan (mencabut, mengubah, mendasari, atau beririsan) yang terverifikasi dalam repositori.
         </p>
       </header>
 
-      <form action="/grafik" method="get" className="mt-6 grid gap-3 rounded-xl border border-ink-100 bg-white p-4 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-end">
+      <form action="/grafik" method="get" className="section-card grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-end">
         <div>
-          <label htmlFor="regulasi" className="mb-1 block text-sm font-bold text-pagar-800">Regulasi</label>
+          <label htmlFor="regulasi" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">Pilih Regulasi Utama</label>
           <select
             id="regulasi"
             name="regulasi"
             defaultValue={graph?.focus?.slug ?? ""}
-            className="min-h-11 w-full rounded-lg border border-ink-100 px-3 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
+            className="form-input"
           >
             <option value="">Pilih regulasi</option>
             {store.regulations().map((regulation) => (
@@ -62,70 +62,70 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
           </select>
         </div>
         <SubmitButton loadingLabel="Memuat grafik...">
-          Tampilkan grafik
+          Tampilkan Grafik
         </SubmitButton>
         {graph?.focus && (
-          <a href="/grafik" className="inline-flex min-h-11 items-center justify-center px-3 text-sm font-semibold text-pagar-700 underline underline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]">
-            Hapus pilihan
+          <a href="/grafik" className="btn-secondary">
+            Reset Pilihan
           </a>
         )}
       </form>
 
       {!selectedSlug && (
-        <section className="mt-6 rounded-xl border border-ink-100 bg-white p-5" aria-labelledby="pilih-regulasi">
-          <h2 id="pilih-regulasi" className="text-lg font-bold text-pagar-800">Mulai dari satu regulasi</h2>
-          <p className="mt-1 text-sm leading-relaxed text-ink-900/75">
-            Grafik tidak menampilkan jaringan contoh atau hubungan otomatis. Pilih regulasi di atas untuk memuat relasi yang tersimpan pada regulasi tersebut.
+        <section className="section-card" aria-labelledby="pilih-regulasi">
+          <h2 id="pilih-regulasi" className="text-base font-bold text-slate-900">Mulai dari Satu Regulasi</h2>
+          <p className="mt-1 text-sm leading-relaxed text-slate-600">
+            Diagram tidak menampilkan jaringan acak atau kesimpulan otomatis. Pilih regulasi pada menu di atas untuk memuat jaringan relasi yang tersimpan dan terverifikasi pada regulasi tersebut.
           </p>
         </section>
       )}
 
       {selectedSlug && !graph?.focus && (
-        <p className="mt-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900" role="alert">
-          Regulasi tersebut tidak ditemukan di katalog. Tidak ada grafik yang ditampilkan.
+        <p className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-900" role="alert">
+          Regulasi tersebut tidak ditemukan di repositori. Tidak ada grafik yang dapat ditampilkan.
         </p>
       )}
 
       {graph?.focus && graph.edges.length === 0 && (
-        <section className="mt-6 rounded-xl border border-ink-100 bg-white p-5" aria-labelledby="relasi-kosong">
-          <h2 id="relasi-kosong" className="text-lg font-bold text-pagar-800">Belum ada relasi terverifikasi</h2>
+        <section className="section-card space-y-2" aria-labelledby="relasi-kosong">
+          <h2 id="relasi-kosong" className="text-base font-bold text-slate-900">Belum Ada Relasi Terverifikasi</h2>
           {graph.needsReviewCount > 0 || graph.pendingCount > 0 ? (
             <>
               {graph.needsReviewCount > 0 && (
-                <p className="mt-1 text-sm leading-relaxed text-ink-900/75">
-                  Ada {graph.needsReviewCount} usulan hubungan (keluaran AI) untuk <strong>{graph.focus.judul}</strong> yang butuh telaah hukum sebelum dipublikasikan pada grafik.
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Terdapat {graph.needsReviewCount} usulan hubungan untuk <strong>{graph.focus.judul}</strong> yang memerlukan telaah hukum sebelum dipublikasikan pada grafik.
                 </p>
               )}
               {graph.pendingCount > 0 && (
-                <p className="mt-1 text-sm leading-relaxed text-ink-900/75">
-                  Ada {graph.pendingCount} catatan hubungan katalog untuk <strong>{graph.focus.judul}</strong> yang belum dilengkapi sumber resmi, rujukan pasal, dan tanggal verifikasi per relasi. Catatan itu ditahan dari grafik sampai buktinya tersedia.
+                <p className="text-sm leading-relaxed text-slate-600">
+                  Terdapat {graph.pendingCount} catatan hubungan katalog untuk <strong>{graph.focus.judul}</strong> yang belum dilengkapi bukti yuridis lengkap.
                 </p>
               )}
             </>
           ) : (
-            <p className="mt-1 text-sm leading-relaxed text-ink-900/75">
-              Belum ada hubungan yang tercatat untuk <strong>{graph.focus.judul}</strong>. Sistem tidak menyimpulkan relasi dari kemiripan topik.
+            <p className="text-sm leading-relaxed text-slate-600">
+              Belum ada hubungan yang tercatat untuk <strong>{graph.focus.judul}</strong>. Sistem tidak menyimpulkan relasi semata-mata dari kemiripan topik.
             </p>
           )}
         </section>
       )}
 
       {graph?.focus && graph.edges.length > 0 && (
-        <section className="mt-6" aria-labelledby="grafik-terpilih">
-          <div className="flex flex-wrap items-end justify-between gap-2">
+        <section className="space-y-4" aria-labelledby="grafik-terpilih">
+          <div className="flex flex-wrap items-end justify-between gap-2 border-b border-slate-200 pb-3">
             <div>
-              <p className="text-sm font-semibold text-ink-900/65">Hubungan langsung untuk</p>
-              <h2 id="grafik-terpilih" className="text-xl font-semibold leading-snug text-pagar-800">{graph.focus.judul}</h2>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Fokus Analisis Relasi</p>
+              <h2 id="grafik-terpilih" className="text-lg font-bold text-slate-900">{graph.focus.judul}</h2>
             </div>
-            <p className="text-sm text-ink-900/65">{graph.edges.length} relasi · {graph.related.length} regulasi terkait</p>
+            <p className="text-xs font-semibold text-slate-500">{graph.edges.length} relasi · {graph.related.length} regulasi terkait</p>
           </div>
 
-          <aside className="mt-4 rounded-lg border border-amber-300 bg-amber-50 p-4 text-sm leading-relaxed text-amber-950">
-            <strong className="block">Batas bukti relasi</strong>
-            Grafik ini mengikuti catatan hubungan di katalog PAGARMIK. Katalog belum menyimpan rujukan pasal atau tautan sumber resmi untuk tiap relasi; tampilan ini bukan verifikasi hukum independen.
+          <aside className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-relaxed text-amber-900">
+            <strong className="block text-sm font-bold text-amber-950 mb-0.5">Batas Bukti Relasi Yuridis</strong>
+            Grafik ini mengikuti catatan hubungan di katalog PAGARMIK. Hubungan ditampilkan hanya jika memiliki rujukan hukum terverifikasi.
           </aside>
 
-          <div className="mt-4 overflow-x-auto rounded-xl border border-ink-100 bg-white p-3" role="region" aria-label="Graf hubungan; geser mendatar untuk melihat seluruh diagram" tabIndex={0}>
+          <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white p-4" role="region" aria-label="Graf hubungan; geser mendatar untuk melihat seluruh diagram" tabIndex={0}>
             <svg
               viewBox={`0 0 ${GRAPH_WIDTH} ${height}`}
               className="mx-auto block min-w-[700px]"
@@ -165,8 +165,8 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
                       strokeDasharray={relation.type === "BERIRISAN" ? "6 4" : undefined}
                       markerEnd={relation.type === "BERIRISAN" ? undefined : relation.type === "MENCABUT" ? "url(#repeal-arrow)" : "url(#relationship-arrow)"}
                     />
-                    <rect x={GRAPH_WIDTH / 2 - labelWidth / 2} y={labelY - 11} width={labelWidth} height="21" rx="4" fill="var(--surface)" />
-                    <text x={GRAPH_WIDTH / 2} y={labelY + 4} textAnchor="middle" fontSize="12" fontWeight="700" fill={color}>
+                    <rect x={GRAPH_WIDTH / 2 - labelWidth / 2} y={labelY - 11} width={labelWidth} height="21" rx="4" fill="#ffffff" stroke="#e2e8f0" strokeWidth="1" />
+                    <text x={GRAPH_WIDTH / 2} y={labelY + 4} textAnchor="middle" fontSize="11" fontWeight="700" fill={color}>
                       {displayLabel}
                     </text>
                     <title>{`${from.judul} — ${relation.type} — ${to.judul}; regulasi terkait: ${related.judul}`}</title>
@@ -190,11 +190,11 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
                       width={NODE_WIDTH}
                       height={NODE_HEIGHT}
                       rx="8"
-                      fill={isFocus ? "var(--canvas)" : "var(--surface)"}
-                      stroke={isFocus ? "var(--brand-navy)" : "var(--border)"}
+                      fill={isFocus ? "#f0fdf4" : "#ffffff"}
+                      stroke={isFocus ? "#0d9488" : "#cbd5e1"}
                       strokeWidth={isFocus ? "2" : "1.5"}
                     />
-                    <text x={x} y={y + 5} textAnchor="middle" fontSize="14" fontWeight="700" fill="var(--brand-navy)">
+                    <text x={x} y={y + 5} textAnchor="middle" fontSize="13" fontWeight="700" fill={isFocus ? "#0f766e" : "#1e293b"}>
                       {shortLabel}
                     </text>
                   </a>
@@ -203,20 +203,22 @@ export default function GraphPage({ searchParams }: GraphPageProps) {
             </svg>
           </div>
 
-          <p className="mt-2 text-sm text-ink-900/70">
-            Panah menunjukkan arah relasi yang tercatat. Garis putus-putus tanpa panah menunjukkan relasi BERIRISAN.
+          <p className="text-xs text-slate-500">
+            Keterangan: Garis berpanah menunjukkan arah relasi hukum (mencabut / mengubah). Garis putus-putus menunjukkan relasi beririsan materi.
           </p>
 
-          <section className="mt-5" aria-labelledby="daftar-relasi">
-            <h3 id="daftar-relasi" className="text-base font-bold text-pagar-800">Daftar relasi yang sama</h3>
-            <ol className="mt-2 divide-y divide-ink-100 rounded-xl border border-ink-100 bg-white">
+          <section className="section-card space-y-3" aria-labelledby="daftar-relasi">
+            <h3 id="daftar-relasi" className="text-base font-bold text-slate-900">Rincian Pasangan Relasi Hukum</h3>
+            <ol className="divide-y divide-slate-100 rounded-xl border border-slate-200 bg-white">
               {graph.edges.map(({ relation, from, to }) => (
                 <li key={`${relation.from}:${relation.type}:${relation.to}`} className="p-4 text-sm leading-relaxed">
-                  <a className="font-semibold text-pagar-700 underline underline-offset-2" href={`/regulasi/${from.slug}`}>{store.shortRef(from.slug)}</a>
-                  <span className="mx-2 font-bold text-ink-900/70">{relation.type}</span>
-                  <a className="font-semibold text-pagar-700 underline underline-offset-2" href={`/regulasi/${to.slug}`}>{store.shortRef(to.slug)}</a>
-                  <p className="mt-1 text-ink-900/70">
-                    {from.judul} {relation.type === "BERIRISAN" ? "— beririsan dengan —" : `— ${relation.type} →`} {to.judul}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <a className="font-bold text-teal-700 hover:underline" href={`/regulasi/${from.slug}`}>{store.shortRef(from.slug)}</a>
+                    <span className="rounded-md border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs font-bold text-slate-700">{relation.type}</span>
+                    <a className="font-bold text-teal-700 hover:underline" href={`/regulasi/${to.slug}`}>{store.shortRef(to.slug)}</a>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-600">
+                    {from.judul} {relation.type === "BERIRISAN" ? "beririsan dengan" : `${relation.type.toLowerCase()}`} {to.judul}
                   </p>
                 </li>
               ))}

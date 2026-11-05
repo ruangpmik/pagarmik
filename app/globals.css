@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --brand-navy: #0b2e45;
-  --brand-navy-dark: #071f30;
-  --brand-teal: #15966d;
-  --accent-teal: #0f7254;
-  --accent-teal-hover: #0c5c43;
-  --brand-orange: #f2782b;
+  --brand-navy: #003366;
+  --brand-navy-dark: #001a34;
+  --brand-teal: #0177cc;
+  --accent-teal: #0165ad;
+  --accent-teal-hover: #01508a;
+  --brand-orange: #f97316;
   --canvas: #f8fafc;
   --frame: #f1f5f9;
   --surface: #ffffff;
@@ -19,7 +19,7 @@
   --text-primary: #0f172a;
   --text-muted: #64748b;
   --border: #e2e8f0;
-  --focus: #0f7254;
+  --focus: #0177cc;
   --danger: #b42318;
   --danger-bg: #fbe7e5;
   --danger-border: #f2b8b5;
@@ -33,23 +33,25 @@
   --info-bg: #e8eef3;
   --info-border: #bcc7d3;
 
-  --color-pagar-50: 245 247 250;
-  --color-pagar-100: 215 222 231;
-  --color-pagar-200: 188 199 211;
-  --color-pagar-300: 145 160 178;
-  --color-pagar-400: 82 97 115;
-  --color-pagar-500: 21 150 109;
-  --color-pagar-600: 12 92 67;
-  --color-pagar-700: 15 114 84;
-  --color-pagar-800: 11 46 69;
-  --color-pagar-900: 7 31 48;
-  --color-pagar-950: 4 20 30;
+  --color-pagar-50: 239 246 252;
+  --color-pagar-100: 215 233 249;
+  --color-pagar-200: 179 214 243;
+  --color-pagar-300: 130 189 234;
+  --color-pagar-400: 74 155 221;
+  --color-pagar-500: 1 119 204;
+  --color-pagar-600: 0 101 173;
+  --color-pagar-700: 0 80 138;
+  --color-pagar-800: 0 51 102;
+  --color-pagar-900: 0 34 68;
+  --color-pagar-950: 0 26 52;
   --color-ink-50: 248 250 252;
   --color-ink-100: 226 232 240;
   --color-ink-900: 15 23 42;
   --color-ink-950: 2 6 23;
   --color-gold-400: 138 90 0;
   --color-gold-500: 119 72 0;
+  --font-sans: "Inter", "Segoe UI", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "IBM Plex Mono", Consolas, "Liberation Mono", monospace;
   color-scheme: light;
 }
 
@@ -150,7 +152,7 @@ body {
 
 main h1 {
   color: var(--brand-navy);
-  font-family: var(--font-sans), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1.9rem, 2.6vw, 2.35rem);
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -186,7 +188,7 @@ select option {
 
 .prose-pagar h2 {
   @apply text-lg font-semibold mt-6 mb-2 text-pagar-800;
-  font-family: var(--font-sans), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans), "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 .prose-pagar p {
   @apply my-2 leading-relaxed text-[15px];

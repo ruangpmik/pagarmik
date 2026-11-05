@@ -74,13 +74,13 @@ export default function Compare({
       : [];
 
   return (
-    <div className="mx-auto max-w-5xl">
-      <header className="page-header">
+    <div className="mx-auto max-w-5xl space-y-6">
+      <header className="page-header border-b border-slate-200 pb-5">
         <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Bandingkan regulasi" }]} />
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h1>Bandingkan regulasi</h1>
-            <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink-900/80">
+            <h1>Bandingkan Regulasi</h1>
+            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">
               Sandingkan dua instrumen hukum secara berdampingan untuk memeriksa perbedaan status keberlakuan, ruang lingkup, dan cakupan pasal.
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function Compare({
 
       <form
         method="get"
-        className="section-card grid gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] md:items-end"
+        className="section-card grid gap-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] md:items-end"
       >
         {sel("a", searchParams.a)}
         {sel("b", searchParams.b)}
@@ -119,21 +119,22 @@ export default function Compare({
       )}
 
       {(!a || !b) && (
-        <section className="mt-6 section-card" aria-labelledby="contoh-perbandingan">
-          <h2 id="contoh-perbandingan" className="text-base font-semibold text-pagar-800">
-            Pasangan perbandingan yang sering ditinjau
+        <section className="section-card space-y-3" aria-labelledby="contoh-perbandingan">
+          <h2 id="contoh-perbandingan" className="text-base font-bold text-slate-900">
+            Pasangan Perbandingan Rekomendasi
           </h2>
-          <p className="mt-1 text-sm text-ink-900/75">
-            Pilih dua regulasi pada formulir di atas, atau buka salah satu perbandingan cepat berikut:
+          <p className="text-sm text-slate-600">
+            Pilih dua regulasi pada formulir di atas, atau telaah salah satu pasangan transisi hukum berikut:
           </p>
-          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             {COMPARE_PRESETS.map((preset) => (
               <a
                 key={`${preset.a}:${preset.b}`}
                 href={`/bandingkan?a=${encodeURIComponent(preset.a)}&b=${encodeURIComponent(preset.b)}`}
-                className="rounded-lg border border-ink-100 bg-ink-50/50 p-3 text-sm font-semibold text-pagar-800 hover:border-pagar-300 hover:bg-pagar-50"
+                className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-4 transition-colors hover:border-teal-500 hover:bg-teal-50/20"
               >
-                {preset.label}
+                <span className="text-xs font-semibold text-slate-800">{preset.label}</span>
+                <span className="mt-2 text-xs font-bold text-teal-700">Telaah perbandingan →</span>
               </a>
             ))}
           </div>
@@ -142,7 +143,7 @@ export default function Compare({
 
       {a && b && (
         <div
-          className="mt-5 overflow-x-auto rounded-xl border border-ink-100 bg-white"
+          className="overflow-x-auto rounded-xl border border-slate-200 bg-white"
           role="region"
           aria-label="Tabel perbandingan regulasi"
           tabIndex={0}
@@ -152,43 +153,43 @@ export default function Compare({
               Perbandingan antara {a.judul} dan {b.judul}
             </caption>
             <thead>
-              <tr className="border-b border-ink-100 bg-ink-50/60 text-left text-ink-900/80">
-                <th scope="col" className="w-44 p-3.5 font-semibold">
-                  Aspek
+              <tr className="border-b border-slate-200 bg-slate-50 text-left text-slate-700">
+                <th scope="col" className="w-48 p-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Aspek Hukum
                 </th>
-                <th scope="col" className="p-3.5 font-semibold">
-                  <a href={`/regulasi/${a.slug}`} className="text-pagar-800 underline-offset-2 hover:underline">
+                <th scope="col" className="p-4 text-sm font-bold text-slate-900">
+                  <a href={`/regulasi/${a.slug}`} className="hover:text-teal-700 underline-offset-2 hover:underline">
                     {store.shortRef(a.slug)}
                   </a>
                 </th>
-                <th scope="col" className="p-3.5 font-semibold">
-                  <a href={`/regulasi/${b.slug}`} className="text-pagar-800 underline-offset-2 hover:underline">
+                <th scope="col" className="p-4 text-sm font-bold text-slate-900">
+                  <a href={`/regulasi/${b.slug}`} className="hover:text-teal-700 underline-offset-2 hover:underline">
                     {store.shortRef(b.slug)}
                   </a>
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-ink-100">
+            <tbody className="divide-y divide-slate-100">
               {rows.map(([k, va, vb]) => {
                 const isDifferent = va !== vb;
                 return (
                   <tr
                     key={k}
                     className={`align-top transition-colors ${
-                      isDifferent ? "bg-amber-50/40" : "hover:bg-ink-50/30"
+                      isDifferent ? "bg-amber-50/30" : "hover:bg-slate-50/50"
                     }`}
                   >
-                    <th scope="row" className="p-3.5 text-left font-semibold text-pagar-800">
+                    <th scope="row" className="p-4 text-left text-xs font-semibold uppercase tracking-wider text-slate-600">
                       {k}
                     </th>
-                    <td className="p-3.5 leading-relaxed">
+                    <td className="p-4 leading-relaxed text-slate-800">
                       {k === "Status keberlakuan" ? (
                         <StatusBadge status={va as typeof a.status} />
                       ) : (
                         va
                       )}
                     </td>
-                    <td className="p-3.5 leading-relaxed">
+                    <td className="p-4 leading-relaxed text-slate-800">
                       <div className="flex flex-wrap items-center gap-2">
                         <span>
                           {k === "Status keberlakuan" ? (
@@ -198,7 +199,7 @@ export default function Compare({
                           )}
                         </span>
                         {isDifferent && (
-                          <span className="rounded border border-status-warning-border bg-status-warning-bg px-1.5 py-0.5 text-[11px] font-semibold text-status-warning">
+                          <span className="rounded-md border border-amber-200 bg-amber-50 px-2 py-0.5 text-[11px] font-bold text-amber-800">
                             Berbeda
                           </span>
                         )}
@@ -221,7 +222,7 @@ export default function Compare({
         />
       )}
 
-      <div className="mt-6">
+      <div>
         <Disclaimer />
       </div>
     </div>

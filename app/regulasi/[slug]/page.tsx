@@ -192,13 +192,13 @@ export default async function RegulationDetail({
         </Alert>
       )}
 
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-3 rounded-xl border border-ink-100 bg-ink-50/50 p-5 text-sm md:grid-cols-4">
+      <dl className="grid grid-cols-2 gap-4 rounded-xl border border-slate-200 bg-white p-5 text-sm md:grid-cols-4">
         {metadataItems.map(([k, v, isMono]) => (
           <div key={k} className="min-w-0">
-            <dt className="text-xs font-medium text-ink-900/60">{k}</dt>
+            <dt className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">{k}</dt>
             <dd
-              className={`mt-0.5 break-all ${
-                isMono ? "font-mono text-xs font-medium tracking-tight" : "font-semibold"
+              className={`mt-1 break-all ${
+                isMono ? "font-mono text-xs font-semibold text-slate-800" : "font-medium text-slate-900"
               }`}
             >
               {k === "Sumber resmi" && v.startsWith("http") ? (
@@ -206,9 +206,9 @@ export default async function RegulationDetail({
                   href={v}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans text-sm font-semibold text-pagar-700 underline underline-offset-2"
+                  className="font-sans text-xs font-semibold text-teal-700 underline underline-offset-2 hover:text-teal-800"
                 >
-                  Buka dokumen sumber resmi ↗
+                  Buka dokumen resmi ↗
                 </a>
               ) : (
                 v
@@ -218,7 +218,7 @@ export default async function RegulationDetail({
         ))}
       </dl>
 
-      <nav className="mt-5 flex gap-2 overflow-x-auto pb-1" aria-label="Tab informasi regulasi">
+      <nav className="mt-6 flex gap-2 overflow-x-auto pb-1" aria-label="Tab informasi regulasi">
         {tabs.map(([id, label]) => {
           const active = tab === id;
           return (
@@ -226,10 +226,10 @@ export default async function RegulationDetail({
               key={id}
               href={`/regulasi/${reg.slug}?tab=${id}`}
               aria-current={active ? "page" : undefined}
-              className={`inline-flex min-h-11 items-center whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-colors ${
+              className={`inline-flex min-h-10 items-center whitespace-nowrap rounded-lg px-4 py-2 text-xs font-bold transition-colors ${
                 active
-                  ? "bg-pagar-700 text-white"
-                  : "border border-ink-100 bg-white text-ink-900/75 hover:bg-pagar-50 hover:text-pagar-700"
+                  ? "bg-slate-900 text-white"
+                  : "border border-slate-200 bg-white text-slate-700 hover:border-teal-500 hover:text-teal-700"
               }`}
             >
               {label}

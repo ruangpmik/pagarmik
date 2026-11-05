@@ -1,5 +1,7 @@
 # PAGARMIK Design System
 
+> **Pembaruan 5 Nov 2026 — Tema v2 (AIlex/Hukumonline).** Identitas navy/teal/orange diganti palet biru AIlex dan font Inter. Tabel "Design tokens" di bawah masih versi lama (referensi historis); token aktif ada di `app/globals.css` (`--brand-navy: #003366`, `--brand-teal: #0177cc`, `--accent-teal: #0165ad`, `--focus: #0177cc`, ramp biru `--color-pagar-*`) dan `tailwind.config.ts` (palet `teal` dialihkan ke biru `#0177cc…`, `navy` ke `#003366`). Font `--font-sans` kini `Inter` via stack sistem (tanpa `next/font/google`) agar build tidak bergantung jaringan; `font-extrabold` tetap dilarang.
+
 Status: implemented across all 18 application routes and shared components. The RUANGPMIK-based navy/teal/orange identity, accessible action shade, framed research shell, grouped desktop navigation, mobile bottom navigation, unified toast/confirmation feedback provider, submit loading/progress indicators, plain-text regulation statuses, labelled search/filter controls, and route-level `Breadcrumb`/`Alert`/`EmptyState`/`LegalBlock` patterns are active. Full assistive-technology screen-reader review remains open.
 
 ## Product principles

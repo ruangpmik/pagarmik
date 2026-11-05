@@ -43,12 +43,12 @@ export default async function CasePage({
   const res = kasus ? await analyzeCase(kasus) : null;
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <header className="page-header">
+    <div className="mx-auto max-w-4xl space-y-6">
+      <header className="page-header border-b border-slate-200 pb-5">
         <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Analisis kasus" }]} />
-        <h1>Analisis kasus</h1>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink-900/80">
-          Masukkan skenario operasional rekam medis untuk meninjau pokok masalah, dasar hukum, risiko kepatuhan, dan rekomendasi tindakan. Norma hukum dipisahkan secara tegas dari interpretasi.
+        <h1>Analisis Kasus Operasional</h1>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">
+          Uji skenario operasional rekam medis untuk meninjau dasar yuridis, risiko kepatuhan hukum, dan rekomendasi teknis PMIK secara terstruktur.
         </p>
       </header>
 
@@ -60,9 +60,9 @@ export default async function CasePage({
         />
       ) : null}
 
-      <form method="get" className="section-card grid gap-2.5">
-        <label htmlFor="kasus" className="text-sm font-semibold text-pagar-800">
-          Skenario kasus (minimal 10 karakter) <span className="text-status-danger">*</span>
+      <form method="get" className="section-card space-y-3">
+        <label htmlFor="kasus" className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
+          Deskripsi Skenario Kasus (Minimal 10 Karakter) <span className="text-rose-500">*</span>
         </label>
         <textarea
           id="kasus"
@@ -72,35 +72,39 @@ export default async function CasePage({
           rows={4}
           defaultValue={kasus}
           aria-describedby="kasus-privacy-hint"
-          placeholder="Contoh: Pasien meminta rekam medis miliknya melalui istrinya. Apa yang harus dilakukan rumah sakit?"
-          className="form-input py-2.5 text-base"
+          placeholder="Contoh: Pasien meminta salinan rekam medis miliknya melalui keluarga tanpa surat kuasa tertulis. Apa langkah yuridis dan prosedur verifikasi yang wajib dijalankan fasilitas pelayanan kesehatan?"
+          className="form-input text-sm leading-relaxed"
         />
-        <p id="kasus-privacy-hint" className="text-xs leading-relaxed text-ink-900/70">
-          Privasi: Gunakan skenario hipotetis atau anonim. Jangan mencantumkan nama pasien, NIK, atau nomor rekam medis asli.
-        </p>
-        <div className="flex flex-wrap items-center gap-2 pt-1">
+        <div className="flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-2.5 text-xs text-amber-900">
+          <span className="font-bold">Perlindungan Data:</span>
+          <span id="kasus-privacy-hint">Gunakan skenario hipotetis atau data tersamar. Dilarang mencantumkan nama pasien asli, NIK, tanggal lahir spesifik, atau nomor rekam medis riil.</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-2.5 pt-2">
           <SubmitButton
             loadingLabel="Menganalisis skenario..."
             progressSteps={[
-              "Mengidentifikasi isu hukum pada skenario...",
-              "Menelusuri dasar regulasi di katalog...",
+              "Mengidentifikasi isu yuridis pada skenario...",
+              "Menelusuri dasar regulasi di repositori...",
               "Menyusun analisis, risiko, dan rekomendasi kepatuhan...",
             ]}
           >
-            Analisis kasus
+            Analisis Kasus
           </SubmitButton>
           {kasus && (
             <a href="/analisis-kasus" className="btn-secondary">
-              Reset skenario
+              Reset Skenario
             </a>
           )}
         </div>
       </form>
 
       {res && (
-        <article className="mt-6 section-card space-y-4" aria-live="polite">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-ink-100 pb-3">
-            <h2 className="text-lg font-semibold text-pagar-800">Hasil Telaah Skenario</h2>
+        <article className="section-card space-y-5" aria-live="polite">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Hasil Telaah Yuridis</p>
+              <h2 className="text-base font-bold text-slate-900">Struktur Analisis & Kepatuhan PMIK</h2>
+            </div>
             <div className="flex flex-wrap items-center gap-2">
               <ConfidenceBadge level={res.confidence} />
               <div className="print:hidden">
@@ -109,22 +113,22 @@ export default async function CasePage({
             </div>
           </div>
 
-          <div className="grid gap-3">
+          <div className="grid gap-3.5">
             {Object.entries(res.sections).map(([k, v]) => (
               <LegalBlock key={k} kind={classifySectionKind(k)} title={k}>
-                <p className="whitespace-pre-line text-[15px] leading-relaxed">
+                <div className="whitespace-pre-line text-sm leading-relaxed">
                   <InlineMarkdown text={v} />
-                </p>
+                </div>
               </LegalBlock>
             ))}
           </div>
 
-          <div className="flex flex-wrap gap-2 border-t border-ink-100 pt-4 text-sm">
+          <div className="flex flex-wrap gap-2.5 border-t border-slate-200 pt-4 text-sm">
             <a
               href={`/legal-search?q=${encodeURIComponent(kasus.slice(0, 60))}`}
               className="btn-secondary"
             >
-              Telusuri regulasi terkait di katalog
+              Telusuri Regulasi Terkait di Repositori →
             </a>
           </div>
 
@@ -133,25 +137,25 @@ export default async function CasePage({
       )}
 
       {!res && (
-        <section className="mt-6 section-card" aria-labelledby="contoh-kasus-title">
-          <h2 id="contoh-kasus-title" className="text-base font-semibold text-pagar-800">
-            Contoh skenario kasus operasional
+        <section className="section-card space-y-4" aria-labelledby="contoh-kasus-title">
+          <h2 id="contoh-kasus-title" className="text-base font-bold text-slate-900">
+            Contoh Skenario Kasus Praktis
           </h2>
-          <p className="mt-1 text-sm text-ink-900/75">
-            Klik salah satu skenario di bawah ini untuk memuat telaah terstruktur:
+          <p className="text-sm text-slate-600">
+            Pilih salah satu skenario dilema operasional rekam medis berikut untuk menelaah kajian hukum:
           </p>
-          <div className="mt-3 grid gap-2 text-sm">
+          <div className="grid gap-2.5 text-sm">
             {CASE_EXAMPLES.map((sample) => (
               <a
                 key={sample}
                 href={`/analisis-kasus?kasus=${encodeURIComponent(sample)}`}
-                className="rounded-xl border border-ink-100 bg-ink-50/50 p-3.5 font-medium leading-relaxed text-pagar-800 transition-colors hover:border-pagar-300 hover:bg-pagar-50"
+                className="rounded-xl border border-slate-200 bg-white p-4 font-medium leading-relaxed text-slate-800 transition-colors hover:border-teal-500 hover:bg-teal-50/20"
               >
                 “{sample}”
               </a>
             ))}
           </div>
-          <div className="mt-5">
+          <div className="pt-2">
             <Disclaimer />
           </div>
         </section>

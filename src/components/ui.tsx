@@ -330,11 +330,39 @@ export function ScoreBar({ score }: { score: number }) {
   const pct = Math.round(Math.min(1, Math.max(0, score)) * 100);
   return (
     <span className="inline-flex items-center gap-1.5" title={`Skor relevansi ${pct}%`}>
-      <span className="h-1.5 w-16 overflow-hidden rounded-full bg-ink-100" aria-hidden="true">
-        <span className="block h-full rounded-full bg-pagar-600" style={{ width: `${pct}%` }} />
+      <span className="h-1.5 w-16 overflow-hidden rounded-full bg-slate-200" aria-hidden="true">
+        <span className="block h-full rounded-full bg-teal-600" style={{ width: `${pct}%` }} />
       </span>
-      <span className="text-[11px] font-bold text-pagar-700">{pct}% relevan</span>
+      <span className="font-mono text-[11px] font-bold text-teal-700">{pct}% relevan</span>
     </span>
+  );
+}
+
+export function StatisticCard({
+  title,
+  value,
+  description,
+  badge,
+  icon,
+}: {
+  title: string;
+  value: string | number;
+  description?: string;
+  badge?: ReactNode;
+  icon?: ReactNode;
+}) {
+  return (
+    <div className="section-card flex flex-col justify-between">
+      <div className="flex items-start justify-between gap-2">
+        <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">{title}</span>
+        {icon && <div className="text-slate-400">{icon}</div>}
+      </div>
+      <div className="mt-2 flex items-baseline gap-2">
+        <span className="font-mono text-2xl font-bold tracking-tight text-slate-900">{value}</span>
+        {badge}
+      </div>
+      {description && <p className="mt-1 text-xs leading-relaxed text-slate-500">{description}</p>}
+    </div>
   );
 }
 

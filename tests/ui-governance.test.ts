@@ -20,9 +20,9 @@ describe("PAGARMIK UI design contract", () => {
     const css = readFileSync(join(root, "app/globals.css"), "utf8");
     const tailwind = readFileSync(join(root, "tailwind.config.ts"), "utf8");
 
-    expect(css).toContain("--brand-navy: #0b2e45");
-    expect(css).toContain("--brand-teal: #15966d");
-    expect(css).toContain("--accent-teal: #0f7254");
+    expect(css).toContain("--brand-navy: #003366");
+    expect(css).toContain("--brand-teal: #0177cc");
+    expect(css).toContain("--accent-teal: #0165ad");
     expect(tailwind).toContain("rgb(var(--color-pagar-800) / <alpha-value>)");
     expect(css).toContain(".text-pagar-800 { color: rgb(var(--color-pagar-800))");
   });
@@ -98,7 +98,7 @@ describe("PAGARMIK UI design contract", () => {
     }
   });
 
-  it("avoids font-extrabold unsupported by loaded IBM Plex Sans weights", () => {
+  it("avoids font-extrabold to keep one consistent heading weight", () => {
     expect(source).not.toMatch(/\bfont-extrabold\b/);
   });
 

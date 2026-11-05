@@ -57,12 +57,12 @@ export default async function AiPage({
   const ans = q ? await answerQuestion(q) : null;
 
   return (
-    <div className="mx-auto max-w-4xl">
-      <header className="page-header">
+    <div className="mx-auto max-w-4xl space-y-6">
+      <header className="page-header border-b border-slate-200 pb-5">
         <Breadcrumb items={[{ label: "Beranda", href: "/" }, { label: "Tanya AI" }]} />
         <h1>PAGARMIK AI</h1>
-        <p className="mt-2 max-w-3xl text-base leading-relaxed text-ink-900/80">
-          Riset hukum untuk Perekam Medis dan Informasi Kesehatan (RMIK/MIK) berbasis sumber katalog yang dapat ditelusuri.
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600">
+          Riset dan penalaran yuridis untuk Perekam Medis dan Informasi Kesehatan (RMIK/MIK) berbasis sitasi dokumen hukum primer terverifikasi.
         </p>
       </header>
 
@@ -74,9 +74,9 @@ export default async function AiPage({
         />
       ) : null}
 
-      <form method="get" className="section-card grid gap-2.5" role="search">
-        <label htmlFor="aiq" className="text-sm font-semibold text-pagar-800">
-          Pertanyaan hukum Anda <span className="text-status-danger">*</span>
+      <form method="get" className="section-card space-y-3" role="search">
+        <label htmlFor="aiq" className="block text-xs font-semibold uppercase tracking-wider text-slate-500">
+          Pertanyaan Yuridis Anda <span className="text-rose-500">*</span>
         </label>
         <textarea
           id="aiq"
@@ -86,95 +86,100 @@ export default async function AiPage({
           rows={3}
           defaultValue={q}
           aria-describedby="ai-privacy-hint"
-          placeholder="Contoh: Apakah PMIK boleh memberikan salinan rekam medis kepada keluarga pasien?"
-          className="form-input py-2.5 text-base"
+          placeholder="Contoh: Apakah PMIK berwenang menolak pemberian salinan berkas rekam medis jika pemohon tidak melampirkan surat kuasa sah?"
+          className="form-input text-sm leading-relaxed"
         />
-        <p id="ai-privacy-hint" className="text-xs leading-relaxed text-ink-900/70">
-          Privasi: Jangan masukkan nama pasien, nomor rekam medis asli, atau data pribadi sensitif. Riwayat pertanyaan disimpan lokal di peramban ini.
-        </p>
-        <div className="flex flex-wrap items-center gap-2 pt-1">
+        <div className="flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 p-2.5 text-xs text-amber-900">
+          <span className="font-bold">Privasi & Keamanan:</span>
+          <span id="ai-privacy-hint">Jangan mencantumkan nama pasien riil, identitas personel fasyankes, atau data klinis sensitif. Pertanyaan disintesis berbasis sitasi repositori resmi.</span>
+        </div>
+        <div className="flex flex-wrap items-center gap-2.5 pt-2">
           <SubmitButton
             loadingLabel="Menyusun jawaban..."
             progressSteps={[
-              "Menelusuri sumber hukum primer di katalog...",
+              "Menelusuri sumber hukum primer di repositori...",
               "Memverifikasi kecocokan sitasi pasal...",
-              "Menyusun jawaban berbasis bukti...",
+              "Menyusun jawaban berbasis bukti yuridis...",
             ]}
           >
-            Kirim pertanyaan
+            Kirim Pertanyaan
           </SubmitButton>
           {q && (
             <a href="/ai" className="btn-secondary">
-              Bersihkan pertanyaan
+              Bersihkan Formulir
             </a>
           )}
         </div>
       </form>
 
       {ans && (
-        <article className="mt-6 section-card space-y-4" aria-live="polite">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-ink-100 pb-3">
-            <h2 className="text-lg font-semibold text-pagar-800">Jawaban PAGARMIK AI</h2>
+        <article className="section-card space-y-5" aria-live="polite">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Jawaban Sistem</p>
+              <h2 className="text-base font-bold text-slate-900">Analisis Sintesis Berbasis Regulasi</h2>
+            </div>
             <ConfidenceBadge level={ans.confidence} />
           </div>
 
-          <LegalBlock kind="ANALISIS HUKUM" title="Sintesis berbasis dokumen katalog">
-            <div className="prose-pagar whitespace-pre-line text-[15px]">
+          <LegalBlock kind="ANALISIS HUKUM" title="Sintesis Yuridis Berdasarkan Dokumen Repositori">
+            <div className="prose-pagar whitespace-pre-line text-sm leading-relaxed text-slate-800">
               {renderWithCitations(ans.answer)}
             </div>
           </LegalBlock>
 
           {ans.invalidCitationsDropped.length > 0 && (
             <Alert variant="warning" title="Sitasi tidak terverifikasi disaring">
-              {ans.invalidCitationsDropped.length} rujukan yang tidak cocok dengan dokumen katalog telah dihapus otomatis demi menjaga akurasi sumber.
+              {ans.invalidCitationsDropped.length} rujukan yang tidak cocok dengan dokumen repositori telah dihapus otomatis demi menjaga integritas data yuridis.
             </Alert>
           )}
 
-          <section aria-labelledby="sumber-ai-title">
-            <h3 id="sumber-ai-title" className="text-base font-semibold text-pagar-800">
-              Sumber hukum yang digunakan ({ans.citations.length})
+          <section aria-labelledby="sumber-ai-title" className="space-y-3">
+            <h3 id="sumber-ai-title" className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Kutipan Sumber Hukum yang Digunakan ({ans.citations.length})
             </h3>
             {ans.citations.length === 0 ? (
-              <p className="mt-2 text-sm text-ink-900/75">
-                Tidak ada kutipan pasal primer yang memenuhi ambang kecocokan untuk pertanyaan ini.
+              <p className="text-sm text-slate-500">
+                Tidak ada kutipan pasal primer yang memenuhi ambang kecocokan minimum untuk pertanyaan ini.
               </p>
             ) : (
-              <ul className="mt-2.5 space-y-2.5">
+              <ul className="space-y-2.5">
                 {ans.citations.map((c) => (
                   <li
                     key={c.chunkId}
-                    className="rounded-xl border border-ink-100 bg-ink-50/60 p-3.5 text-sm"
+                    className="rounded-xl border border-slate-200 bg-white p-4 text-sm"
                   >
                     <a
                       href={`/regulasi/${c.regulationSlug}?tab=pasal`}
-                      className="font-bold text-pagar-700 underline underline-offset-2"
+                      className="font-bold text-teal-700 hover:underline"
                     >
                       {c.regulasiJudul}
                       {c.pasalNomor ? ` — Pasal ${c.pasalNomor}` : ""}
                     </a>
-                    <p className="mt-1 leading-relaxed text-ink-900/80">{c.kutipan}…</p>
-                    <p className="mt-1.5 text-xs text-ink-900/65">
-                      ID Kutipan: <span className="font-mono">{c.chunkId}</span> ·{" "}
-                      {TRUST_LABEL[c.trustLevel] ?? c.trustLevel}
-                    </p>
+                    <p className="mt-1.5 text-xs leading-relaxed text-slate-700">“{c.kutipan}…”</p>
+                    <div className="mt-2 flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+                      <span>ID Kutipan: <strong className="font-mono text-slate-700">{c.chunkId}</strong></span>
+                      <span>·</span>
+                      <span className="font-semibold text-slate-600">{TRUST_LABEL[c.trustLevel] ?? c.trustLevel}</span>
+                    </div>
                   </li>
                 ))}
               </ul>
             )}
           </section>
 
-          <div className="flex flex-wrap gap-2 border-t border-ink-100 pt-4 text-sm">
+          <div className="flex flex-wrap gap-2.5 border-t border-slate-200 pt-4 text-sm">
             <a
               className="btn-secondary"
               href={`/analisis-kasus?kasus=${encodeURIComponent(q)}`}
             >
-              Lanjutkan ke analisis kasus
+              Lanjutkan ke Analisis Kasus Operasional →
             </a>
             <a
               className="btn-secondary"
               href={`/legal-search?q=${encodeURIComponent(q)}`}
             >
-              Cari sumber hukum terkait
+              Cari Dokumen Terkait di Repositori
             </a>
           </div>
 
@@ -183,25 +188,25 @@ export default async function AiPage({
       )}
 
       {!ans && (
-        <section className="mt-6 section-card" aria-labelledby="contoh-ai-title">
-          <h2 id="contoh-ai-title" className="text-base font-semibold text-pagar-800">
-            Contoh pertanyaan riset hukum RMIK
+        <section className="section-card space-y-4" aria-labelledby="contoh-ai-title">
+          <h2 id="contoh-ai-title" className="text-base font-bold text-slate-900">
+            Contoh Pertanyaan Riset Regulasi PMIK
           </h2>
-          <p className="mt-1 text-sm text-ink-900/75">
-            Pilih salah satu pertanyaan di bawah ini untuk melihat bagaimana PAGARMIK AI menautkan sitasi pasal:
+          <p className="text-sm text-slate-600">
+            Pilih salah satu pertanyaan di bawah ini untuk melihat bagaimana PAGARMIK menyajikan sintesis berbasis sitasi:
           </p>
-          <div className="mt-3 grid gap-2 text-sm">
+          <div className="grid gap-2.5 text-sm">
             {AI_EXAMPLES.map((s) => (
               <a
                 key={s}
                 href={`/ai?q=${encodeURIComponent(s)}`}
-                className="rounded-xl border border-ink-100 bg-ink-50/50 p-3 font-medium text-pagar-800 transition-colors hover:border-pagar-300 hover:bg-pagar-50"
+                className="rounded-xl border border-slate-200 bg-white p-3.5 font-medium text-slate-800 transition-colors hover:border-teal-500 hover:bg-teal-50/20"
               >
                 “{s}”
               </a>
             ))}
           </div>
-          <div className="mt-5">
+          <div className="pt-2">
             <Disclaimer />
           </div>
         </section>

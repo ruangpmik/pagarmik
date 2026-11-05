@@ -5,8 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: { 950: "#071a33", 900: "#0a2a4a", 800: "#0e3560", 700: "#14467e" },
-        pmik: { teal: "#0e9f6e", orange: "#f97316" },
+        navy: { 950: "#001a34", 900: "#002244", 800: "#003366", 700: "#014d94" },
+        pmik: { teal: "#0177cc", orange: "#f97316" },
+        teal: {
+          50: "#eff6fc",
+          100: "#d7e9f9",
+          200: "#b3d6f3",
+          300: "#82bdea",
+          400: "#4a9bdd",
+          500: "#0177cc",
+          600: "#0165ad",
+          700: "#01508a",
+          800: "#0a3f6b",
+          900: "#0a3358",
+          950: "#06233d",
+        },
         pagar: {
           50: "rgb(var(--color-pagar-50) / <alpha-value>)",
           100: "rgb(var(--color-pagar-100) / <alpha-value>)",
@@ -46,7 +59,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)", "IBM Plex Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "IBM Plex Mono", "ui-monospace", "SFMono-Regular", "monospace"],
         serif: ["Charter", "Bitstream Charter", "Sitka Text", "Cambria", "Georgia", "Times New Roman", "serif"],
       },
